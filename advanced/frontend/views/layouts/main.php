@@ -11,7 +11,7 @@ $actionID = Yii::$app->controller->action->id;
 $action = $controllerID . '/' . $actionID;
 
 AppAsset::register($this);
-$this->registerJsFile('@web/assets/myassets/layui.all.js');  
+//$this->registerJsFile('@web/assets/myassets/layui.all.js');  
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -22,10 +22,9 @@ $this->registerJsFile('@web/assets/myassets/layui.all.js');
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
-        <link rel="stylesheet" href="assets/layui/css/layui.css">
         <link rel="stylesheet" href="assets/css/global.css">
         <link rel="stylesheet" href="assets/myassets/navFox.css">
-        <!--<script  src="assets/myassets/layui.all.js"></script>-->
+
 
         <?php $this->head() ?>
     </head>
@@ -97,6 +96,5 @@ $this->registerJsFile('@web/assets/myassets/layui.all.js');
 
     <?php $this->endBody() ?>
 </body>
-
 </html>
 <?php $this->endPage() ?>

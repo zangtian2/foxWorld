@@ -1,11 +1,17 @@
 <?php
 /* @var $this yii\web\View */
+use frontend\assets\AppAsset;
+
+AppAsset::register($this);
+//$this->registerJsFile('js/ware/detail.js', ['depends' => ['frontend\assets\AppAsset'],);
+$this->registerJsFile('@web/assets/myassets/layui.all.js');  
+$this->registerJsFile('@web/assets/myassets/learnCenter.js');  
+//<script src="assets/myassets/learnCenter.js"></script>
 ?>
 <link rel="stylesheet" href="assets/zidingyi.css">
 <link rel="stylesheet" href="assets/zidingyi/icon/ionicons.css">
 <link rel="stylesheet" href="assets/nav.css">
 <link rel="stylesheet" href="assets/variables.css">
-
 
 
 <div id="sidebar__"  class="sider-bar  el-nav is-shown"> 
@@ -92,5 +98,4 @@
         </footer>
     </div>
 </div>
-    s
-<script src="assets/myassets/learnCenter.js"></script>
+
