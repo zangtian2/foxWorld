@@ -1,8 +1,9 @@
 <?php
 
 /* @var $this yii\web\View */
-
+use frontend\assets\AppAsset;
 $this->title = 'My Yii Application';
+
 ?>
 <div class="site-index">
 

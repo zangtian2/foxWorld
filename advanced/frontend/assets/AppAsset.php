@@ -12,15 +12,16 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-//        'css/site.css',
-        'assets/layui/css/layui.css',
+        'css/site.css',
+//        'assets/layui/css/layui.css',
     ];
     public $js = [
 //        'assets/myassets/layui.all.js',
     ];
     public $depends = [
-//        'yii\web\YiiAsset',
+        'yii\web\YiiAsset',
 //        'yii\bootstrap\BootstrapAsset',
+        'raoul2000\bootswatch\BootswatchAsset',
     ];
     
         //定义按需加载JS方法，注意加载顺序在最后

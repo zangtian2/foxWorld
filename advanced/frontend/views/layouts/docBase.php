@@ -10,9 +10,9 @@ AppAsset::addCss($this, "@web" . "/assets/nav.css");
 AppAsset::addCss($this, "@web" . "/assets/variables.css");
 AppAsset::addScript($this, "@web" . "/assets/myassets/layui.all.js");
 AppAsset::addScript($this, "@web" . "/assets/myassets/learnCenter.js");
-
 //$this->registerJsFile('@web/assets/myassets/layui.all.js');  
 //$this->registerJsFile('@web/assets/myassets/learnCenter.js');  
+
 ?>
 
 <!--
