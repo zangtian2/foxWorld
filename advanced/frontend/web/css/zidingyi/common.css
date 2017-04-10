@@ -1,0 +1,31 @@
+#list-h2 {
+  font-size: 1.2em;
+    margin-bottom: 0.8em;
+}
+
+#dslist {
+  height: 350px;
+    width: 250px;
+    border: 1px solid;
+    padding: 1em;
+    background-color: #34363a;
+    color: white;
+    border-radius: 6px;
+}
+
+#common-h2 {
+    color: hsl(330, 65%, 48%);
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#com-div {
+  white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+#com-h2-2 {
+  font-weight: bold;
+    font-size: 2em;margin-top: 4em
+}

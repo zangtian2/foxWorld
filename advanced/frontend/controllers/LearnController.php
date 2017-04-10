@@ -10,4 +10,9 @@ class LearnController extends \yii\web\Controller
         return $this->render('index');
     }
 
+        public function actionTest()
+    {
+        $this->layout = false;
+        return $this->render('index');
+    }
 }

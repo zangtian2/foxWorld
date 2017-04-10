@@ -13,10 +13,12 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
 //        'css/site.css',
-        'assets/layui/css/layui.css',
+        'framework/layui/css/layui.css',
+        'css/global.css',
+        'https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css'
     ];
     public $js = [
-//        'assets/myassets/layui.all.js',
+        'framework/layui/lay/dest/layui.all.js',
     ];
     public $depends = [
 //        'yii\web\YiiAsset',

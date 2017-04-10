@@ -5,8 +5,6 @@ use frontend\assets\AppAsset;
 AppAsset::register($this);
 ?>
 
-<div class="main layui-clear" style="margin-left: 270px;">
-    <div class="wrap">
         <div class="detail" style="padding-top: 1px;">
             <div class="fly-panel detail-box" style="margin: 15px;
                  border: 1px solid rgb(192, 200, 212);
@@ -19,7 +17,7 @@ AppAsset::register($this);
                         <div style="    padding: 9px 24px;
                              display: block;    position: relative;">
                             <h1 style="">量化分析师的Python日记【第8天 Q Quant兵器谱之函数插值】</h1></div>
-                        <blockquote class="default">
+                        <blockquote class="layui-elem-quote">
                             <p>来源：<a href="https://uqer.io/community/share/551cfa1ff9f06c8f339044ff">https://uqer.io/community/share/551cfa1ff9f06c8f339044ff</a></p>
 
                             <p>在本篇中，我们将介绍Q宽客常用工具之一：函数插值。接着将函数插值应用于一个实际的金融建模场景中：波动率曲面构造。</p>
@@ -177,10 +175,7 @@ table
 
                 </div></div></div> </div>
     </div>
-    </div>
 
-
-</div>
 
 
 
