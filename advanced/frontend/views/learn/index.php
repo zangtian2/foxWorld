@@ -3,9 +3,20 @@
 use frontend\assets\AppAsset;
 
 AppAsset::register($this);
+
+AppAsset::addCss($this, "@web" . "/plugin/editor.md/css/editormd.css");
+$this->registerJs(  
+   'var $ = layui.jquery;'  
+);  
+AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/marked.min.js");
+AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/prettify.min.js");
+AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/raphael.min.js");
+AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/underscore.min.js");
+AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/sequence-diagram.min.js");
+AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/flowchart.min.js");
+AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/jquery.flowchart.min.js");
+AppAsset::addScript($this, "@web" . "/plugin/editor.md/editormd.js");
 ?>
-        <link rel="stylesheet" href="plugin/editorMd/editormd.css">
-        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon">
 <div class="detail" style="padding-top: 1px;">
     <div class="fly-panel detail-box" style="margin: 15px;
          border: 1px solid rgb(192, 200, 212);
@@ -13,300 +24,372 @@ AppAsset::register($this);
          margin-top: 13px;">
         <div class="showback"  style="margin: 15px 5px;margin-top: 20px;padding-bottom: 30px;">
             <div style=" width: 90%;
-                margin: 0 auto;
+                 margin: 0 auto;
                  margin-left: auto!important;
                  margin-right: auto!important;">
+                <div id="wordsView">
+                    <textarea style="display:block;" name="editormd-markdown-doc">
+### 主要特性
 
+- 支持“标准”Markdown / CommonMark和Github风格的语法，也可变身为代码编辑器；
+- 支持实时预览、图片（跨域）上传、预格式文本/代码/表格插入、代码折叠、搜索替换、只读模式、自定义样式主题和多语言语法高亮等功能；
+- 支持ToC（Table of Contents）、Emoji表情、Task lists、@链接等Markdown扩展语法；
+- 支持TeX科学公式（基于KaTeX）、流程图 Flowchart 和 时序图 Sequence Diagram;
+- 支持识别和解析HTML标签，并且支持自定义过滤标签解析，具有可靠的安全性和几乎无限的扩展性；
+- 支持 AMD / CMD 模块化加载（支持 Require.js & Sea.js），并且支持自定义扩展插件；
+- 兼容主流的浏览器（IE8+）和Zepto.js，且支持iPad等平板设备；
+- 支持自定义主题样式；
 
-      
-       
-        </style>
+# Editor.md
 
-                <div id="layout">                    
-                    <div id="test-editormd-view" class="markdown-body editormd-html-preview">
+![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
 
-                        <h1 id="h1-editor-md"><a name="Editor.md" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Editor.md</h1><p><img src="plugin/editorMd/editormd-logo-180x180.png" alt=""></p>
-                        <p><img src="plugin/editorMd/editor_003.svg" alt=""> <img src="plugin/editorMd/editor_006.svg" alt=""> <img src="plugin/editorMd/editor_005.svg" alt=""> <img src="plugin/editorMd/editor_004.svg" alt=""> <img src="plugin/editorMd/editor.svg" alt=""> <img src="plugin/editorMd/editor_002.svg" alt=""></p>
-              
-             
-                        <h1 id="h1-heading-1"><a name="Heading 1" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 1</h1><h2 id="h2-heading-2"><a name="Heading 2" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 2</h2><h3 id="h3-heading-3"><a name="Heading 3" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 3</h3><h4 id="h4-heading-4"><a name="Heading 4" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 4</h4><h5 id="h5-heading-5"><a name="Heading 5" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 5</h5><h6 id="h6-heading-6"><a name="Heading 6" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 6</h6><h1 id="h1-heading-1-link-heading-link"><a name="Heading 1 link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 1 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h1><h2 id="h2-heading-2-link-heading-link"><a name="Heading 2 link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 2 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h2><h3 id="h3-heading-3-link-heading-link"><a name="Heading 3 link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 3 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h3><h4 id="h4-heading-4-link-heading-link-heading-link-heading-link"><a name="Heading 4 link   Heading link  Heading link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 4 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a> Heading link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h4><h5 id="h5-heading-5-link-heading-link"><a name="Heading 5 link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 5 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h5><h6 id="h6-heading-6-link-heading-link"><a name="Heading 6 link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 6 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h6><h4 id="h4--heading-underline-"><a name="标题（用底线的形式）Heading (underline)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>标题（用底线的形式）Heading (underline)</h4><h1 id="h1-this-is-an-h1"><a name="This is an H1" class="reference-link"></a><span class="header-link octicon octicon-link"></span>This is an H1</h1><h2 id="h2-this-is-an-h2"><a name="This is an H2" class="reference-link"></a><span class="header-link octicon octicon-link"></span>This is an H2</h2><h3 id="h3-u5B57u7B26u6548u679Cu548Cu6A2Au7EBFu7B49"><a name="字符效果和横线等" class="reference-link"></a><span class="header-link octicon octicon-link"></span>字符效果和横线等</h3><hr>
-                        <p><del>删除线</del> <s>删除线（开启识别HTML标签时）</s><br><em>斜体字</em>      <em>斜体字</em><br><strong>粗体</strong>  <strong>粗体</strong><br><strong><em>粗斜体</em></strong> <strong><em>粗斜体</em></strong></p>
-                        <p>上标：X<sub>2</sub>，下标：O<sup>2</sup></p>
-                        <p><strong>缩写(同HTML的abbr标签)</strong></p>
-                        <blockquote>
-                            <p>即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启</p>
-                        </blockquote>
-                        <p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
-                        <h3 id="h3--blockquotes"><a name="引用 Blockquotes" class="reference-link"></a><span class="header-link octicon octicon-link"></span>引用 Blockquotes</h3><blockquote>
-                            <p>引用文本 Blockquotes</p>
-                        </blockquote>
-                        <p>引用的行内混合 Blockquotes</p>
-                        <blockquote>
-                            <p>引用：如果想要插入空白换行<code>即&lt;br /&gt;标签</code>，在插入处先键入两个以上的空格然后回车即可，<a href="http://localhost/">普通链接</a>。</p>
-                        </blockquote>
-                        <h3 id="h3--links"><a name="锚点与链接 Links" class="reference-link"></a><span class="header-link octicon octicon-link"></span>锚点与链接 Links</h3><p><a href="http://localhost/">普通链接</a></p>
-                        <p><a href="http://localhost/" title="普通链接带标题">普通链接带标题</a></p>
-                        <p>直接链接：<a href="https://github.com/">https://github.com</a></p>
-                        <p><a href="http://www.this-anchor-link.com/">锚点链接</a> </p>
-                        <p><a href="mailto:test.test@gmail.com" "="">mailto:test.test@gmail.com</a></p>
-                        <p>GFM a-tail link <a href="https://github.com/pandao" title="@pandao" class="at-link">@pandao</a>  邮箱地址自动链接 <a href="mailto:test.test@gmail.com">test.test@gmail.com</a>  <a href="mailto:www@vip.qq.com">www@vip.qq.com</a></p>
-                        <blockquote>
-                            <p><a href="https://github.com/pandao" title="@pandao" class="at-link">@pandao</a></p>
-                        </blockquote>
-                        <h3 id="h3--codes"><a name="多语言代码高亮 Codes" class="reference-link"></a><span class="header-link octicon octicon-link"></span>多语言代码高亮 Codes</h3><h4 id="h4--inline-code"><a name="行内代码 Inline code" class="reference-link"></a><span class="header-link octicon octicon-link"></span>行内代码 Inline code</h4><p>执行命令：<code>npm install marked</code></p>
-                        <h4 id="h4-u7F29u8FDBu98CEu683C"><a name="缩进风格" class="reference-link"></a><span class="header-link octicon octicon-link"></span>缩进风格</h4><p>即缩进四个空格，也做为实现类似 <code>&lt;pre&gt;</code> 预格式化文本 ( Preformatted Text ) 的功能。</p>
-                        <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pun">&lt;?</span><span class="pln">php</span></code></li><li class="L1"><code><span class="pln">    echo </span><span class="str">"Hello world!"</span><span class="pun">;</span></code></li><li class="L2"><code><span class="pun">?&gt;</span></code></li></ol></pre><p>预格式化文本：</p>
-<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pun">|</span><span class="pln"> </span><span class="typ">First</span><span class="pln"> </span><span class="typ">Header</span><span class="pln">  </span><span class="pun">|</span><span class="pln"> </span><span class="typ">Second</span><span class="pln"> </span><span class="typ">Header</span><span class="pln"> </span><span class="pun">|</span></code></li><li class="L1"><code><span class="pun">|</span><span class="pln"> </span><span class="pun">-------------</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="pun">-------------</span><span class="pln"> </span><span class="pun">|</span></code></li><li class="L2"><code><span class="pun">|</span><span class="pln"> </span><span class="typ">Content</span><span class="pln"> </span><span class="typ">Cell</span><span class="pln">  </span><span class="pun">|</span><span class="pln"> </span><span class="typ">Content</span><span class="pln"> </span><span class="typ">Cell</span><span class="pln">  </span><span class="pun">|</span></code></li><li class="L3"><code><span class="pun">|</span><span class="pln"> </span><span class="typ">Content</span><span class="pln"> </span><span class="typ">Cell</span><span class="pln">  </span><span class="pun">|</span><span class="pln"> </span><span class="typ">Content</span><span class="pln"> </span><span class="typ">Cell</span><span class="pln">  </span><span class="pun">|</span></code></li></ol></pre><h4 id="h4-js-"><a name="JS代码" class="reference-link"></a><span class="header-link octicon octicon-link"></span>JS代码　</h4><pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code class="lang-javascript"><span class="kwd">function</span><span class="pln"> test</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L1"><code class="lang-javascript"><span class="pln">    console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Hello world!"</span><span class="pun">);</span></code></li><li class="L2"><code class="lang-javascript"><span class="pun">}</span></code></li><li class="L3"><code class="lang-javascript"></code></li><li class="L4"><code class="lang-javascript"><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span></code></li><li class="L5"><code class="lang-javascript"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> box </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L6"><code class="lang-javascript"><span class="pln">        </span><span class="kwd">return</span><span class="pln"> box</span><span class="pun">.</span><span class="pln">fn</span><span class="pun">.</span><span class="pln">init</span><span class="pun">();</span></code></li><li class="L7"><code class="lang-javascript"><span class="pln">    </span><span class="pun">};</span></code></li><li class="L8"><code class="lang-javascript"></code></li><li class="L9"><code class="lang-javascript"><span class="pln">    box</span><span class="pun">.</span><span class="pln">prototype </span><span class="pun">=</span><span class="pln"> box</span><span class="pun">.</span><span class="pln">fn </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L0"><code class="lang-javascript"><span class="pln">        init </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></code></li><li class="L1"><code class="lang-javascript"><span class="pln">            console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'box.init()'</span><span class="pun">);</span></code></li><li class="L2"><code class="lang-javascript"></code></li><li class="L3"><code class="lang-javascript"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">;</span></code></li><li class="L4"><code class="lang-javascript"><span class="pln">        </span><span class="pun">},</span></code></li><li class="L5"><code class="lang-javascript"></code></li><li class="L6"><code class="lang-javascript"><span class="pln">        add </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">str</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L7"><code class="lang-javascript"><span class="pln">            alert</span><span class="pun">(</span><span class="str">"add"</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">);</span></code></li><li class="L8"><code class="lang-javascript"></code></li><li class="L9"><code class="lang-javascript"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">;</span></code></li><li class="L0"><code class="lang-javascript"><span class="pln">        </span><span class="pun">},</span></code></li><li class="L1"><code class="lang-javascript"></code></li><li class="L2"><code class="lang-javascript"><span class="pln">        remove </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">str</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L3"><code class="lang-javascript"><span class="pln">            alert</span><span class="pun">(</span><span class="str">"remove"</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">);</span></code></li><li class="L4"><code class="lang-javascript"></code></li><li class="L5"><code class="lang-javascript"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">;</span></code></li><li class="L6"><code class="lang-javascript"><span class="pln">        </span><span class="pun">}</span></code></li><li class="L7"><code class="lang-javascript"><span class="pln">    </span><span class="pun">};</span></code></li><li class="L8"><code class="lang-javascript"></code></li><li class="L9"><code class="lang-javascript"><span class="pln">    box</span><span class="pun">.</span><span class="pln">fn</span><span class="pun">.</span><span class="pln">init</span><span class="pun">.</span><span class="pln">prototype </span><span class="pun">=</span><span class="pln"> box</span><span class="pun">.</span><span class="pln">fn</span><span class="pun">;</span></code></li><li class="L0"><code class="lang-javascript"></code></li><li class="L1"><code class="lang-javascript"><span class="pln">    window</span><span class="pun">.</span><span class="pln">box </span><span class="pun">=</span><span class="pln">box</span><span class="pun">;</span></code></li><li class="L2"><code class="lang-javascript"><span class="pun">})();</span></code></li><li class="L3"><code class="lang-javascript"></code></li><li class="L4"><code class="lang-javascript"><span class="kwd">var</span><span class="pln"> testBox </span><span class="pun">=</span><span class="pln"> box</span><span class="pun">();</span></code></li><li class="L5"><code class="lang-javascript"><span class="pln">testBox</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">"jQuery"</span><span class="pun">).</span><span class="pln">remove</span><span class="pun">(</span><span class="str">"jQuery"</span><span class="pun">);</span></code></li></ol></pre>
-<h4 id="h4-html-html-codes"><a name="HTML 代码 HTML codes" class="reference-link"></a><span class="header-link octicon octicon-link"></span>HTML 代码 HTML codes</h4><pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code class="lang-html"><span class="dec">&lt;!DOCTYPE html&gt;</span></code></li><li class="L1"><code class="lang-html"><span class="tag">&lt;html&gt;</span></code></li><li class="L2"><code class="lang-html"><span class="pln">    </span><span class="tag">&lt;head&gt;</span></code></li><li class="L3"><code class="lang-html"><span class="pln">        </span><span class="tag">&lt;mate</span><span class="pln"> </span><span class="atn">charest</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="pln"> </span><span class="tag">/&gt;</span></code></li><li class="L4"><code class="lang-html"><span class="pln">        </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"keywords"</span><span class="pln"> </span><span class="atn">content</span><span class="pun">=</span><span class="atv">"Editor.md, Markdown, Editor"</span><span class="pln"> </span><span class="tag">/&gt;</span></code></li><li class="L5"><code class="lang-html"><span class="pln">        </span><span class="tag">&lt;title&gt;</span><span class="pln">Hello world!</span><span class="tag">&lt;/title&gt;</span></code></li><li class="L6"><code class="lang-html"><span class="pln">        </span><span class="tag">&lt;style</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="tag">&gt;</span></code></li><li class="L7"><code class="lang-html"><span class="pln">            body</span><span class="pun">{</span><span class="pln">font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="lit">14px</span><span class="pun">;</span><span class="pln">color</span><span class="pun">:#</span><span class="lit">444</span><span class="pun">;</span><span class="pln">font</span><span class="pun">-</span><span class="pln">family</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Microsoft Yahei"</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Tahoma</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Hiragino Sans GB"</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Arial</span><span class="pun">;</span><span class="pln">background</span><span class="pun">:#</span><span class="pln">fff</span><span class="pun">;}</span></code></li><li class="L8"><code class="lang-html"><span class="pln">            ul</span><span class="pun">{</span><span class="pln">list</span><span class="pun">-</span><span class="pln">style</span><span class="pun">:</span><span class="pln"> none</span><span class="pun">;}</span></code></li><li class="L9"><code class="lang-html"><span class="pln">            img</span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln">none</span><span class="pun">;</span><span class="pln">vertical</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> middle</span><span class="pun">;}</span></code></li><li class="L0"><code class="lang-html"><span class="pln">        </span><span class="tag">&lt;/style&gt;</span></code></li><li class="L1"><code class="lang-html"><span class="pln">    </span><span class="tag">&lt;/head&gt;</span></code></li><li class="L2"><code class="lang-html"><span class="pln">    </span><span class="tag">&lt;body&gt;</span></code></li><li class="L3"><code class="lang-html"><span class="pln">        </span><span class="tag">&lt;h1</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"text-xxl"</span><span class="tag">&gt;</span><span class="pln">Hello world!</span><span class="tag">&lt;/h1&gt;</span></code></li><li class="L4"><code class="lang-html"><span class="pln">        </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"text-green"</span><span class="tag">&gt;</span><span class="pln">Plain text</span><span class="tag">&lt;/p&gt;</span></code></li><li class="L5"><code class="lang-html"><span class="pln">    </span><span class="tag">&lt;/body&gt;</span></code></li><li class="L6"><code class="lang-html"><span class="tag">&lt;/html&gt;</span></code></li></ol></pre>
-<h3 id="h3--images"><a name="图片 Images" class="reference-link"></a><span class="header-link octicon octicon-link"></span>图片 Images</h3><p>Image:</p>
-<p><img src="plugin/editorMd/4.jpg" alt=""></p>
-<blockquote>
-<p>Follow your heart.</p>
-</blockquote>
-<p><img src="plugin/editorMd/8.jpg" alt=""></p>
-<blockquote>
-<p>图为：厦门白城沙滩</p>
-</blockquote>
-<p>图片加链接 (Image + Link)：</p>
-<p><a href="https://pandao.github.io/editor.md/images/7.jpg" title="李健首张专辑《似水流年》封面"><img src="plugin/editorMd/7.jpg" alt=""></a></p>
-<blockquote>
-<p>图为：李健首张专辑《似水流年》封面</p>
-</blockquote>
-<hr>
-<h3 id="h3--lists"><a name="列表 Lists" class="reference-link"></a><span class="header-link octicon octicon-link"></span>列表 Lists</h3><h4 id="h4--unordered-lists-"><a name="无序列表（减号）Unordered Lists (-)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>无序列表（减号）Unordered Lists (-)</h4><ul>
-<li>列表一</li><li>列表二</li><li>列表三</li></ul>
-<h4 id="h4--unordered-lists-"><a name="无序列表（星号）Unordered Lists (*)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>无序列表（星号）Unordered Lists (*)</h4><ul>
-<li>列表一</li><li>列表二</li><li>列表三</li></ul>
-<h4 id="h4--unordered-lists-"><a name="无序列表（加号和嵌套）Unordered Lists (+)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>无序列表（加号和嵌套）Unordered Lists (+)</h4><ul>
-<li>列表一</li><li>列表二<ul>
-<li>列表二-1</li><li>列表二-2</li><li>列表二-3</li></ul>
-</li><li>列表三<ul>
-<li>列表一</li><li>列表二</li><li>列表三</li></ul>
-</li></ul>
-<h4 id="h4--ordered-lists-"><a name="有序列表 Ordered Lists (-)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>有序列表 Ordered Lists (-)</h4><ol>
-<li>第一行</li><li>第二行</li><li>第三行</li></ol>
-<h4 id="h4-gfm-task-list"><a name="GFM task list" class="reference-link"></a><span class="header-link octicon octicon-link"></span>GFM task list</h4><ul>
-<li style="list-style: none;"><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> GFM task list 1</li><li style="list-style: none;"><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> GFM task list 2</li><li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> GFM task list 3<ul>
-<li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> GFM task list 3-1</li><li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> GFM task list 3-2</li><li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> GFM task list 3-3</li></ul>
-</li><li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> GFM task list 4<ul>
-<li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> GFM task list 4-1</li><li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> GFM task list 4-2</li></ul>
-</li></ul>
-<hr>
-<h3 id="h3--tables"><a name="绘制表格 Tables" class="reference-link"></a><span class="header-link octicon octicon-link"></span>绘制表格 Tables</h3><table>
-<thead>
-<tr>
-<th>项目</th>
-<th style="text-align:right">价格</th>
-<th style="text-align:center">数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>计算机</td>
-<td style="text-align:right">$1600</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td>手机</td>
-<td style="text-align:right">$12</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td>管线</td>
-<td style="text-align:right">$1</td>
-<td style="text-align:center">234</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>First Header</th>
-<th>Second Header</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell </td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>First Header</th>
-<th>Second Header</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Function name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>help()</code></td>
-<td>Display the help window.</td>
-</tr>
-<tr>
-<td><code>destroy()</code></td>
-<td><strong>Destroy your computer!</strong></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Left-Aligned</th>
-<th style="text-align:center">Center Aligned</th>
-<th style="text-align:right">Right Aligned</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">col 3 is</td>
-<td style="text-align:center">some wordy text</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td style="text-align:left">col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td style="text-align:left">zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Item</th>
-<th style="text-align:right">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Computer</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td>Phone</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td>Pipe</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h4 id="h4--html-entities-codes"><a name="特殊符号 HTML Entities Codes" class="reference-link"></a><span class="header-link octicon octicon-link"></span>特殊符号 HTML Entities Codes</h4><p>© &amp;  ¨ ™ ¡ £<br>&amp; &lt; &gt; ¥ € ® ± ¶ § ¦ ¯ « · </p>
-<p>X² Y³ ¾ ¼  ×  ÷   »</p>
-<p>18ºC  "  '</p>
-<hr style="page-break-after:always;" class="page-break editormd-page-break"><h3 id="h3-emoji-smiley-"><a name="Emoji表情 :smiley:" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Emoji表情 <img src="plugin/editorMd/smiley.html" class="emoji" title=":smiley:" alt=":smiley:"></h3><blockquote>
-<p>Blockquotes <img src="plugin/editorMd/star.html" class="emoji" title=":star:" alt=":star:"></p>
-</blockquote>
-<h4 id="h4-gfm-task-lists-amp-emoji-amp-fontawesome-icon-emoji-amp-editormd-logo-emoji-editormd-logo-5x-"><a name="GFM task lists &amp; Emoji &amp; fontAwesome icon emoji &amp; editormd logo emoji :editormd-logo-5x:" class="reference-link"></a><span class="header-link octicon octicon-link"></span>GFM task lists &amp; Emoji &amp; fontAwesome icon emoji &amp; editormd logo emoji <i class="editormd-logo-5x" title="Editor.md logo (editormd-logo-5x)"></i></h4><ul>
-<li style="list-style: none;"><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <img src="plugin/editorMd/smiley.html" class="emoji" title=":smiley:" alt=":smiley:"> <a href="https://github.com/mentions" title="@mentions" class="at-link">@mentions</a>, <img src="plugin/editorMd/smiley.html" class="emoji" title=":smiley:" alt=":smiley:"> #refs, <a href="">links</a>, <strong>formatting</strong>, and <del>tags</del> supported <i class="editormd-logo" title="Editor.md logo (editormd-logo)"></i>;</li><li style="list-style: none;"><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> list syntax required (any unordered or ordered list supported) <i class="editormd-logo-3x" title="Editor.md logo (editormd-logo-3x)"></i>;</li><li style="list-style: none;"><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> [ ] <img src="plugin/editorMd/smiley.html" class="emoji" title=":smiley:" alt=":smiley:"> this is a complete item <img src="plugin/editorMd/smiley.html" class="emoji" title=":smiley:" alt=":smiley:">;</li><li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> []this is an incomplete item <a href="#">test link</a> <i class="fa fa-star fa-emoji" title="star"></i> <a href="https://github.com/pandao" title="@pandao" class="at-link">@pandao</a>; </li><li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> [ ]this is an incomplete item <i class="fa fa-star fa-emoji" title="star"></i> <i class="fa fa-gear fa-emoji" title="gear"></i>;<ul>
-<li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> <img src="plugin/editorMd/smiley.html" class="emoji" title=":smiley:" alt=":smiley:"> this is an incomplete item <a href="#">test link</a> <i class="fa fa-star fa-emoji" title="star"></i> <i class="fa fa-gear fa-emoji" title="gear"></i>;</li><li style="list-style: none;"><input class="task-list-item-checkbox" type="checkbox"> <img src="plugin/editorMd/smiley.html" class="emoji" title=":smiley:" alt=":smiley:"> this is  <i class="fa fa-star fa-emoji" title="star"></i> <i class="fa fa-gear fa-emoji" title="gear"></i> an incomplete item <a href="#">test link</a>;</li></ul>
-</li></ul>
-<h4 id="h4--escape"><a name="反斜杠 Escape" class="reference-link"></a><span class="header-link octicon octicon-link"></span>反斜杠 Escape</h4><p>*literal asterisks*</p>
-<hr style="page-break-after:always;" class="page-break editormd-page-break"><h3 id="h3--tex-katex-"><a name="科学公式 TeX(KaTeX)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>科学公式 TeX(KaTeX)</h3><p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.814108em;"></span><span class="strut bottom" style="height: 0.814108em; vertical-align: 0em;"></span><span class="base textstyle uncramped"><span style="margin-right: 0.05764em;" class="mord mathit">E</span><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span></p>
-<p>行内的公式<span class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.814108em;"></span><span class="strut bottom" style="height: 0.814108em; vertical-align: 0em;"></span><span class="base textstyle uncramped"><span style="margin-right: 0.05764em;" class="mord mathit">E</span><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span></span>行内的公式，行内的<span class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.814108em;"></span><span class="strut bottom" style="height: 0.814108em; vertical-align: 0em;"></span><span class="base textstyle uncramped"><span style="margin-right: 0.05764em;" class="mord mathit">E</span><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span></span>公式。</p>
-<p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>&gt;</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x &gt; y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.5391em;"></span><span class="strut bottom" style="height: 0.73354em; vertical-align: -0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span><span class="mrel">&gt;</span><span style="margin-right: 0.03588em;" class="mord mathit">y</span></span></span></span></p>
-<p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msqrt><mrow><mn>3</mn><mi>x</mi><mo>−</mo><mn>1</mn></mrow></msqrt><mo>+</mo><mo>(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo>)</mo><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">(\sqrt{3x-1}+(1+x)^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.865555em;"></span><span class="strut bottom" style="height: 1.11556em; vertical-align: -0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="sqrt mord"><span class="sqrt-sign" style="top: -0.025555em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span class="" style="top: 0em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="mord textstyle cramped"><span class="mord">3</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mord">1</span></span></span><span class="" style="top: -0.785555em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord">1</span><span class="mbin">+</span><span class="mord mathit">x</span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></p>
-<p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mi>sin</mi><mo>(</mo><mi>α</mi><msup><mo>)</mo><mrow><mi>θ</mi></mrow></msup><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>n</mi></mrow></msubsup><mo>(</mo><msup><mi>x</mi><mi>i</mi></msup><mo>+</mo><mi>cos</mi><mo>(</mo><mi>f</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.849108em;"></span><span class="strut bottom" style="height: 1.14912em; vertical-align: -0.30001em;"></span><span class="base textstyle uncramped"><span class="mop">sin</span><span class="mopen">(</span><span style="margin-right: 0.0037em;" class="mord mathit">α</span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span style="margin-right: 0.02778em;" class="mord mathit">θ</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mop"><span class="op-symbol small-op mop" style="top: -0.000005em;">∑</span><span class="vlist"><span class="" style="top: 0.30001em; margin-left: 0em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mrel">=</span><span class="mord">0</span></span></span></span><span class="" style="top: -0.364em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mop">cos</span><span class="mopen">(</span><span style="margin-right: 0.10764em;" class="mord mathit">f</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></p>
-<p>多行公式：</p>
-<p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><msup><mrow><mo fence="true">(</mo><mo>∑</mo><mi mathvariant="normal">_</mi><msup><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msup><mi>a</mi><mi mathvariant="normal">_</mi><mi>k</mi><mi>b</mi><mi mathvariant="normal">_</mi><mi>k</mi><mo fence="true">)</mo></mrow><mn>2</mn></msup><mo>≤</mo><mrow><mo fence="true">(</mo><mo>∑</mo><mi mathvariant="normal">_</mi><msup><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msup><mi>a</mi><mi mathvariant="normal">_</mi><msup><mi>k</mi><mn>2</mn></msup><mo fence="true">)</mo></mrow><mrow><mo fence="true">(</mo><mo>∑</mo><mi mathvariant="normal">_</mi><msup><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msup><mi>b</mi><mi mathvariant="normal">_</mi><msup><mi>k</mi><mn>2</mn></msup><mo fence="true">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle
+![](https://img.shields.io/github/stars/pandao/editor.md.svg) ![](https://img.shields.io/github/forks/pandao/editor.md.svg) ![](https://img.shields.io/github/tag/pandao/editor.md.svg) ![](https://img.shields.io/github/release/pandao/editor.md.svg) ![](https://img.shields.io/github/issues/pandao/editor.md.svg) ![](https://img.shields.io/bower/v/editor.md.svg)
+
+**目录 (Table of Contents)**
+
+[TOCM]
+
+[TOC]
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+# Heading 1 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+## Heading 2 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+### Heading 3 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+#### Heading 4 link [Heading link](https://github.com/pandao/editor.md "Heading link") Heading link [Heading link](https://github.com/pandao/editor.md "Heading link")
+##### Heading 5 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+###### Heading 6 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+
+#### 标题（用底线的形式）Heading (underline)
+
+This is an H1
+=============
+
+This is an H2
+-------------
+
+### 字符效果和横线等
+
+----
+
+~~删除线~~ <s>删除线（开启识别HTML标签时）</s>
+*斜体字*      _斜体字_
+**粗体**  __粗体__
+***粗斜体*** ___粗斜体___
+
+上标：X<sub>2</sub>，下标：O<sup>2</sup>
+
+**缩写(同HTML的abbr标签)**
+
+> 即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启
+
+The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.
+
+### 引用 Blockquotes
+
+> 引用文本 Blockquotes
+
+引用的行内混合 Blockquotes
+
+> 引用：如果想要插入空白换行`即<br />标签`，在插入处先键入两个以上的空格然后回车即可，[普通链接](http://localhost/)。
+
+### 锚点与链接 Links
+
+[普通链接](http://localhost/)
+
+[普通链接带标题](http://localhost/ "普通链接带标题")
+
+直接链接：<https://github.com>
+
+[锚点链接][anchor-id]
+
+[anchor-id]: http://www.this-anchor-link.com/
+
+GFM a-tail link @pandao
+
+> @pandao
+
+### 多语言代码高亮 Codes
+
+#### 行内代码 Inline code
+
+执行命令：`npm install marked`
+
+#### 缩进风格
+
+即缩进四个空格，也做为实现类似`<pre>`预格式化文本(Preformatted Text)的功能。
+
+    <?php
+        echo "Hello world!";
+    ?>
+
+预格式化文本：
+
+    | First Header  | Second Header |
+    | ------------- | ------------- |
+    | Content Cell  | Content Cell  |
+    | Content Cell  | Content Cell  |
+
+#### JS代码
+
+```javascript
+function test(){
+	console.log("Hello world!");
+}
+
+(function(){
+    var box = function(){
+        return box.fn.init();
+    };
+
+    box.prototype = box.fn = {
+        init : function(){
+            console.log('box.init()');
+
+			return this;
+        },
+
+		add : function(str){
+			alert("add", str);
+
+			return this;
+		},
+
+		remove : function(str){
+			alert("remove", str);
+
+			return this;
+		}
+    };
+
+    box.fn.init.prototype = box.fn;
+
+    window.box =box;
+})();
+
+var testBox = box();
+testBox.add("jQuery").remove("jQuery");
+```
+
+#### HTML代码 HTML codes
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <mate charest="utf-8" />
+        <title>Hello world!</title>
+    </head>
+    <body>
+        <h1>Hello world!</h1>
+    </body>
+</html>
+```
+
+### 图片 Images
+
+Image:
+
+![](https://pandao.github.io/editor.md/examples/images/4.jpg)
+
+> Follow your heart.
+
+![](https://pandao.github.io/editor.md/examples/images/8.jpg)
+
+> 图为：厦门白城沙滩
+
+图片加链接 (Image + Link)：
+
+[![](https://pandao.github.io/editor.md/examples/images/7.jpg)](https://pandao.github.io/editor.md/examples/images/7.jpg "李健首张专辑《似水流年》封面")
+
+> 图为：李健首张专辑《似水流年》封面
+
+----
+
+### 列表 Lists
+
+#### 无序列表（减号）Unordered Lists (-)
+
+- 列表一
+- 列表二
+- 列表三
+
+#### 无序列表（星号）Unordered Lists (*)
+
+* 列表一
+* 列表二
+* 列表三
+
+#### 无序列表（加号和嵌套）Unordered Lists (+)
+
++ 列表一
++ 列表二
+    + 列表二-1
+    + 列表二-2
+    + 列表二-3
++ 列表三
+    * 列表一
+    * 列表二
+    * 列表三
+
+#### 有序列表 Ordered Lists (-)
+
+1. 第一行
+2. 第二行
+3. 第三行
+
+#### GFM task list
+
+- [x] GFM task list 1
+- [x] GFM task list 2
+- [ ] GFM task list 3
+    - [ ] GFM task list 3-1
+    - [ ] GFM task list 3-2
+    - [ ] GFM task list 3-3
+- [ ] GFM task list 4
+    - [ ] GFM task list 4-1
+    - [ ] GFM task list 4-2
+
+----
+
+### 绘制表格 Tables
+
+| 项目        | 价格   |  数量  |
+| --------   | -----:  | :----:  |
+| 计算机      | $1600   |   5     |
+| 手机        |   $12   |   12   |
+| 管线        |    $1    |  234  |
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+| Function name | Description                    |
+| ------------- | ------------------------------ |
+| `help()`      | Display the help window.       |
+| `destroy()`   | **Destroy your computer!**     |
+
+| Left-Aligned  | Center Aligned  | Right Aligned |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| zebra stripes | are neat        |    $1 |
+
+| Item      | Value |
+| --------- | -----:|
+| Computer  | $1600 |
+| Phone     |   $12 |
+| Pipe      |    $1 |
+
+----
+
+#### 特殊符号 HTML Entities Codes
+
+&copy; &  &uml; &trade; &iexcl; &pound;
+&amp; &lt; &gt; &yen; &euro; &reg; &plusmn; &para; &sect; &brvbar; &macr; &laquo; &middot;
+
+X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo;
+
+18&ordm;C  &quot;  &apos;
+
+### Emoji表情 :smiley:
+
+> Blockquotes :star:
+
+#### GFM task lists & Emoji & fontAwesome icon emoji & editormd logo emoji :editormd-logo-5x:
+
+- [x] :smiley: @mentions, :smiley: #refs, [links](), **formatting**, and <del>tags</del> supported :editormd-logo:;
+- [x] list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;
+- [x] [ ] :smiley: this is a complete item :smiley:;
+- [ ] []this is an incomplete item [test link](#) :fa-star: @pandao;
+- [ ] [ ]this is an incomplete item :fa-star: :fa-gear:;
+    - [ ] :smiley: this is an incomplete item [test link](#) :fa-star: :fa-gear:;
+    - [ ] :smiley: this is  :fa-star: :fa-gear: an incomplete item [test link](#);
+
+#### 反斜杠 Escape
+
+\*literal asterisks\*
+
+### 科学公式 TeX(KaTeX)
+
+$$E=mc^2$$
+
+行内的公式$$E=mc^2$$行内的公式，行内的$$E=mc^2$$公式。
+
+$$\(\sqrt{3x-1}+(1+x)^2\)$$
+
+$$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$
+
+多行公式：
+
+```math
+\displaystyle
 \left( \sum\_{k=1}^n a\_k b\_k \right)^2
 \leq
 \left( \sum\_{k=1}^n a\_k^2 \right)
-\left( \sum\_{k=1}^n b\_k^2 \right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 1.21511em;"></span><span class="strut bottom" style="height: 1.86513em; vertical-align: -0.65002em;"></span><span class="base textstyle uncramped"><span class="reset-textstyle displaystyle textstyle uncramped"><span class="minner"><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top: 0em;"><span class="delimsizing size2">(</span></span><span class="op-symbol large-op mop" style="top: -0.000005em;">∑</span><span style="margin-right: 0.02778em;" class="mord">_</span><span class="mord"><span class="mord displaystyle textstyle uncramped"><span style="margin-right: 0.03148em;" class="mord mathit">k</span><span class="mrel">=</span><span class="mord">1</span></span><span class="vlist"><span class="" style="top: -0.413em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mord mathit">a</span><span style="margin-right: 0.02778em;" class="mord">_</span><span style="margin-right: 0.03148em;" class="mord mathit">k</span><span class="mord mathit">b</span><span style="margin-right: 0.02778em;" class="mord">_</span><span style="margin-right: 0.03148em;" class="mord mathit">k</span><span class="style-wrap reset-textstyle textstyle uncramped" style="top: 0em;"><span class="delimsizing size2">)</span></span></span><span class="vlist"><span class="" style="top: -0.764em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top: 0em;"><span class="delimsizing size2">(</span></span><span class="op-symbol large-op mop" style="top: -0.000005em;">∑</span><span style="margin-right: 0.02778em;" class="mord">_</span><span class="mord"><span class="mord displaystyle textstyle uncramped"><span style="margin-right: 0.03148em;" class="mord mathit">k</span><span class="mrel">=</span><span class="mord">1</span></span><span class="vlist"><span class="" style="top: -0.413em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mord mathit">a</span><span style="margin-right: 0.02778em;" class="mord">_</span><span class="mord"><span style="margin-right: 0.03148em;" class="mord mathit">k</span><span class="vlist"><span class="" style="top: -0.413em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="style-wrap reset-textstyle textstyle uncramped" style="top: 0em;"><span class="delimsizing size2">)</span></span></span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top: 0em;"><span class="delimsizing size2">(</span></span><span class="op-symbol large-op mop" style="top: -0.000005em;">∑</span><span style="margin-right: 0.02778em;" class="mord">_</span><span class="mord"><span class="mord displaystyle textstyle uncramped"><span style="margin-right: 0.03148em;" class="mord mathit">k</span><span class="mrel">=</span><span class="mord">1</span></span><span class="vlist"><span class="" style="top: -0.413em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mord mathit">b</span><span style="margin-right: 0.02778em;" class="mord">_</span><span class="mord"><span style="margin-right: 0.03148em;" class="mord mathit">k</span><span class="vlist"><span class="" style="top: -0.413em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="style-wrap reset-textstyle textstyle uncramped" style="top: 0em;"><span class="delimsizing size2">)</span></span></span></span></span></span></span></p><p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mn>1</mn></mrow><mrow><mo fence="true">(</mo><msqrt><mrow><mi>ϕ</mi><msqrt><mrow><mn>5</mn></mrow></msqrt></mrow></msqrt><mo>−</mo><mi>ϕ</mi><mo fence="true">)</mo><msup><mi>e</mi><mrow><mfrac><mn>2</mn><mn>5</mn></mfrac><mi>π</mi></mrow></msup></mrow></mfrac><mo>=</mo><mn>1</mn><mo>+</mo><mfrac><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>π</mi></mrow></msup></mrow><mrow><mn>1</mn><mo>+</mo><mfrac><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>4</mn><mi>π</mi></mrow></msup></mrow><mrow><mn>1</mn><mo>+</mo><mfrac><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>6</mn><mi>π</mi></mrow></msup></mrow><mrow><mn>1</mn><mo>+</mo><mfrac><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>8</mn><mi>π</mi></mrow></msup></mrow><mrow><mn>1</mn><mo>+</mo><mo>⋯</mo></mrow></mfrac></mrow></mfrac></mrow></mfrac></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle 
+\left( \sum\_{k=1}^n b\_k^2 \right)
+```
+
+```katex
+\displaystyle
     \frac{1}{
         \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
         \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
         1+\frac{e^{-6\pi}}
         {1+\frac{e^{-8\pi}}
          {1+\cdots} }
-        } 
-    }</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 1.49111em;"></span><span class="strut bottom" style="height: 3.69975em; vertical-align: -2.20865em;"></span><span class="base textstyle uncramped"><span class="reset-textstyle displaystyle textstyle uncramped"><span class="minner reset-textstyle displaystyle textstyle uncramped"><span class="mfrac"><span class="vlist"><span class="" style="top: 1.04em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mopen"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size2">(</span></span></span><span class="sqrt mord"><span class="sqrt-sign" style="top: -0.151395em;"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size1">√</span></span></span><span class="vlist"><span class="" style="top: 0em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">ϕ</span><span class="sqrt mord"><span class="sqrt-sign" style="top: -0.06722em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span class="" style="top: 0em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="mord textstyle cramped"><span class="mord">5</span></span></span><span class="" style="top: -0.82722em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span>​</span></span></span></span></span><span class="" style="top: -0.961395em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord mathit">ϕ</span><span class="mclose"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size2">)</span></span></span><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span class="" style="top: -0.34925em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="minner reset-scriptstyle scriptstyle cramped"><span class="mfrac"><span class="vlist"><span class="" style="top: 0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord">5</span></span></span><span class="" style="top: -0.221429em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span class="" style="top: -0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span><span style="margin-right: 0.03588em;" class="mord mathit">π</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span><span class="" style="top: -0.23em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span class="" style="top: -0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span>​</span></span></span></span><span class="mrel">=</span><span class="mord">1</span><span class="mbin">+</span><span class="minner reset-textstyle displaystyle textstyle uncramped"><span class="mfrac"><span class="vlist"><span class="" style="top: 0.80852em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord">1</span><span class="mbin">+</span><span class="minner reset-textstyle textstyle cramped"><span class="mfrac"><span class="vlist"><span class="" style="top: 0.55252em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord">1</span><span class="mbin">+</span><span class="minner reset-scriptstyle scriptstyle cramped"><span class="mfrac"><span class="vlist"><span class="" style="top: 0.783886em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord">1</span><span class="mbin">+</span><span class="minner reset-scriptscriptstyle scriptscriptstyle cramped"><span class="mfrac"><span class="vlist"><span class="" style="top: 0.51444em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptscriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord">1</span><span class="mbin">+</span><span class="minner">⋯</span></span></span></span><span class="" style="top: -0.21em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptscriptstyle textstyle uncramped frac-line"></span></span><span class="" style="top: -0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptscriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span class="" style="top: -0.289em; margin-right: 0.1em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptscriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord">−</span><span class="mord">8</span><span style="margin-right: 0.03588em;" class="mord mathit">π</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span></span><span class="" style="top: -0.221429em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span class="" style="top: -0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span class="" style="top: -0.289em; margin-right: 0.1em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptscriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord">−</span><span class="mord">6</span><span style="margin-right: 0.03588em;" class="mord mathit">π</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span></span><span class="" style="top: -0.23em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span class="" style="top: -0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span class="" style="top: -0.289em; margin-right: 0.0714286em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord">−</span><span class="mord">4</span><span style="margin-right: 0.03588em;" class="mord mathit">π</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span></span><span class="" style="top: -0.23em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span class="" style="top: -0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">−</span><span class="mord">2</span><span style="margin-right: 0.03588em;" class="mord mathit">π</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span></span></span></p><p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msubsup><mo>∫</mo><mrow><mo>−</mo><mi mathvariant="normal">∞</mi></mrow><mi mathvariant="normal">∞</mi></msubsup><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo>(</mo><mi>ξ</mi><mo>)</mo><mspace width="0.16667em"></mspace><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mi>ξ</mi><mi>x</mi></mrow></msup><mspace width="0.16667em"></mspace><mi>d</mi><mi>ξ</mi></mrow><annotation encoding="application/x-tex">f(x) = \int_{-\infty}^\infty
+        }
+    }
+```
+
+```latex
+f(x) = \int_{-\infty}^\infty
     \hat f(\xi)\,e^{2 \pi i \xi x}
-    \,d\xi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.95788em;"></span><span class="strut bottom" style="height: 1.37233em; vertical-align: -0.414451em;"></span><span class="base textstyle uncramped"><span style="margin-right: 0.10764em;" class="mord mathit">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">=</span><span class="mop"><span style="margin-right: 0.19445em; top: -0.00056em;" class="op-symbol small-op mop">∫</span><span class="vlist"><span class="" style="top: 0.35612em; margin-left: -0.19445em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord">−</span><span class="mord">∞</span></span></span></span><span class="" style="top: -0.419em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">∞</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mord accent"><span class="vlist"><span class="" style="top: 0em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span style="margin-right: 0.10764em;" class="mord mathit">f</span></span><span class="" style="top: -0.26344em; margin-left: 0.33334em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="accent-body"><span class="">^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span style="margin-right: 0.04601em;" class="mord mathit">ξ</span><span class="mclose">)</span><span class="mord mspace thinspace"></span><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">2</span><span style="margin-right: 0.03588em;" class="mord mathit">π</span><span class="mord mathit">i</span><span style="margin-right: 0.04601em;" class="mord mathit">ξ</span><span class="mord mathit">x</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mord mspace thinspace"></span><span class="mord mathit">d</span><span style="margin-right: 0.04601em;" class="mord mathit">ξ</span></span></span></span></p><h3 id="h3--page-break"><a name="分页符 Page break" class="reference-link"></a><span class="header-link octicon octicon-link"></span>分页符 Page break</h3><blockquote>
-<p>Print Test: Ctrl + P</p>
-</blockquote>
-<hr style="page-break-after:always;" class="page-break editormd-page-break"><h3 id="h3--flowchart"><a name="绘制流程图 Flowchart" class="reference-link"></a><span class="header-link octicon octicon-link"></span>绘制流程图 Flowchart</h3><div class="flowchart"><svg height="565.5" version="1.1" width="301" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.150002px; top: -0.983398px;"><desc>Created with Raphaël 2.1.2</desc><defs><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block"></path><marker id="raphael-marker-endblock33-obj8" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5"><use xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none"></use></marker><marker id="raphael-marker-endblock33-obj9" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5"><use xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none"></use></marker><marker id="raphael-marker-endblock33-obj10" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5"><use xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none"></use></marker><marker id="raphael-marker-endblock33-obj12" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5"><use xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none"></use></marker></defs><rect x="0" y="0" width="80" height="40" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,99,51.5)"></rect><text style="text-anchor: start; font-family: &quot;Arial&quot;; font-size: 14px;" x="10" y="20" text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" id="stt" class="flowchartt" transform="matrix(1,0,0,1,99,51.5)"><tspan dy="6">用户登陆</tspan></text><rect x="0" y="0" width="80" height="40" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="" stroke-width="2" class="flowchart" id="op" transform="matrix(1,0,0,1,99,193)"></rect><text style="text-anchor: start; font-family: &quot;Arial&quot;; font-size: 14px;" x="10" y="20" text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" id="opt" class="flowchartt" transform="matrix(1,0,0,1,99,193)"><tspan dy="6">登陆操作</tspan></text><path style="" fill="#ffffff" stroke="#000000" d="M67.5,33.75L0,67.5L135,135L270,67.5L135,0L0,67.5" stroke-width="2" id="cond" class="flowchart" transform="matrix(1,0,0,1,4,287)"></path><text style="text-anchor: start; font-family: &quot;Arial&quot;; font-size: 14px;" x="72.5" y="67.5" text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" id="condt" class="flowchartt" transform="matrix(1,0,0,1,4,287)"><tspan dy="6">登陆成功 Yes or No?</tspan></text><rect x="0" y="0" width="80" height="40" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="" stroke-width="2" class="end-element" id="e" transform="matrix(1,0,0,1,99,523.5)"></rect><text style="text-anchor: start; font-family: &quot;Arial&quot;; font-size: 14px;" x="10" y="20" text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" id="et" class="end-elementt" transform="matrix(1,0,0,1,99,523.5)"><tspan dy="6">进入后台</tspan><tspan dy="18" x="10"></tspan></text><path style="" fill="none" stroke="#000000" d="M139,91.5C139,91.5,139,173.16283452510834,139,189.98984437354375" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj8)"></path><path style="" fill="none" stroke="#000000" d="M139,233C139,233,139,272.65409994125366,139,284.00043908460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj9)"></path><path style="" fill="none" stroke="#000000" d="M139,422C139,422,139,503.66283452510834,139,520.4898443735437" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj10)"></path><text style="text-anchor: start; font-family: &quot;Arial&quot;; font-size: 14px;" x="144" y="432" text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000"><tspan dy="5">yes</tspan></text><path style="" fill="none" stroke="#000000" d="M274,354.5C274,354.5,299,354.5,299,354.5C299,354.5,299,168,299,168C299,168,139,168,139,168C139,168,139,183.37344455718994,139,190.00924777425826" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj12)"></path><text style="text-anchor: start; font-family: &quot;Arial&quot;; font-size: 14px;" x="279" y="344.5" text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000"><tspan dy="5">no</tspan></text></svg></div><hr style="page-break-after:always;" class="page-break editormd-page-break"><h3 id="h3--sequence-diagram"><a name="绘制序列图 Sequence Diagram" class="reference-link"></a><span class="header-link octicon octicon-link"></span>绘制序列图 Sequence Diagram</h3><div class="sequence-diagram"><svg height="316" version="1.1" width="415" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.5px; top: -0.216797px;"><desc>Created with Raphaël 2.1.2</desc><defs><marker id="raphael-marker-endblock55-obj36" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5"><use xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none"></use></marker><marker id="raphael-marker-endblock55-obj42" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5"><use xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none"></use></marker><path stroke-linecap="round" d="M6,1 1,3.5 6,6" id="raphael-marker-open"></path><marker id="raphael-marker-endopen77-obj45" markerHeight="7" markerWidth="7" orient="auto" refX="4" refY="3.5"><use xlink:href="#raphael-marker-open" transform="rotate(180 3.5 3.5) scale(1,1)" stroke-width="1.0000" fill="none" stroke="#000"></use></marker></defs><rect x="10" y="20" width="71" height="38" rx="0" ry="0" fill="none" stroke="#000000" style="" stroke-width="2"></rect><rect x="20.5" y="30" width="51" height="18" rx="0" ry="0" fill="#ffffff" stroke="none" style=""></rect><text style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;" x="45.5" y="39" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000"><tspan dy="5">Andrew</tspan></text><rect x="10" y="258" width="71" height="38" rx="0" ry="0" fill="none" stroke="#000000" style="" stroke-width="2"></rect><rect x="20.5" y="268" width="51" height="18" rx="0" ry="0" fill="#ffffff" stroke="none" style=""></rect><text style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;" x="45.5" y="277" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000"><tspan dy="5">Andrew</tspan></text><path style="" fill="none" stroke="#000000" d="M45.5,58L45.5,258" stroke-width="2"></path><rect x="173" y="20" width="63" height="38" rx="0" ry="0" fill="none" stroke="#000000" style="" stroke-width="2"></rect><rect x="183.5" y="30" width="43" height="18" rx="0" ry="0" fill="#ffffff" stroke="none" style=""></rect><text style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;" x="204.5" y="39" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000"><tspan dy="5">China</tspan></text><rect x="173" y="258" width="63" height="38" rx="0" ry="0" fill="none" stroke="#000000" style="" stroke-width="2"></rect><rect x="183.5" y="268" width="43" height="18" rx="0" ry="0" fill="#ffffff" stroke="none" style=""></rect><text style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;" x="204.5" y="277" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000"><tspan dy="5">China</tspan></text><path style="" fill="none" stroke="#000000" d="M204.5,58L204.5,258" stroke-width="2"></path><rect x="84" y="74" width="83" height="18" rx="0" ry="0" fill="#ffffff" stroke="none" style=""></rect><text style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;" x="125" y="83" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000"><tspan dy="5">Says Hello</tspan></text><path style="" fill="none" stroke="#000000" d="M45.5,96C45.5,96,172.5213388800621,96,199.5009689644503,96" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj36)" stroke-dasharray="0"></path><rect x="224.5" y="116" width="109" height="46" rx="0" ry="0" fill="none" stroke="#000000" style="" stroke-width="2"></rect><rect x="230" y="121" width="99" height="36" rx="0" ry="0" fill="#ffffff" stroke="none" style=""></rect><text style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;" x="279" y="139" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000"><tspan dy="-4">China thinks</tspan><tspan dy="18" x="279">about it</tspan></text><rect x="76" y="178" width="99" height="18" rx="0" ry="0" fill="#ffffff" stroke="none" style=""></rect><text style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;" x="125" y="187" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000"><tspan dy="5">How are you?</tspan></text><path style="" fill="none" stroke="#000000" d="M204.5,200C204.5,200,77.4786611199379,200,50.499031035549706,200" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj42)" stroke-dasharray="6,2"></path><rect x="56" y="216" width="139" height="18" rx="0" ry="0" fill="#ffffff" stroke="none" style=""></rect><text style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;" x="125" y="225" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000"><tspan dy="5">I am good thanks!</tspan></text><path style="" fill="none" stroke="#000000" d="M45.5,238C45.5,238,184.15645974874496,238,202.50406745963846,238" stroke-width="2" marker-end="url(#raphael-marker-endopen77-obj45)" stroke-dasharray="0"></path></svg></div><h3 id="h3-end"><a name="End" class="reference-link"></a><span class="header-link octicon octicon-link"></span>End</h3></div>
-            <div id="test-editormd-view2" class="markdown-body editormd-html-preview">
-                          
-            <h3 id="h3--tex-katex-"><a name="科学公式 TeX(KaTeX)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>科学公式 TeX(KaTeX)</h3><p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.814108em;"></span><span class="strut bottom" style="height: 0.814108em; vertical-align: 0em;"></span><span class="base textstyle uncramped"><span style="margin-right: 0.05764em;" class="mord mathit">E</span><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span></p>
-<p>行内的公式<span class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.814108em;"></span><span class="strut bottom" style="height: 0.814108em; vertical-align: 0em;"></span><span class="base textstyle uncramped"><span style="margin-right: 0.05764em;" class="mord mathit">E</span><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span></span>行内的公式，行内的<span class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.814108em;"></span><span class="strut bottom" style="height: 0.814108em; vertical-align: 0em;"></span><span class="base textstyle uncramped"><span style="margin-right: 0.05764em;" class="mord mathit">E</span><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span></span></span></span></span>公式。</p>
-<p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msqrt><mrow><mn>3</mn><mi>x</mi><mo>−</mo><mn>1</mn></mrow></msqrt><mo>+</mo><mo>(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo>)</mo><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">(\sqrt{3x-1}+(1+x)^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.865555em;"></span><span class="strut bottom" style="height: 1.11556em; vertical-align: -0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="sqrt mord"><span class="sqrt-sign" style="top: -0.025555em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span class="" style="top: 0em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="mord textstyle cramped"><span class="mord">3</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mord">1</span></span></span><span class="" style="top: -0.785555em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 1em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord">1</span><span class="mbin">+</span><span class="mord mathit">x</span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></p>
-<p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><mi>sin</mi><mo>(</mo><mi>α</mi><msup><mo>)</mo><mrow><mi>θ</mi></mrow></msup><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>n</mi></mrow></msubsup><mo>(</mo><msup><mi>x</mi><mi>i</mi></msup><mo>+</mo><mi>cos</mi><mo>(</mo><mi>f</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.849108em;"></span><span class="strut bottom" style="height: 1.14912em; vertical-align: -0.30001em;"></span><span class="base textstyle uncramped"><span class="mop">sin</span><span class="mopen">(</span><span style="margin-right: 0.0037em;" class="mord mathit">α</span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span style="margin-right: 0.02778em;" class="mord mathit">θ</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mop"><span class="op-symbol small-op mop" style="top: -0.000005em;">∑</span><span class="vlist"><span class="" style="top: 0.30001em; margin-left: 0em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mrel">=</span><span class="mord">0</span></span></span></span><span class="" style="top: -0.364em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mop">cos</span><span class="mopen">(</span><span style="margin-right: 0.10764em;" class="mord mathit">f</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></p>
-<p class="editormd-tex"><span class="katex" style="font-size: 1.6em;"><span class="katex-mathml"><math><semantics><mrow><msup><mi>X</mi><mn>2</mn></msup><mo>&gt;</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X^2 &gt; Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.814108em;"></span><span class="strut bottom" style="height: 0.853208em; vertical-align: -0.0391em;"></span><span class="base textstyle uncramped"><span class="mord"><span style="margin-right: 0.07847em;" class="mord mathit">X</span><span class="vlist"><span class="" style="top: -0.363em; margin-right: 0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span class="" style="font-size: 0em;">​</span></span>​</span></span></span><span class="mrel">&gt;</span><span style="margin-right: 0.22222em;" class="mord mathit">Y</span></span></span></span></p>
-<h5 id="h5-u4E0Au6807u548Cu4E0Bu6807"><a name="上标和下标" class="reference-link"></a><span class="header-link octicon octicon-link"></span>上标和下标</h5><p>上标：X<sup>2</sup></p>
-<p>下标：O<sub>2</sub></p>
-<h5 id="h5-u4EE3u7801u5757u91CCu5305u542Bu7684u8FC7u6EE4u6807u7B7Eu53CAu5C5Eu6027u4E0Du4F1Au88ABu8FC7u6EE4"><a name="代码块里包含的过滤标签及属性不会被过滤" class="reference-link"></a><span class="header-link octicon octicon-link"></span>代码块里包含的过滤标签及属性不会被过滤</h5><pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code class="lang-html"><span class="tag">&lt;style</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/style"</span><span class="tag">&gt;</span></code></li><li class="L1"><code class="lang-html"><span class="pln">body</span><span class="pun">{</span><span class="pln">background</span><span class="pun">:</span><span class="pln">red</span><span class="pun">;}</span></code></li><li class="L2"><code class="lang-html"><span class="tag">&lt;/style&gt;</span></code></li><li class="L3"><code class="lang-html"></code></li><li class="L4"><code class="lang-html"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javscript"</span><span class="tag">&gt;</span></code></li><li class="L5"><code class="lang-html"><span class="pln">alert</span><span class="pun">(</span><span class="str">"script"</span><span class="pun">);</span></code></li><li class="L6"><code class="lang-html"><span class="tag">&lt;/script&gt;</span></code></li><li class="L7"><code class="lang-html"></code></li><li class="L8"><code class="lang-html"><span class="tag">&lt;iframe</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">498</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">510</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://player.youku.com/embed/XMzA0MzIwMDgw"</span><span class="pln"> </span><span class="atn">frameborder</span><span class="pun">=</span><span class="atv">0</span><span class="pln"> </span><span class="atn">allowfullscreen</span><span class="tag">&gt;&lt;/iframe&gt;</span></code></li></ol></pre>
-<h5 id="h5-style"><a name="Style" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Style</h5>
+    \,d\xi
+```
+
+### 绘制流程图 Flowchart
+
+```flow
+st=>start: 用户登陆
+op=>operation: 登陆操作
+cond=>condition: 登陆成功 Yes or No?
+e=>end: 进入后台
+
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```
+
+### 绘制序列图 Sequence Diagram
+
+```seq
+Andrew->China: Says Hello
+Note right of China: China thinks\nabout it
+China-->Andrew: How are you?
+Andrew->>China: I am good thanks!
+```
+
+### End
 
 
-
-<h5 id="h5-script"><a name="Script" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Script</h5>
-
-</div>
-        </div>
-        <script src="plugin/editorMd/jquery.js"></script>
-        <script src="plugin/editorMd/marked.js"></script>
-        <script src="plugin/editorMd/prettify.js"></script>
-        
-        <script src="plugin/editorMd/raphael.js"></script>
-        <script src="plugin/editorMd/underscore.js"></script>
-        <script src="plugin/editorMd/sequence-diagram.js"></script>
-        <script src="plugin/editorMd/flowchart.js"></script>
-        <script src="plugin/editorMd/jquery_002.js"></script>
-        <script src="plugin/editorMd/editormd.js"></script>
-        
-        <script>
-    
-            $(function() {
-                var  testEditormdView2;
-
-                    
-                testEditormdView2 = editormd.markdownToHTML("test-editormd-view2", {
-                    htmlDecode      : "style,script,iframe",  // you can filter tags decode
-                    emoji           : true,
-                    taskList        : true,
-                    tex             : true,  // 默认不解析
-                    flowChart       : true,  // 默认不解析
-                    sequenceDiagram : true,  // 默认不解析
-                });
-            });
-        </script>        
-
+                    </textarea>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 
 
 

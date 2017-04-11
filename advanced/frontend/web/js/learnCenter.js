@@ -10,7 +10,7 @@
  以依赖Layui的layer和form模块为例
  **/
 
-var $ = layui.jquery; //重点处
+//var $ = layui.jquery; //引入jquery,index中引入则在此不需要多次引入
 
 $(document).ready(function () {
     //展开主菜单
@@ -18,4 +18,21 @@ $(document).ready(function () {
         $(this).next().slideToggle(250, function () {
         });
     });
+    
+    
+    //editor.md 转html显示
+    $(document).ready(function () {
+    var wordsView;
+    wordsView = editormd.markdownToHTML("wordsView", {
+        htmlDecode: "style,script,iframe", // you can filter tags decode
+        emoji: true,
+        taskList: true,
+        tex: true, // 默认不解析
+        flowChart: true, // 默认不解析
+        sequenceDiagram: true, // 默认不解析
+    });
+
+})
 });
+
+
