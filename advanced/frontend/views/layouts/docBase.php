@@ -3,6 +3,7 @@
 $this->beginContent('@app/views/layouts/main.php');
 use frontend\assets\AppAsset;
 AppAsset::register($this);
+
 AppAsset::addCss($this, "@web" . "/css/zidingyi.css");
 AppAsset::addCss($this, "@web" . "/css/zidingyi/icon/ionicons.css");
 AppAsset::addCss($this, "@web" . "/css/variables.css");
