@@ -17,9 +17,6 @@ AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/flowchart.min.js");
 AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/jquery.flowchart.min.js");
 AppAsset::addScript($this, "@web" . "/plugin/editor.md/editormd.js");
 ?>
-        <link rel="stylesheet" href="plugin/editorMd/editormd.css">
-        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon">
-
             <div style=" width: 90%;
                  margin: 0 auto;
                  margin-left: auto!important;
