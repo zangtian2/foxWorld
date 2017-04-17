@@ -2,9 +2,13 @@
 /* @var $this yii\web\View */
 ?>
 
+
+            
+
+
 <div class="main layui-clear">
   <div class="wrap">
-    <div class="content">
+    <div class="">
       <div class="fly-tab fly-tab-index">
         <span>
           <a href="jie/index.html">全部</a>
@@ -328,7 +332,7 @@
     </div>
   </div>
   
-  <div class="edge">
+<!--  <div class="edge">
     <div class="fly-panel leifeng-rank"> 
       <h3 class="fly-panel-title">近一月回答榜 - TOP 12</h3>
       <dl>
@@ -507,8 +511,9 @@
     </div>
 
 
-  </div>
+  </div>-->
 </div>
 <script>
 
 </script>
+

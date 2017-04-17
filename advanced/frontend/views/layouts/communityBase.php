@@ -8,8 +8,17 @@ AppAsset::addCss($this, "@web" . "/css/zidingyi/icon/ionicons.css");
 AppAsset::addCss($this, "@web" . "/css/variables.css");
 AppAsset::addCss($this, "@web" . "/css/feng-left-nav.css");
 AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
+
+
+$controllerID = Yii::$app->controller->id;
+
 ?>
 
+
+<?php
+if ($controllerID=='communityBase'):
+?>
+<?php endif;?>
 <div  class="feng-nav" >
     <div class="feng-nav-left-top">
         <header class="feng-nav-header">
@@ -20,52 +29,47 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
                 <li class="feng-nav-item u-category-windows">
                     <a href="javascript:;" class="feng-drop-a">
                         <i class="icon ion-monitor"></i>
-                        <span class="nav-text">窗体<i class="layui-icon">&#xe602;</i>  </span>
+                        <span class="nav-text">文章<i class="layui-icon">&#xe602;</i>  </span>
                     </a>
                     <ul class="drop-list" style="display:block">
-                        <li>      <button type="button" id="button-windows" data-section="windows" class="feng-nav-button is-selected" onclick="alert(1);">创建并管理 <em>窗体</em></button></li>
-                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button">处理窗体 <em>崩溃和挂起</em></button></li>
+                        <li>      <button type="button" id="button-windows" data-section="windows" class="feng-nav-button is-selected" onclick="alert(1);"> <em>总览</em></button></li>
+                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"> <em>货币</em></button></li>
+                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"> <em>理念</em></button></li>
+                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"> <em>策略</em></button></li>
+                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"> <em>纪律</em></button></li>
                     </ul>
                 </li>
                 <li class="feng-nav-item u-category-menu">
                     <a href="javascript:;" class="feng-drop-a" >
                         <i class="icon ion-monitor"></i>
-                        <span class="nav-text">菜单<i class="layui-icon">&#xe602;</i></span>
+                        <span class="nav-text">行情分析<i class="layui-icon">&#xe602;</i></span>
                     </a>
                     <ul class="drop-list">
-                        <li><button type="button" id="button-menus" data-section="menus" class="feng-nav-button">自定义 <em>菜单</em> </button></li>
-                        <li><button type="button" id="button-shortcuts" data-section="shortcuts" class="feng-nav-button">注册键盘 <em>快捷键</em></button></li>
+                        <li><button type="button" id="button-menus" data-section="menus" class="feng-nav-button"><em>日内</em> 行情</button></li>
+                        <li><button type="button" id="button-shortcuts" data-section="shortcuts" class="feng-nav-button"><em>短期</em> 行情</em></button></li>
+                        <li><button type="button" id="button-shortcuts" data-section="shortcuts" class="feng-nav-button"><em>长期</em> 行情</em></button></li>
+                        <li><button type="button" id="button-shortcuts" data-section="shortcuts" class="feng-nav-button"><em>货币</em> 行情</em></button></li>                        
                     </ul>
                 </li>
                 <li class="feng-nav-item u-category-native-ui">
                     <a href="javascript:;" class="feng-drop-a" >
                         <i class="icon ion-monitor"></i>
-                        <span class="nav-text">本地用户界面<i class="layui-icon">&#xe602;</i></span>
+                        <span class="nav-text">问答<i class="layui-icon">&#xe602;</i></span>
                     </a>
                     <ul class="drop-list">
-                        <li><button type="button" id="button-ex-links-file-manager" data-section="ex-links-file-manager" class="feng-nav-button">打开 <em>外部链接</em> 或 系统 <em>文件管理器</em></button></li>
-                        <li><button type="button" id="button-dialogs" data-section="dialogs" class="feng-nav-button">使用系统 <em>对话框</em></button></li>
-                        <li><button type="button" id="button-tray" data-section="tray" class="feng-nav-button">将应用程序放入 <em>托盘</em></button></li>
+                        <li><button type="button" id="button-ex-links-file-manager" data-section="ex-links-file-manager" class="feng-nav-button">有偿 <em>提问</em> </button></li>
+                        <li><button type="button" id="button-dialogs" data-section="dialogs" class="feng-nav-button">自由 <em>问答</em></button></li>
+                        <li><button type="button" id="button-tray" data-section="tray" class="feng-nav-button">招聘 <em>相关</em></button></li>
                     </ul>
                 </li>
                 <li class="feng-nav-item u-category-windows">
                     <a href="javascript:;" class="feng-drop-a" >
                         <i class="icon ion-monitor"></i>
-                        <span class="nav-text">窗体<i class="layui-icon">&#xe602;</i></span>
+                        <span class="nav-text">其他<i class="layui-icon">&#xe602;</i></span>
                     </a>
                     <ul class="drop-list">
-                        <li>      <button type="button" id="button-windows" data-section="windows" class="feng-nav-button">创建并管理 <em>窗体</em></button></li>
-                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button">处理窗体 <em>崩溃和挂起</em></button></li>
-                    </ul>
-                </li>
-                <li class="feng-nav-item u-category-windows" >
-                    <a href="javascript:;" class="feng-drop-a">
-                        <i class="icon ion-monitor"></i>
-                        <span class="nav-text">窗体<i class="layui-icon">&#xe602;</i></span>
-                    </a>
-                    <ul class="drop-list">
-                        <li>      <button type="button" id="button-windows" data-section="windows" class="feng-nav-button">创建并管理 <em>窗体</em></button></li>
-                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button">处理窗体 <em>崩溃和挂起</em></button></li>
+                        <li>      <button type="button" id="button-windows" data-section="windows" class="feng-nav-button">意见 <em>相关</em></button></li>
+                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button">板块 <em>申请</em></button></li>
                     </ul>
                 </li>
             </ul>
@@ -92,6 +96,7 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
         </div>
     </div>
 </div>
+
 <div class="feng-right">
     <div class="detail" style="padding-top: 1px;">
     <div class="fly-panel detail-box" style="margin: 15px;

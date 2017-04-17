@@ -2,12 +2,11 @@
 
 namespace frontend\controllers;
 
-class CommunityController extends \yii\web\Controller
+class UserController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        
-                $this->layout = "communityBase";
+             $this->layout = "userBase";
         return $this->render('index');
     }
 
