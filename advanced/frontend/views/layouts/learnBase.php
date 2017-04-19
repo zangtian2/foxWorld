@@ -105,6 +105,8 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
     <div class="fly-panel detail-box" style="margin: 15px;
          border: 1px solid rgb(192, 200, 212);
          box-shadow: 0px 3px 5px rgb(170, 178, 189);
+         /*-webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+        /*box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
          margin-top: 13px;">
         <div class="showback"  style="margin: 15px 5px;margin-top: 20px;padding-bottom: 30px;">
     <?= $content ?>
