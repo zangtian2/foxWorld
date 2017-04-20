@@ -49,7 +49,12 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     border: -1px;
 }
 
-
+.feng-body {
+    position: absolute;
+    top: 60px;
+    bottom: 0px;
+    width: 100%;
+}
 
 
 

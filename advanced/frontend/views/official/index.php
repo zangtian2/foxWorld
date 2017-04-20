@@ -12,13 +12,13 @@ $this->registerJs(
 AppAsset::addScript($this, "@web" . "/plugin/piccycle/js/main.js");
 ?>
 
-<div style="margin-top: 60px">
-    <section class="cd-hero">
-        <ul class="cd-hero-slider">
+<div style="height: 100%">
+    <section class="cd-hero" style="position: absolute;top: 0;bottom:40px;right: 0;left: 0">
+        <ul class="cd-hero-slider" style="height: 100%;">
             <li class="selected">
                 <div class="cd-full-width">
-
-                    <h1 style="font-size: 63px;color: wheat;margin-bottom: 20px">欢迎来到外汇领域!</h1>
+<br><br>
+                    <h1 style="font-size: 63px;color: #db940f;margin-bottom: 20px">欢迎来到外汇领域!</h1>
                             <br>
                             <br>
                             
@@ -90,13 +90,13 @@ AppAsset::addScript($this, "@web" . "/plugin/piccycle/js/main.js");
                 </ul>
             </nav> 
         </div> <!-- .cd-slider-nav -->
+        
+        <footer style="background-color: #fff;
+height: 40px;">
+        TTTTTTTTTTTTTTTTTTTTTTTTTTTT
     </section> <!-- .cd-hero -->
+
+</footer>
+
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>

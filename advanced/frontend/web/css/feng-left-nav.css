@@ -6,7 +6,7 @@
     overflow-y: auto;
     position: absolute;
     left: 0;
-    top: 60px;
+    top: 0;
     z-index: 301;
     bottom: 0;
     color: var(--color-subtle);
@@ -156,7 +156,7 @@
 }
 
 .feng-nav-left-top{
-    bottom: 35px;
+    bottom: 43px;
     position: absolute;
     top: 0;
     left: 0;
@@ -180,7 +180,7 @@
 
 
 .feng-right{
-    position: absolute;
+    position: fixed;
     left: 280px;
     top: 60px;
     z-index: 300;

@@ -42,15 +42,15 @@ class Tag extends \yii\db\ActiveRecord {
         ];
     }
 
-    public function string2array($tags) {
+    public static function string2array($tags) {
         return preg_split('/\s*,\s*/', trim($tags), -1, PREG_SPLIT_NO_EMPTY);
     }
 
-    public function array2string($str) {
+    public static function array2string($str) {
         return implode(',', $str);
     }
 
-    public function addTags($tags) {
+    public static function addTags($tags) {
         if (empty($tags))return;
         
         foreach ($tags as $name) {
@@ -69,7 +69,7 @@ class Tag extends \yii\db\ActiveRecord {
         }
     }
     
-    public function removeTags($tags) {
+    public static function removeTags($tags) {
         if (empty($tags))return;
         
         foreach ($tags as $name) {
@@ -89,7 +89,7 @@ class Tag extends \yii\db\ActiveRecord {
         }
     }
 
-    public function updateFrequency($oldTags, $newTags) {
+    public static function updateFrequency($oldTags, $newTags) {
         if(!empty($oldTags) || !empty($newTags))
         {
             $oldTagsArray = self::string2array($oldTags);
