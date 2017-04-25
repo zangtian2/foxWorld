@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use common\models\Comment;
 
 AppAsset::register($this);
 ?>
@@ -28,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'FoxWorld Backend',
+        'brandLabel' => '外域后台',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -37,17 +38,18 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => '文章管理', 'url' => ['/post/index']],
         ['label' => '评论管理', 'url' => ['/comment/index']],
+        '<li><span class="badge badge-inverse">'.Comment::getPengdingCommentCount().'</span></li>',
         ['label' => '用户管理', 'url' => ['/user/index']],
         ['label' => '管理员', 'url' => ['/adminuser/index']]
         
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => '登录', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
+                '注销 (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
             )
             . Html::endForm()

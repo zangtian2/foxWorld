@@ -13,33 +13,30 @@ use Yii;
  *
  * @property Comment[] $comments
  */
-class Commentstatus extends \yii\db\ActiveRecord
-{
+class Commentstatus extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'commentstatus';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['name', 'position'], 'required'],
-            [['position'], 'integer'],
-            [['name'], 'string', 'max' => 128],
+                [['name', 'position'], 'required'],
+                [['position'], 'integer'],
+                [['name'], 'string', 'max' => 128],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'name' => 'Name',
@@ -50,8 +47,8 @@ class Commentstatus extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getComments()
-    {
+    public function getComments() {
         return $this->hasMany(Comment::className(), ['status' => 'id']);
     }
+
 }
