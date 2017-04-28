@@ -73,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'aria-label' => Yii::t('yii', '审核'),
                             'data-confirm' => Yii::t('yii', '你确定通过这条评论吗？'),
                             'data-method' => 'post',
-                            'data-ajax' => '0',
+                            'data-pjax' => '0',
                         ];
                         return Html::a('<span class="glyphicon glyphicon-check"></span>', $url, $options);
                     },
