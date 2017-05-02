@@ -10,7 +10,7 @@ AppAsset::addCss($this, "@web" . "/css/feng-left-nav.css");
 $this->registerJs(  
    'var $ = layui.jquery;'  
 );  
-AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
+AppAsset::addScript($this, "@web" . "/js/communityCenter.js");
 
 
 $controllerID = Yii::$app->controller->id;
@@ -39,7 +39,10 @@ if ($controllerID=='communityBase'):
                         <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"> <em>货币</em></button></li>
                         <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"> <em>理念</em></button></li>
                         <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"> <em>策略</em></button></li>
-                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"> <em>纪律</em></button></li>
+                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"> <em>理论</em></button></li>
+                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"> <em>策略</em></button></li>
+<!--                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"><em>技术面</em></button></li>
+                        <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button"><em>基本面</em></button></li>                                                                        -->
                     </ul>
                 </li>
                 <li class="feng-nav-item u-category-menu">
@@ -50,8 +53,7 @@ if ($controllerID=='communityBase'):
                     <ul class="drop-list">
                         <li><button type="button" id="button-menus" data-section="menus" class="feng-nav-button"><em>日内</em> 行情</button></li>
                         <li><button type="button" id="button-shortcuts" data-section="shortcuts" class="feng-nav-button"><em>短期</em> 行情</em></button></li>
-                        <li><button type="button" id="button-shortcuts" data-section="shortcuts" class="feng-nav-button"><em>长期</em> 行情</em></button></li>
-                        <li><button type="button" id="button-shortcuts" data-section="shortcuts" class="feng-nav-button"><em>货币</em> 行情</em></button></li>                        
+                        <li><button type="button" id="button-shortcuts" data-section="shortcuts" class="feng-nav-button"><em>长期</em> 行情</em></button></li>                        
                     </ul>
                 </li>
                 <li class="feng-nav-item u-category-native-ui">
@@ -59,8 +61,7 @@ if ($controllerID=='communityBase'):
                         <i class="icon ion-monitor"></i>
                         <span class="nav-text">问答<i class="layui-icon">&#xe602;</i></span>
                     </a>
-                    <ul class="drop-list">
-                        <li><button type="button" id="button-ex-links-file-manager" data-section="ex-links-file-manager" class="feng-nav-button">有偿 <em>提问</em> </button></li>
+                    <ul class="drop-list">                        
                         <li><button type="button" id="button-dialogs" data-section="dialogs" class="feng-nav-button">自由 <em>问答</em></button></li>
                         <li><button type="button" id="button-tray" data-section="tray" class="feng-nav-button">招聘 <em>相关</em></button></li>
                     </ul>

@@ -19,22 +19,6 @@ $(document).ready(function () {
         });
     });
 
-
-    //editor.md 转html显示
-    $(document).ready(function () {
-        var wordsView;
-        wordsView = editormd.markdownToHTML("wordsView", {
-            htmlDecode: "style,script,iframe", // you can filter tags decode
-            emoji: true,
-            taskList: true,
-            tex: true, // 默认不解析
-            flowChart: true, // 默认不解析
-            sequenceDiagram: true, // 默认不解析
-        });
-
-    })
-
-
 });
 
 

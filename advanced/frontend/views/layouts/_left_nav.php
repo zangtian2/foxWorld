@@ -1,17 +1,12 @@
 <?php
-/* @var $this yii\web\View */
-$this->beginContent('@app/views/layouts/main.php');
-use frontend\assets\AppAsset;
-AppAsset::register($this);
 
-AppAsset::addCss($this, "@web" . "/css/zidingyi.css");
-AppAsset::addCss($this, "@web" . "/css/zidingyi/icon/ionicons.css");
-AppAsset::addCss($this, "@web" . "/css/variables.css");
-AppAsset::addCss($this, "@web" . "/css/feng-left-nav.css");
-AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 ?>
-
-<!--<div  class="feng-nav" >
+<div  class="feng-nav" >
     <div class="feng-nav-left-top">
         <header class="feng-nav-header">
             <h2 class="feng-nav-title">AT Field Index</h2>
@@ -21,7 +16,7 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
                 <li class="feng-nav-item u-category-windows">
                     <a href="javascript:;" class="feng-drop-a">
                         <i class="icon ion-monitor"></i>
-                        <span class="nav-text">窗体<i class="layui-icon">&#xe602;</i>  </span>
+                        <span class="nav-text">窗体 <?=$model?><i class="layui-icon">&#xe602;</i>  </span>
                     </a>
                     <ul class="drop-list" style="display:block">
                         <li>      <button type="button" id="button-windows" data-section="windows" class="feng-nav-button is-selected" onclick="alert(1);">创建并管理 <em>窗体</em></button></li>
@@ -92,18 +87,4 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
             </button>
         </div>
     </div>
-</div>-->
-<div class="feng-right">
-    <div class="detail" style="padding-top: 1px;">
-    <div class="fly-panel detail-box" style="margin: 15px;
-         border: 1px solid rgb(192, 200, 212);
-         box-shadow: 0px 3px 5px rgb(170, 178, 189);
-         margin-top: 13px;">
-        <div class="showback"  style="margin: 15px 5px;margin-top: 20px;padding-bottom: 30px;">
-    <?= $content ?>
-        </div>
-    </div>
-    </div>
 </div>
-
-<?php $this->endContent(); ?>

@@ -80,7 +80,7 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
         </div>
     </div>
     <div class="feng-nav-left-bottom ">
-        <div style="padding: 0px 2.3em;
+        <div style="padding: 0px 1.5em;
              margin-left: 5px;">
             <button class="self-nav-footer-button">
                 <i data-modal="resure" class="icon ion-ios-close"></i>
@@ -94,9 +94,13 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
             <button  id="window" name="fullScreen" class="self-nav-footer-button">
                 <i class="icon ion-android-expand"></i>
             </button>
-            <button  id="refresh" name="refresh" class="self-nav-footer-button">
+<!--            <button  id="refresh" name="refresh" class="self-nav-footer-button">
                 <i class="icon ion-refresh"></i>
+            </button>-->
+               <button  id="refresh" name="refresh" class="self-nav-footer-button">
+                   | <a style="font-size:14px">财经日历</a>
             </button>
+
         </div>
     </div>
 </div>

@@ -11,6 +11,11 @@ $actionID = Yii::$app->controller->action->id;
 $action = $controllerID . '/' . $actionID;
 
 AppAsset::addCss($this, "@web" . "/css/navFox.css");
+AppAsset::addCss($this, "@web" . "/css/zidingyi.css");
+AppAsset::addCss($this, "@web" . "/css/zidingyi/icon/ionicons.css");
+AppAsset::addCss($this, "@web" . "/css/variables.css");
+AppAsset::addCss($this, "@web" . "/css/feng-left-nav.css");
+AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
 ?>
 
 <?php $this->beginPage() ?>
@@ -77,7 +82,27 @@ AppAsset::addCss($this, "@web" . "/css/navFox.css");
             </div>
         </div>
         <div class="feng-body">
-            <?= $content ?>
+                <?=
+                        $this->render('_left_nav', [
+                            'model' =>$this->params['customParam'],
+                        ])
+                        ?>
+
+            
+            
+            <div class="feng-right">
+                <div class="detail" style="padding-top: 1px;">
+                <div class="fly-panel detail-box" style="margin: 15px;
+                     border: 1px solid rgb(192, 200, 212);
+                     box-shadow: 0px 3px 5px rgb(170, 178, 189);
+                     margin-top: 13px;">
+                    <div class="showback"  style="margin: 15px 5px;margin-top: 20px;padding-bottom: 30px;">
+                <?= $content ?>
+                    </div>
+                </div>
+                </div>
+            </div>
+
         </div>
         <?php $this->endBody() ?>
     </body>
