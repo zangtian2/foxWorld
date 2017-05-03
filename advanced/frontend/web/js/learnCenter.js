@@ -32,9 +32,36 @@ $(document).ready(function () {
             sequenceDiagram: true, // 默认不解析
         });
 
-    })
+    });
+
+
 
 
 });
 
+var app = new Vue({
+    el: '#app',
+    data: {
+        text: ''
+    },
+//            ready: function(){
+//              // 等同于jquery的$.ajax
+//              this.$http.get("<?= Url::toRoute('learn/article') ?>").then(function(response){
+//                      this.message=response.data;
+//                  })
+//          },
+});
+function test(url) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (data) {
+            console.log(1111);
+            app.text = data;
+        },
+        error: function (data) {
+            console.log("读取jsonName error!");
+        }
+    });
 
+}

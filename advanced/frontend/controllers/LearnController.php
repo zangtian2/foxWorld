@@ -16,9 +16,10 @@ class A
  */
     
  /*
-  *  ID :评论对应到comment search当中
+  *  ID
   *  menu_id :对应的菜单id
   *  content :内容
+  *  create_time :创建时间
   */
   
 public $name = "host";  
@@ -46,6 +47,15 @@ class LearnController extends \yii\web\Controller
     
     public function actionArticle(){
         //content 从learn表中获取
-        return content;
+        $content = 'AVCUEJDJS'
+                . '123123'
+                . '12412312'
+                . '45545'
+                . 'asdasd'
+                . 'af'
+                . 'ass'
+                . 'da'
+                . 'aaaa';
+        return $content;
     }
 }

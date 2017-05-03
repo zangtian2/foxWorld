@@ -1,10 +1,12 @@
 <?php
-
+use yii\helpers\Url;
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
 ?>
 <div  class="feng-nav" >
     <div class="feng-nav-left-top">
@@ -19,7 +21,7 @@
                         <span class="nav-text">窗体 <?=$model?><i class="layui-icon">&#xe602;</i>  </span>
                     </a>
                     <ul class="drop-list" style="display:block">
-                        <li>      <button type="button" id="button-windows" data-section="windows" class="feng-nav-button is-selected" onclick="alert(1);">创建并管理 <em>窗体</em></button></li>
+                        <li>      <button type="button" id="button-windows" data-section="windows" class="feng-nav-button is-selected" onclick="test('<?= Url::toRoute("learn/article") ?>');">创建并管理 <em>窗体</em></button></li>
                         <li>      <button type="button" id="button-crash-hang" data-section="crash-hang" class="feng-nav-button">处理窗体 <em>崩溃和挂起</em></button></li>
                     </ul>
                 </li>

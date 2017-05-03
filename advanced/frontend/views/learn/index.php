@@ -16,7 +16,12 @@ AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/sequence-diagram.min.
 AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/flowchart.min.js");
 AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/jquery.flowchart.min.js");
 AppAsset::addScript($this, "@web" . "/plugin/editor.md/editormd.js");
+AppAsset::addScript($this,"http://cdn.bootcss.com/vue/2.3.0/vue.js");
 ?>
+
+<div id="app">
+  {{ text }}
+</div>
             <div style=" width: 90%;
                  margin: 0 auto;
                  margin-left: auto!important;
