@@ -5,6 +5,7 @@
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use yii\helpers\Url;
+
 AppAsset::register($this);
 $controllerID = Yii::$app->controller->id;
 $actionID = Yii::$app->controller->action->id;
@@ -15,8 +16,6 @@ AppAsset::addCss($this, "@web" . "/css/zidingyi.css");
 AppAsset::addCss($this, "@web" . "/css/zidingyi/icon/ionicons.css");
 AppAsset::addCss($this, "@web" . "/css/variables.css");
 AppAsset::addCss($this, "@web" . "/css/feng-left-nav.css");
-AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
-
 ?>
 
 <?php $this->beginPage() ?>
@@ -75,32 +74,25 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
                       <i>VIP2</i>
                     </a>-->    
                     <div class="nav" style="top:10px">
-                        <a href="/user/logout/"><i class="iconfont icon-tuichu" style="top: 0; font-size: 22px;"></i>数据区</a>
-                      <a href="<?= Url::toRoute('user/index') ?>"><i class="iconfont icon-shezhi"></i>个人区</a>
-                      
+                        <!--<a href="/user/logout/"><i class="iconfont icon-tuichu" style="top: 0; font-size: 22px;"></i>数据区</a>-->
+                        <a href="<?= Url::toRoute('user/index') ?>"><i class="iconfont icon-shezhi"></i>个人区</a>
+
                     </div> 
                 </div>
             </div>
         </div>
         <div class="feng-body">
-                <?=
-                        $this->render('_left_nav', [
-                            'model' =>$this->params['customParam'],
-                        ])
-                        ?>
+            <?=
+            $this->render('navLeft\\' . $controllerID, [
+                'model' => $this->params['customParam'],
+            ])
+            ?>
 
-            
-            
             <div class="feng-right">
                 <div class="detail" style="padding-top: 1px;">
-                <div class="fly-panel detail-box" style="margin: 15px;
-                     border: 1px solid rgb(192, 200, 212);
-                     box-shadow: 0px 3px 5px rgb(170, 178, 189);
-                     margin-top: 13px;">
-                    <div class="showback"  style="margin: 15px 5px;margin-top: 20px;padding-bottom: 30px;">
-                <?= $content ?>
-                    </div>
-                </div>
+                    
+                            <?= $content ?>
+            
                 </div>
             </div>
 

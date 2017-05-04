@@ -12,6 +12,15 @@
 
 //var $ = layui.jquery; //引入jquery,index中引入则在此不需要多次引入
 
+$('.feng-nav-button').bind('click', function(){   
+   buttons = document.querySelectorAll('.feng-nav-button.is-selected');
+  Array.prototype.forEach.call(buttons, function (button) {
+    button.classList.remove('is-selected')
+  });
+$(this).addClass('is-selected');
+});
+
+
 $(document).ready(function () {
     //展开主菜单
     $(".feng-drop-a").click(function () {
@@ -19,49 +28,51 @@ $(document).ready(function () {
         });
     });
 
+});
 
-    //editor.md 转html显示
-    $(document).ready(function () {
-        var wordsView;
-        wordsView = editormd.markdownToHTML("wordsView", {
-            htmlDecode: "style,script,iframe", // you can filter tags decode
-            emoji: true,
-            taskList: true,
-            tex: true, // 默认不解析
-            flowChart: true, // 默认不解析
-            sequenceDiagram: true, // 默认不解析
-        });
+//    editor.md 转html显示
+//    $(document).ready(function () {
+//        var wordsView;
+//        wordsView = editormd.markdownToHTML("wordsView", {
+//            htmlDecode: "style,script,iframe", // you can filter tags decode
+//            emoji: true,
+//            taskList: true,
+//            tex: true, // 默认不解析
+//            flowChart: true, // 默认不解析
+//            sequenceDiagram: true, // 默认不解析
+//        });
+//
+//    });
 
+
+
+
+var wordsView;
+
+function loadmd() {
+    wordsView = editormd.markdownToHTML("wordsView", {
+        htmlDecode: "style,script,iframe", // you can filter tags decode
+        emoji: true,
+        taskList: true,
+        tex: true, // 默认不解析
+        flowChart: true, // 默认不解析
+        sequenceDiagram: true, // 默认不解析
     });
+}
 
-
-
-
-});
-
-var app = new Vue({
-    el: '#app',
-    data: {
-        text: ''
-    },
-//            ready: function(){
-//              // 等同于jquery的$.ajax
-//              this.$http.get("<?= Url::toRoute('learn/article') ?>").then(function(response){
-//                      this.message=response.data;
-//                  })
-//          },
-});
-function test(url) {
+function dataReload(url) {
     $.ajax({
         type: 'GET',
         url: url,
         success: function (data) {
-            console.log(1111);
-            app.text = data;
+            if (typeof (wordsView) !== 'undefined') {
+                wordsView.remove();
+            }
+            $("#learnData").append(data);
+            loadmd();
         },
         error: function (data) {
-            console.log("读取jsonName error!");
+            alert("读取数据 error!");
         }
     });
-
 }
