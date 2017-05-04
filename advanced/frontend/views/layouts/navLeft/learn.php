@@ -93,10 +93,12 @@ use yii\helpers\Url;
 <!--            <button  id="refresh" name="refresh" class="self-nav-footer-button">
                 <i class="icon ion-refresh"></i>
             </button>-->
-               <button  id="refresh" name="refresh" class="self-nav-footer-button">
-                   | <a style="font-size:14px">财经日历</a>
+            <button  id="dataEcon" name="refresh" class="self-nav-footer-button" onclick="dataEcon('<?= Url::toRoute("learn/test") ?>')">
+                   | <a style="font-size:14px" >财经日历</a>
             </button>
 
         </div>
     </div>
+    
 </div>
+
