@@ -18,14 +18,14 @@ AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/jquery.flowchart.min.
 AppAsset::addScript($this, "@web" . "/plugin/editor.md/editormd.js");
 AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
 //AppAsset::addScript($this,"http://cdn.bootcss.com/vue/2.3.0/vue.js");
-//AppAsset::addScript($this,"http://v2.uyan.cc/code/uyan.js");
-AppAsset::addScript($this, "@web" . "/js/bootstrap.min.js");
-AppAsset::addScript($this, "@web" . "/js/matrix.chat.js");
+
+//AppAsset::addScript($this, "@web" . "/js/bootstrap.min.js");
+//AppAsset::addScript($this, "@web" . "/js/matrix.chat.js");
 
 
 ?>
 
-<link rel="stylesheet" href="css/matrix-style_1.css" />
+<!--<link rel="stylesheet" href="css/matrix-style_1.css" />-->
 <div class="fly-panel detail-box" style="margin: 15px;
      border: 1px solid rgb(192, 200, 212);
      box-shadow: 0px 3px 5px rgb(170, 178, 189);
@@ -48,6 +48,11 @@ AppAsset::addScript($this, "@web" . "/js/matrix.chat.js");
      box-shadow: 0px 3px 5px rgb(170, 178, 189);
      margin-top: 13px;">
     
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2132716"></script>
+<!-- UY END -->
+    
     <div class="showback"  style="margin: 15px 5px;margin-top: 20px;padding-bottom: 30px;">
                     
         <div style=" width: 90%;
@@ -55,6 +60,15 @@ AppAsset::addScript($this, "@web" . "/js/matrix.chat.js");
              margin-left: auto!important;
              margin-right: auto!important;" id='tt' >
 
+<!--高速版-->
+<div id="SOHUCS" sid="请将此处替换为配置SourceID的语句"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysYM0Vnx',
+conf: 'prod_91f6e2794a02d86dc7878f2dae1e5c92'
+});
+</script>
 
         <div class="widget-box widget-chat">
           <div class="widget-title"> 

@@ -92,7 +92,7 @@ AppAsset::addCss($this, "@web" . "/css/feng-left-nav.css");
                 <div class="detail" style="padding-top: 1px;">
                     
                             <?= $content ?>
-            
+                 
                 </div>
             </div>
 
