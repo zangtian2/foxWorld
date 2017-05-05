@@ -1,9 +1,3 @@
-/* 
- * @Author: anchen
- * @Date:   2017-03-29 09:43:43
- * @Last Modified by:   anchen
- * @Last Modified time: 2017-03-29 09:54:46
- */
 
 /**
  项目JS主入口
@@ -12,40 +6,10 @@
 
 //var $ = layui.jquery; //引入jquery,index中引入则在此不需要多次引入
 
-$('.feng-nav-button').bind('click', function(){   
-   buttons = document.querySelectorAll('.feng-nav-button.is-selected');
-  Array.prototype.forEach.call(buttons, function (button) {
-    button.classList.remove('is-selected')
-  });
-$(this).addClass('is-selected');
-});
-
-
 $(document).ready(function () {
-    //展开主菜单
-    $(".feng-drop-a").click(function () {
-        $(this).next().slideToggle(250, function () {
-        });
-    });
-
+    //加载首页
+    loadmd();
 });
-
-//    editor.md 转html显示
-//    $(document).ready(function () {
-//        var wordsView;
-//        wordsView = editormd.markdownToHTML("wordsView", {
-//            htmlDecode: "style,script,iframe", // you can filter tags decode
-//            emoji: true,
-//            taskList: true,
-//            tex: true, // 默认不解析
-//            flowChart: true, // 默认不解析
-//            sequenceDiagram: true, // 默认不解析
-//        });
-//
-//    });
-
-
-
 
 var wordsView;
 
@@ -60,19 +24,30 @@ function loadmd() {
     });
 }
 
-function dataReload(url) {
+function dataReload(url, id) {
+    index = layer.load(1);
     $.ajax({
         type: 'GET',
-        url: url,
+        url: url, //域名修改时需要重新修改
+        data: {'menu_id': id},
+        dataType: 'json',
         success: function (data) {
             if (typeof (wordsView) !== 'undefined') {
                 wordsView.remove();
             }
-            $("#learnData").append(data);
+
+            $("#learnData").append(data.text);
             loadmd();
+
+            $('.feng-right').animate({scrollTop: 0}, 600);
+            layer.close(index);
         },
         error: function (data) {
+            console.log(data);
+            layer.close(index);
             alert("读取数据 error!");
         }
     });
 }
+
+

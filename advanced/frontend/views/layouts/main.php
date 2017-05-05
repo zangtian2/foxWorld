@@ -83,11 +83,7 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
             </div>
         </div>
         <div class="feng-body">
-            <?=
-            $this->render('navLeft\\' . $controllerID, [
-                'model' => $this->params['customParam'],
-            ])
-            ?>
+            <?=$this->render('navleftBase'); ?>
 
             <div class="feng-right">
                 <div class="detail" style="padding-top: 1px;">
