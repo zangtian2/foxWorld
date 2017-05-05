@@ -8,6 +8,7 @@ AppAsset::addCss($this, "@web" . "/plugin/editor.md/css/editormd.css");
 $this->registerJs(
         'var $ = layui.jquery;'
 );
+//AppAsset::addScript($this, "@web" . "/plugin/barrager/dist/js/jquery.barrager.js");
 AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/marked.min.js");
 AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/prettify.min.js");
 AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/raphael.min.js");
@@ -18,7 +19,10 @@ AppAsset::addScript($this, "@web" . "/plugin/editor.md/lib/jquery.flowchart.min.
 AppAsset::addScript($this, "@web" . "/plugin/editor.md/editormd.js");
 AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
 //AppAsset::addScript($this,"http://cdn.bootcss.com/vue/2.3.0/vue.js");
+  
+
 ?>
+
 
 <style>
     .detail-box {
@@ -43,14 +47,24 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
 <div class="fly-panel detail-box" >    
     <div class="showback" >        
         <div  id='learnData' >            
-            <?= $content ?>
+            <?= $l_content ?>
         </div>        
     </div>            
 </div>
 
+
 <div class="fly-panel detail-box">    
     <div class="showback">
-        <div  id='tt' >            
+        <div  id='tt' >     
+                        <div style="padding:15px;border:1px solid #444">
+                <h2>张三</h2>
+                <p>teste</p>                
+            </div>
+            <hr>
+            <div style="padding:15px;border:1px solid #444">
+                <h2>张三</h2>
+                <p>teste</p>                
+            </div>
             <hr>
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="评论..." id="msg-box">
@@ -70,5 +84,5 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
         });
         </script>-->
     </div>
-
+</div>
 

@@ -14,7 +14,7 @@ use yii\web\Response;
 class LearnController extends \yii\web\Controller {
 
     public function actionIndex() {
-
+//        $this->layout = "main";
         $this->view->params['nav_left_title'] = '学 习 指 导 目 录';
         $this->view->params['nav_left_root'] = NavLeft::getRnames('learn');
         $this->view->params['nav_left_children'] = NavLeft::getCnames('learn');
@@ -22,7 +22,7 @@ class LearnController extends \yii\web\Controller {
         $data = LearnContent::find()->select(['content'])->where(['menu_id' => 2])->one();
         $result = $this->mergeText($data->content);
         
-        return $this->render('index', ['content' => $result]);
+        return $this->render('index', ['l_content' => $result]);
     }
 
     public function actionArticle() {
@@ -35,7 +35,7 @@ class LearnController extends \yii\web\Controller {
 
     private function mergeText($text) {
         $tag_start = "<div id=\"wordsView\"><textarea style=\"display:block;\"   name=\"editormd-markdown-doc\" >";
-        $tag_end = "</textarea><div>";
+        $tag_end = "</textarea></div>";
         return $tag_start . $text . $tag_end;
     }
 
