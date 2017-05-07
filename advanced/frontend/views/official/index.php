@@ -4,7 +4,6 @@
 use frontend\assets\AppAsset;
 
 AppAsset::register($this);
-AppAsset::addCss($this, "@web" . "/plugin/piccycle/css/reset.css");
 AppAsset::addCss($this, "@web" . "/plugin/piccycle/css/style.css");
 $this->registerJs(
         'var $ = layui.jquery;'
@@ -91,12 +90,9 @@ AppAsset::addScript($this, "@web" . "/plugin/piccycle/js/main.js");
             </nav> 
         </div> <!-- .cd-slider-nav -->
         
-        <footer style="background-color: #fff;
-height: 40px;">
-        TTTTTTTTTTTTTTTTTTTTTTTTTTTT
     </section> <!-- .cd-hero -->
 
-</footer>
+
 
 </div>
 

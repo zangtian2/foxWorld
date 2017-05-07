@@ -68,7 +68,7 @@
       <ul class="fly-list">
         <li class="fly-list-li">
           <a href="user/home.html" class="fly-list-avatar">
-            <img src="assets/images/avatar/default.png" alt="">
+            <img src="images/avatar/default.png" alt="">
           </a>
           <h2 class="fly-tip">
             <a href="jie/detail.html">关于layui 引用其他插件，扩展模块 的用法</a>

@@ -6,7 +6,7 @@ function dataEcon(url) {
         title: 'iframe父子操作',
         skin: 'layui-layer-lan',
         maxmin: true,
-        shade: 0.7,
+        shade: 0.8,
         shadeClose: true, //点击遮罩关闭层
         area: ['1150px', '650px'],
         content: url,

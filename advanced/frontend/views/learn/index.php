@@ -55,7 +55,7 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
 
 <div class="fly-panel detail-box">    
     <div class="showback">
-        <div  id='tt' >     
+<!--        <div  id='tt' >     
                         <div style="padding:15px;border:1px solid #444">
                 <h2>张三</h2>
                 <p>teste</p>                
@@ -72,17 +72,17 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
                     <button class="btn btn-info" type="button">Go!</button>
                 </span>
             </div>
-        </div>        
+        </div>        -->
 
         <!--高速版-->
-        <!--<div id="SOHUCS" sid="请将此处替换为配置SourceID的语句" style="border-radius: 0px"></div>
+        <div id="SOHUCS" sid="请将此处替换为配置SourceID的语句" ></div>
         <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
         <script type="text/javascript">
         window.changyan.api.config({
         appid: 'cysYM0Vnx',
         conf: 'prod_91f6e2794a02d86dc7878f2dae1e5c92'
         });
-        </script>-->
+        </script>
     </div>
 </div>
 

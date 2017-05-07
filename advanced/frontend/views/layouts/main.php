@@ -82,16 +82,19 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                 </div>
             </div>
         </div>
-        <div class="feng-body">
-            <?=$this->render('navleftBase'); ?>
+        <div class="feng-body">            
+            <?php if($controllerID!=='official' && $controllerID!=='post'):?>
+                <?=$this->render('navleftBase');?>
+                    <div class="feng-right">
+                        <div class="detail" style="padding-top: 1px;">                    
+                          <?= $content ?>                 
+                        </div>
+                    </div>
+            <?php else:?>
+                    <?= $content ?>
+            <?php endif?>
 
-            <div class="feng-right">
-                <div class="detail" style="padding-top: 1px;">
-                    
-                            <?= $content ?>
-                 
-                </div>
-            </div>
+            
 
         </div>
         <?php $this->endBody() ?>
