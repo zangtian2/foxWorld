@@ -43,28 +43,6 @@ class PostSearch extends Post {
      */
     public function search($params) {
         $query = Post::find();
-
-        // add conditions that should always apply here
-
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => ['pageSize' => 10],
-            'sort' => [
-                'defaultOrder' => [
-                    'id' => SORT_DESC,
-                ],
-                'attributes' => ['id', 'title'],
-            ]
-        ]);
-
-        $this->load($params);
-
-        if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
-            return $dataProvider;
-        }
-
         // grid filtering conditions
         $query->andFilterWhere([
             'post.id' => $this->id,
@@ -81,11 +59,8 @@ class PostSearch extends Post {
         $query->join('INNER JOIN', 'Adminuser', 'post.author_id = Adminuser.id');
         $query->andFilterWhere(['like', 'Adminuser.nickname', $this->authorName]);
 
-        $dataProvider->sort->attributes['authorName'] = [
-                    'asc' => ['Adminuser.nickname' => SORT_ASC],
-                    'desc' => ['Adminuser.nickname' => SORT_DESC],
-        ];
-
+       $dataProvider =  $query->offset($offset)->limit($limit)->asArray()->all();
+        
         return $dataProvider;
     }
 
