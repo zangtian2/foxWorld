@@ -4,11 +4,12 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Post;
-use common\models\PostSearch;
+use common\models\AdminPost;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Json;
+use common\models\NavLeft;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -36,20 +37,21 @@ class PostController extends Controller
      */
     public function actionIndex()
     {
-       
-        return $this->render('index');
+
+        $this->view->params['nav_left_title'] = '学 习 指 导 目 录';
+        $this->view->params['nav_left_root'] = NavLeft::getRnames('learn');
+        $this->view->params['nav_left_children'] = NavLeft::getCnames('learn');
+       return $this->render('index');
     }
+    
+
+
     
     public function actionGetlist()
     {
-        
-         $model = new PostSearch();
-//        $model = new Post();
-        $dataProvider = $model->serach(111,1);
-        return Json::encode($dataProvider);
-        
-        
-        
+       $searchModel = new AdminPost();
+       $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+       return  Json::encode($dataProvider);         
     }
     
     

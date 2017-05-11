@@ -63,31 +63,7 @@ class Post extends \yii\db\ActiveRecord {
     }
     
     
-    
-    
-    public function serach($offset,$limit)
-    {
-        $query = Post::find();
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'post.id' => $this->id,
-            'status' => $this->status,
-            'create_time' => $this->create_time,
-            'update_time' => $this->update_time,
-            'author_id' => $this->author_id,
-        ]);
-
-        $query->andFilterWhere(['like', 'title', $this->title])
-                ->andFilterWhere(['like', 'content', $this->content])
-                ->andFilterWhere(['like', 'tags', $this->tags]);
-
-        $query->join('INNER JOIN', 'Adminuser', 'post.author_id = Adminuser.id');
-        $query->andFilterWhere(['like', 'Adminuser.nickname', $this->authorName]);
-
-       $dataProvider =  $query->offset($offset)->limit($limit)->asArray()->all();
         
-        return $dataProvider;
-    }
 
     /**
      * @return \yii\db\ActiveQuery

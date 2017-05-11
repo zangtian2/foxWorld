@@ -83,7 +83,7 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
             </div>
         </div>
         <div class="feng-body">            
-            <?php if($controllerID!=='official' && $controllerID!=='post'):?>
+            <?php if($controllerID!=='official' ):?>
                 <?=$this->render('navleftBase');?>
                     <div class="feng-right">
                         <div class="detail" style="padding-top: 1px;">                    
