@@ -16,6 +16,8 @@ function dataEcon(url) {
 
 
 var $ = layui.jquery;
+
+
 $('.feng-nav-button').bind('click', function () {
     buttons = document.querySelectorAll('.feng-nav-button.is-selected');
     Array.prototype.forEach.call(buttons, function (button) {
@@ -31,8 +33,10 @@ $(document).ready(function () {
         $(this).next().slideToggle(250, function () {
         });
     });
+    
 
 });
+
 
 
 
