@@ -125,6 +125,13 @@ background: transparent;
     <div class="showback" >        
         
         <div style=""><ul class="layui-nav navout " lay-filter="more" style="">
+             <li class="layui-nav-item navin">
+                        <?= Html::a('&nbsp;&nbsp;&nbsp;全 部&nbsp;&nbsp;&nbsp;', '#', [
+                            'id' =>'button-about',
+                                'class' => '',                                                                
+                                ]) 
+        ?></li>
+                
                     <li class="layui-nav-item navin">
                         <?= Html::a('&nbsp;&nbsp;&nbsp;更 多&nbsp;&nbsp;&nbsp;', '#', [
                             'id' =>'button-about',
@@ -203,7 +210,7 @@ line-height: 45px">
                     <div class="" style="padding:20px">
                         <div class="fly-tab fly-tab-index" id="example">
                             <span>
-                                <a href="jie/index.html">全部</a>
+                                <a href="jie/index.html">默认</a>
                                 <a href="jie/index.html">最新</a>
                                 <a href="jie/index.html">优质</a>
                                 <a href="user/index.html">关注</a>

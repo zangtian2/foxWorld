@@ -39,9 +39,9 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                 <a class="logo layui-this " href="<?= Url::toRoute('official/index') ?>" title="Fly" >Fox社区</a>
                 <div class="nav">
                     <ul class="layui-nav" lay-filter="">
-                        <li class="layui-nav-item nav-change <?= $action == "learn/index" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('learn/index') ?>">学习区</a></li>
-                        <li class="layui-nav-item nav-change <?= $action == "book/index" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('book/index') ?>">书籍区</a></li>
-                        <li class="layui-nav-item nav-change <?= $action == "community/index" ? 'layui-this' : null ?>">
+                        <li class="layui-nav-item nav-change <?= $controllerID == "learn" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('learn/index') ?>">学习区</a></li>
+                        <li class="layui-nav-item nav-change <?= $controllerID == "book" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('book/index') ?>">书籍区</a></li>
+                        <li class="layui-nav-item nav-change <?= $controllerID == "community" ? 'layui-this' : null ?>">
                             <a href="<?= Url::toRoute('community/index') ?>" >交流区</a>
                             <dl class="layui-nav-child my-nav-child"> <!-- 二级菜单 -->
                                 <dd ><a href="">文章</a></dd>
@@ -82,7 +82,7 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                 </div>
             </div>
         </div>
-        <div class="feng-body">            
+        <div class="feng-body" style="overflow-y: auto;overflow-x: hidden">            
                     <?= $content ?>
         </div>
         <?php $this->endBody() ?>

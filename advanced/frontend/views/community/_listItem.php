@@ -9,7 +9,8 @@ use yii\helpers\Html;
             <img src="images/avatar/default.png" alt="">
           </a>
           <h2 class="fly-tip">
-            <a href="<?=$model->url?>"><?=Html::encode($model->title)?></a>
+            <a href="<?=$model->url?>"></a>
+            <a href="<?= yii\helpers\Url::toRoute('community/view')?>"><?=Html::encode($model->title)?></a>
           </h2>
           <p>
             <span class="glyphicon glyphicon-user" aria-hidden='true'></span><em><?= Html::encode($model->author->nickname);?></em>
