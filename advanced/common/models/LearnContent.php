@@ -44,9 +44,9 @@ class LearnContent extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'menu_id' => 'Menu ID',
-            'content' => 'Content',
-            'create_time' => 'Create Time',
-            'update_time' => 'Update Time',
+            'content' => '内容',
+            'create_time' => '创建时间',
+            'update_time' => '修改时间',
         ];
     }
 }
