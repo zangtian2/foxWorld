@@ -42,14 +42,12 @@ $(function () {
             $(".header").hide();
             $(".feng-nav").hide();
             testEditor.config("toolbarIcons", full);
-            testEditor.config("watch", true);
 
         },
         onfullscreenExit : function() {
             $(".header").show();
             $(".feng-nav").show();
-            testEditor.config("toolbarIcons", simple);
-            testEditor.config("watch", false);            
+            testEditor.config("toolbarIcons", simple);    
         },
         
         
