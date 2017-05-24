@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\LearnContent */
 
-$this->title = 'Update Learn Content: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Learn Contents', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = '修改学习文章: ' . $model->menuName;
+$this->params['breadcrumbs'][] = ['label' => '学习文章', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->menuName, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = '修改';
 ?>
 <div class="learn-content-update">
 

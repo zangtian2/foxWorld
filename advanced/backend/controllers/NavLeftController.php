@@ -61,10 +61,9 @@ class NavLeftController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionChild()
     {
         $model = new NavLeft();
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -73,6 +72,19 @@ class NavLeftController extends Controller
             ]);
         }
     }
+    
+   public function actionRoot()
+    {
+        $model = new NavLeft();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
+    }
+
 
     /**
      * Updates an existing NavLeft model.
@@ -83,7 +95,6 @@ class NavLeftController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -92,6 +103,7 @@ class NavLeftController extends Controller
             ]);
         }
     }
+    
 
     /**
      * Deletes an existing NavLeft model.
@@ -101,7 +113,9 @@ class NavLeftController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        
+         $model->delete();
 
         return $this->redirect(['index']);
     }
@@ -118,7 +132,7 @@ class NavLeftController extends Controller
         if (($model = NavLeft::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException('你请求的页面不存在');
         }
     }
 }

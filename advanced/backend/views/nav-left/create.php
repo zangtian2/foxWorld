@@ -5,9 +5,14 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\NavLeft */
+if(Yii::$app->controller->action->id=='root')
+{
+    $this->title = '创建主菜单';
+}else{
+    $this->title = '创建子菜单';
+}
 
-$this->title = 'Create Nav Left';
-$this->params['breadcrumbs'][] = ['label' => 'Nav Lefts', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '左侧菜单', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="nav-left-create">

@@ -39,6 +39,8 @@ AppAsset::register($this);
         ['label' => '文章管理', 'url' => ['/post/index']],
         ['label' => '评论管理', 'url' => ['/comment/index']],
         '<li><span class="badge badge-inverse">'.Comment::getPengdingCommentCount().'</span></li>',
+        ['label' => '学习文章', 'url' => ['/learn-content/index']],
+        ['label' => '左侧导航', 'url' => ['/nav-left/index']],
         ['label' => '用户管理', 'url' => ['/user/index']],
         ['label' => '管理员', 'url' => ['/adminuser/index']]
         

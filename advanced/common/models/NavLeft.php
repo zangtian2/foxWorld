@@ -30,7 +30,9 @@ class NavLeft extends \yii\db\ActiveRecord
     {
         return [
             [['parentId', 'serial'], 'integer'],
+            [['parentId', 'serial'], 'required'],
             [['name', 'area'], 'string', 'max' => 255],
+            [['name'], 'required'],
         ];
     }
 
@@ -41,13 +43,20 @@ class NavLeft extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'parentId' => 'Parent ID',
-            'serial' => 'Serial',
-            'area' => 'Area',
+            'name' => '栏目名称',
+            'parentId' => '父级名称',
+            'serial' => '排序',
+            'area' => '区域',
         ];
     }
     
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getParentName() {
+        return $this->find()->select(['name'])->where(['id'=>$this->parentId])->one();
+    }
+
         /*
       * 获取缓存中地区
       */
@@ -71,4 +80,25 @@ class NavLeft extends \yii\db\ActiveRecord
          }         
          return $dis_city;
      }
+     
+     
+       public function beforeSave($insert) {
+        if (parent::beforeSave($insert)) {
+            if ($insert) {
+                if (!$this->area){
+                    $this->area = $this->findOne(['id'=>$this->parentId])->area;      
+                }                          
+            } 
+            return True;
+        } else {
+            return False;
+        }
+    }
+    
+    public function afterDelete() {
+        parent::afterDelete();
+        if ($this->parentId==0){            
+            $this->deleteAll(['parentId'=>$this->id]);
+        }
+    }
 }
