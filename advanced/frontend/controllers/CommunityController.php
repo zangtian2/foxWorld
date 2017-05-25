@@ -33,6 +33,28 @@ class CommunityController extends \yii\web\Controller
        
     }
     
+    public function actionTopics()
+    {
+        
+//        $rnames = NavLeft::getRnames('learn');
+//        $cnames = NavLeft::getCnames('learn');
+//        $this->view->params['nav_left_title'] = '学 习 指 导 目 录';
+//        $this->view->params['nav_left_root'] = $rnames;
+//        $this->view->params['nav_left_children'] = $cnames;
+//         return $this->render('index');
+        $this->layout = 'mainnoleft';
+        
+        $searchModel = new PostSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('topics', [
+           'searchModel' => $searchModel,
+           'dataProvider' => $dataProvider,
+        ]);
+        
+       
+    }    
+    
         public function actionView()
     {
             $this->layout = 'mainnoleft';

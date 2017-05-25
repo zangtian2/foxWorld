@@ -63,7 +63,16 @@ class LearnContentController extends Controller
      */
     public function actionCreate()
     {
-        $model = new LearnContent();
+        $data =  Yii::$app->request->post();  
+        if($data){
+            $model = LearnContent::findOne(['menu_id'=>$data['LearnContent']['menu_id']]);
+            if(!$model){
+                $model = new LearnContent();
+            }
+        }
+        else{
+            $model = new LearnContent();
+        }
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

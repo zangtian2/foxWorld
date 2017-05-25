@@ -208,6 +208,10 @@ line-height: 45px">
             <div class="main layui-clear">
                 <div class="wrap">
                     <div class="" style="padding:20px">
+                        <h2>交流中心</h2>
+                        <br>
+                        <p>Java实现LayIM后端的核心代码</p>
+                        <hr>
                         <div class="fly-tab fly-tab-index" id="example">
                             <span>
                                 <a href="jie/index.html">默认</a>

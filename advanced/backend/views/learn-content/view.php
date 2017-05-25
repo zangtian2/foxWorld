@@ -41,6 +41,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => date('Y-m-d H:i:s',$model->update_time),
             ],
         ],
+         'template' => '<tr><th style="width:120px;">{label}</th><td>{value}</td></tr>',
+          'options' => ['class'=>'table table-striped table-bordered detail-view'],
     ]) ?>
 
 </div>
