@@ -14,8 +14,9 @@ use yii\helpers\Url;
 use frontend\assets\AppAsset;
 //
 AppAsset::register($this);
-//
+
 AppAsset::addScript($this,"http://cdn.bootcss.com/vue/2.3.0/vue.js");
+
 ?>
 <style>
     .detail-box {
@@ -76,10 +77,13 @@ border-radius: 0px;margin-bottom: 0px
 }
 </style>
 
+
+
+
 <div class="fly-panel detail-box" >    
     <div class="showback" >        
         
-        <div style=""><ul class="layui-nav navout" lay-filter="" style="">
+<!--        <div style=""><ul class="layui-nav navout" lay-filter="" style="">
                 <li class="layui-nav-item navin"><a href="">USD/JAP</a></li>
                 <li class="layui-nav-item layui-this navin"><a href="">USD/AUD</a></li>
                 <li class="layui-nav-item navin"><a href="">USD/EUR</a></li>
@@ -89,51 +93,21 @@ border-radius: 0px;margin-bottom: 0px
                 <li class="layui-nav-item navin"><a href="">GOLD</a></li>
                 <li class="layui-nav-item navin"><a href="">BMW</a></li>
               </ul>
-        </div>
+        </div>-->
         
         
     <div class="row">
-        <div class="col-md-3 ">
-            <div style="padding:15px;padding-right:0px">
-            <div class="searchbox">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <span class="glyphicon glyphicon-search" aria-hidden='true'></span>查找文章
-                    </li>
-                    <li class="list-group-item">
-                        <div class="form-group">                     
-                            <input type="text" class="form-control" name="title"  placeholder="按标题">                                
-                        </div>
-                        <button type="submit" class="btn btn-default">搜索</button>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="tagcloudbox">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <span class="glyphicon glyphicon-search" aria-hidden='true'></span>标签云
-                    </li>
-                    <li class="list-group-item">搜索框</li>
-                </ul>
-            </div>
-
-            <div class="commentbox">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <span class="glyphicon glyphicon-search" aria-hidden='true'></span>最新回复
-                    </li>
-                    <li class="list-group-item">搜索框</li>
-                </ul>
-            </div>
-            </div>
-        </div>
-        
         <div class="col-md-9 test" style="min-height:768px">
 
             <div class="main layui-clear">
                 <div class="wrap">
                     <div class="" style="padding:20px">
+                                                <h2>交流中心</h2>
+                        <a href="javascript:btnSearch()"  class="layui-btn">投稿</a>
+                        <br>
+                        <p>Java实现LayIM后端的核心代码</p>
+                        <hr>
                         <div class="fly-tab fly-tab-index" id="example">
                             <span>
                                 <a href="jie/index.html">全部</a>
@@ -170,6 +144,7 @@ border-radius: 0px;margin-bottom: 0px
                                     </p>
                                   </li>
                         </ul>
+<!--<a href="#div-1" class="anchor-scroll" data-class-to="body" data-on-scroll="blur-effect">Test</a>-->
                                                         
                         </div>
                     </div>
@@ -177,7 +152,42 @@ border-radius: 0px;margin-bottom: 0px
             </div>
         </div>
         
+        <div class="col-md-3 ">
+            <div style="padding:15px;padding-right:0px">
+            <div class="searchbox">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-search" aria-hidden='true'></span>查找文章
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-group">                     
+                            <input type="text" class="form-control" name="title"  placeholder="按标题">                                
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </li>
+                </ul>
+            </div>
 
+            <div class="tagcloudbox">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-search" aria-hidden='true'></span>标签云
+                    </li>
+                    <li class="list-group-item">搜索框</li>
+                </ul>
+            </div>
+
+            <div class="commentbox">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-search" aria-hidden='true'></span>最新回复
+                    </li>
+                    <li class="list-group-item">搜索框</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        
 
     </div>         
 

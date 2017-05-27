@@ -73,16 +73,19 @@ $nav_left_title = $this->params['nav_left_title'];
     <div class="feng-nav-left-bottom ">
         <div style="padding: 0px 1.5em;
              margin-left: 5px;">
-            <button class="self-nav-footer-button">
-                <i  class="icon ion-ios-close"></i>
-            </button>
-            <button id="minus" class="self-nav-footer-button">
+            <button id="minus" class="self-nav-footer-button" onclick="hideLeftNav()">
                 <i class="icon ion-ios-minus"></i>
             </button>
+
             <button class="self-nav-footer-button">
                 <i  class="icon ion-ios-help"></i>
             </button>
-            <button  class="self-nav-footer-button">
+
+            <button class="self-nav-footer-button" onclick="btnSearch()">
+                <i  class="icon ion-android-search"></i>
+            </button>
+            
+                <button  class="self-nav-footer-button" onclick="btnSetScreen()">
                 <i class="icon ion-android-expand"></i>
             </button>
             <!--            <button  id="refresh" name="refresh" class="self-nav-footer-button">

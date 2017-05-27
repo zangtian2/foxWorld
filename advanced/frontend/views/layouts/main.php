@@ -16,6 +16,9 @@ AppAsset::addCss($this, "@web" . "/css/zidingyi.css");
 AppAsset::addCss($this, "@web" . "/css/zidingyi/icon/ionicons.css");
 AppAsset::addCss($this, "@web" . "/css/variables.css");
 AppAsset::addCss($this, "@web" . "/css/feng-left-nav.css");
+
+AppAsset::addCss($this, "@web" . "/css/search.css");
+
 AppAsset::addScript($this, "@web" . "/js/main.js");
 ?>
 
@@ -32,8 +35,54 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
     </head>
     <body>
         <?php $this->beginBody() ?>
+        <style>
 
-        <div class="header">
+            .feng-right {
+                /* for the animation */
+                transition: left 0.3s ease;
+            }
+            .feng-nav {
+                /* for the animation */
+                transition: margin 0.3s ease;
+            }
+
+            .collapsed {
+                /* hide it for small displays*/
+                display: none;
+            }
+
+            @media (min-width: 992px) {
+                .collapsed {
+                    display: block;
+                    /* same width as sidebar */
+                    margin-left: -25%;
+                }
+            }
+            .feng-right-left {
+                transition: left 0.3s ease;
+                left: 0px;
+            }
+
+            .db {
+                display: block !important;
+            }
+
+            .hb {
+                display: none
+            }
+
+            .db button {
+                transition: width 0.3s ease;
+                width: 5px;
+                height: 100px;
+                position: fixed;
+                z-index: 999;
+                top: 75px;
+                border-radius: 0px;
+                padding: 0px;
+            }
+        </style>
+        <div class="header" id="header">
 
             <div class="layui-clear">
                 <a class="logo layui-this " href="<?= Url::toRoute('official/index') ?>" title="Fly" >Fox社区</a>
@@ -50,7 +99,7 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                                 <dd ><a href="">问答</a></dd>
                             </dl>
                         </li>
-                        
+
                     </ul>
                     <!--                           <a class="nav-this" href="jie/index.html">
                                                 <i class="iconfont icon-wenda"></i>问答
@@ -83,22 +132,34 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                 </div>
             </div>
         </div>
-        <div class="feng-body">            
-            <?php if($controllerID!=='official' ):?>
-                <?=$this->render('navleftBase');?>
-                    <div class="feng-right">
-                        <div class="detail" style="padding-top: 1px;">                    
-                          <?= $content ?>                 
-                        </div>
-                    </div>
-            <?php else:?>
-                    <?= $content ?>
-            <?php endif?>
 
-            
+        <div class="feng-body">           
+
+
+            <?php if ($controllerID !== 'official'): ?>
+                <?= $this->render('navleftBase'); ?>
+                <div class="feng-right" >
+                    <div class="detail" style="padding-top: 1px;">                    
+                        <?= $content ?>                 
+                    </div>
+                </div>
+            <?php else: ?>
+                <?= $content ?>
+            <?php endif ?>
+
+            <div class="hb"><button class="btn btn-primary" onclick="hideLeftNav()"></button></div>
 
         </div>
+                   <nav class="st-menu">
+                        <h2 class="icon icon-search">搜索</h2>
+                        <div>
+                            <button class="self-nav-footer-button" onclick="btnSearch()">
+                                        <i  class="icon ion-ios-close"></i>
+                                    </button>
+                        </div>
+                </nav>
         <?php $this->endBody() ?>
     </body>
 </html>
 <?php $this->endPage() ?>
+
