@@ -12,6 +12,7 @@ use yii\helpers\Json;
 use common\models\NavLeft;
 use common\models\PostSearch;
 use common\models\Tag;
+use common\models\Comment;
 /**
  * PostController implements the CRUD actions for Post model.
  */
@@ -42,6 +43,7 @@ class PostController extends Controller {
         $this->view->params['nav_left_children'] = NavLeft::getCnames('learn');
         
         $tags=Tag::findTagWeights();
+        $recentComments=Comment::findRecentComments();
         
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -49,7 +51,8 @@ class PostController extends Controller {
         return $this->render('index', [
                     'searchModel' => $searchModel,
                     'dataProvider' => $dataProvider,
-                    'tags' => $tags
+                    'tags' => $tags,
+            'recentComments'=>$recentComments,
         ]);
     }
 
