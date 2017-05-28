@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use yii\helpers\Json;
 use common\models\NavLeft;
 
+use common\models\PostSearch;
 /**
  * PostController implements the CRUD actions for Post model.
  */
@@ -41,6 +42,14 @@ class PostController extends Controller
         $this->view->params['nav_left_title'] = '学 习 指 导 目 录';
         $this->view->params['nav_left_root'] = NavLeft::getRnames('learn');
         $this->view->params['nav_left_children'] = NavLeft::getCnames('learn');
+        
+                $searchModel = new PostSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+           'searchModel' => $searchModel,
+           'dataProvider' => $dataProvider,
+        ]);
        return $this->render('index');
     }
     

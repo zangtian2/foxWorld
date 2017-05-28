@@ -5,6 +5,7 @@ use yii\grid\GridView;
 use yii\widgets\ListView;
 use common\models\Post;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\PostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -119,10 +120,27 @@ border-radius: 0px;margin-bottom: 0px
                         </div>
 
                         
+                        
                         <div >
+                            
+                             <div >
+                                                    <?=
+                        ListView::widget([
+                            'id' => 'postList',
+                            'dataProvider' => $dataProvider,
+                            'itemView' => '_listItem', //子视图，显示一篇文章的标题等内容
+                            'layout' => '{items}{pager}',
+                            'pager' => [
+                                'maxButtonCount' => 10,
+                                'nextPageLabel' => Yii::t('app', '下一页'),
+                                'prevPageLabel' => Yii::t('app', '前一页'),
+                            ]
+                        ])
+                        ?>                                                                                
+                        </div>
 <!--                    </div><button v-on:click="nameSearch()">查询</button>-->
-                        <ul class="fly-list" id="postList">
-                            <!--<div id='layTest'></div>-->
+<!--                        <ul class="fly-list" id="postList">
+                            <div id='layTest'></div>
                             <li class="fly-list-li" v-for="line in lines" style="height:auto">
                                 <a href="user/home.html" class="fly-list-avatar" style="top: 35px;">
                                       <img src="images/avatar/default.png" alt="">
@@ -143,7 +161,7 @@ border-radius: 0px;margin-bottom: 0px
                                       </span>
                                     </p>
                                   </li>
-                        </ul>
+                        </ul>-->
 <!--<a href="#div-1" class="anchor-scroll" data-class-to="body" data-on-scroll="blur-effect">Test</a>-->
                                                         
                         </div>
@@ -160,10 +178,21 @@ border-radius: 0px;margin-bottom: 0px
                         <span class="glyphicon glyphicon-search" aria-hidden='true'></span>查找文章
                     </li>
                     <li class="list-group-item">
-                        <div class="form-group">                     
-                            <input type="text" class="form-control" name="title"  placeholder="按标题">                                
-                        </div>
-                        <button type="submit" class="btn btn-default">搜索</button>
+                        
+                        <?php $form = ActiveForm::begin(
+                                [
+                                     'method' => 'get',
+                                    'options' => ['class' => 'form-inline', 'id' => 'myForm'],
+                                    'action' => ['post/index'],
+                                ]); ?>
+
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="PostSearch[title]" id="w0input" placeholder="按标题">
+                            </div>
+                            <button type="submit" class="btn btn-default">搜索</button>
+                    
+                        <?php ActiveForm::end(); ?>
+                        
                     </li>
                 </ul>
             </div>
@@ -196,7 +225,7 @@ border-radius: 0px;margin-bottom: 0px
         </div>
     </div>
 
-<script id="demo" type="text/html">
+<!--<script id="demo" type="text/html">-->
 <!--
 {{#  layui.each(d.lines, function(index, item){ }}
 
@@ -225,10 +254,9 @@ border-radius: 0px;margin-bottom: 0px
       {{#  if(d.lines.length === 0){ }}
   无数据
 {{#  } }} -->
-</script>
-<?php $this->beginBlock('test') ?>  
-            
-
+<!--</script>-->
+    
+<!--
 $(function(){
 index = layer.load(1,{offset: ['50%', '58%'],anim:4});
 new Vue({
@@ -251,11 +279,8 @@ new Vue({
          }
 
     });
-})
+})-->
 
-
-<?php $this->endBlock() ?>  
-<?php $this->registerJs($this->blocks['test'], \yii\web\View::POS_END); ?>  
 
 
 <!--var laytpl = layui.laytpl;
