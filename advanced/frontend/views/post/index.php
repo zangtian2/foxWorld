@@ -6,6 +6,7 @@ use yii\widgets\ListView;
 use common\models\Post;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use frontend\components\TagsCloudWidget;
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\PostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -202,7 +203,9 @@ border-radius: 0px;margin-bottom: 0px
                     <li class="list-group-item">
                         <span class="glyphicon glyphicon-search" aria-hidden='true'></span>标签云
                     </li>
-                    <li class="list-group-item">搜索框</li>
+                    <li class="list-group-item">
+                        <?= TagsCloudWidget::widget(['tags'=>$tags]);?>
+                    </li>
                 </ul>
             </div>
 
