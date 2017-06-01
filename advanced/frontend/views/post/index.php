@@ -80,7 +80,121 @@ border-radius: 0px;margin-bottom: 0px
 }
 </style>
 
+<style>
+.note-list .have-img .wrap-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    border: 1px solid #f0f0f0;
+}
+    
+    .note-list .meta {
+    padding-right: 0!important;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.note-list .meta a {
+    margin-right: 10px;
+    color: #b4b4b4;
+}
+.note-list .meta a, .note-list .meta a:hover {
+    transition: .1s ease-in;
+    -webkit-transition: .1s ease-in;
+    -moz-transition: .1s ease-in;
+    -o-transition: .1s ease-in;
+    -ms-transition: .1s ease-in;
+}
+.note-list .collection-tag {
+    padding: 2px 6px;
+    color: #ea6f5a!important;
+    border: 1px solid rgba(236,97,73,.7);
+    border-radius: 3px;
+}
 
+.note-list .meta span {
+    margin-right: 10px;
+    color: #b4b4b4;
+}
+.note-list .abstract {
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 24px;
+}
+.note-list .title {
+    margin: -7px 0 4px;
+    display: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.note-list li {
+    position: relative;
+    width: 100%;
+    margin: 0 0 17px;
+    padding: 0 2px 17px 0;
+    border-bottom: 1px solid #f0f0f0;
+    word-wrap: break-word;
+}
+
+
+.note-list .have-img>div {
+    padding-right: 160px;
+}
+
+.note-list .have-img .wrap-img {
+    position: absolute;
+    top: 50%;
+    margin-top: -68px;
+    right: 0;
+    width: 150px;
+    height: 120px;
+}
+
+.note-list li.have-img {
+    min-height: 140px;
+}
+
+.note-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.note-list .author .avatar, .note-list .author .name {
+    display: inline-block;
+    vertical-align: middle;
+}
+.note-list .author .avatar, .note-list .author .name {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.note-list .author .name span {
+    display: inline-block;
+    padding-left: 3px;
+    color: #969696;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.note-list .author {
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    display: block;
+    cursor: pointer;
+}
+</style>
 
 
 <div class="fly-panel detail-box" >    
@@ -101,24 +215,22 @@ border-radius: 0px;margin-bottom: 0px
         
     <div class="row">
 
-        <div class="col-md-9 test" style="min-height:768px">
+        <div class="col-md-8 test" style="min-height:768px">
 
             <div class="main layui-clear">
                 <div class="wrap">
-                    <div class="" style="padding:20px">
+                    <div class="" style="padding: 40px 30px 0px 60px;">
                                                 <h2>交流中心</h2>
-                        <a href="javascript:btnSearch()"  class="layui-btn">投稿</a>
+                                                <a href="javascript:btnSearch()"  class="layui-btn" style="float:right">投稿</a>
                         <br>
                         <p>Java实现LayIM后端的核心代码</p>
-                        <hr>
-                        <div class="fly-tab fly-tab-index" id="example">
-                            <span>
-                                <a href="jie/index.html">全部</a>
-                                <a href="jie/index.html">最新</a>
-                                <a href="jie/index.html">优质</a>
-                                <a href="user/index.html">关注</a>
-                            </span>
-                            <a href="jie/add.html" class="layui-btn jie-add">投稿</a>
+                        <div class="fly-tab fly-tab-index" id="example" style="margin-bottom:30px">
+<ul class="layui-nav navout " lay-filter="more" style="" >
+                 <li class="layui-nav-item navin" style="padding: 0 40px"><a href="">默认</a></li>
+                <li class="layui-nav-item navin" style="padding: 0 40px"><a href="">最新</a></li>
+                <li class="layui-nav-item navin" style="padding:  0 40px"><a href="">优质</a></li>
+                <li class="layui-nav-item navin" style="padding: 0 40px"><a href="">关注</a></li>             
+              </ul>
                         </div>
 
                         
@@ -126,6 +238,7 @@ border-radius: 0px;margin-bottom: 0px
                         <div >
                             
                              <div >
+                                 <ul class="note-list" infinite-scroll-url="/c/dqfRwQ?order_by=commented_at">
                                                     <?=
                         ListView::widget([
                             'id' => 'postList',
@@ -138,7 +251,8 @@ border-radius: 0px;margin-bottom: 0px
                                 'prevPageLabel' => Yii::t('app', '前一页'),
                             ]
                         ])
-                        ?>                                                                                
+                        ?>                       
+                                     </ul>
                         </div>
 <!--                    </div><button v-on:click="nameSearch()">查询</button>-->
 <!--                        <ul class="fly-list" id="postList">
@@ -172,50 +286,37 @@ border-radius: 0px;margin-bottom: 0px
             </div>
         </div>
         
-        <div class="col-md-3 ">
-            <div style="padding:15px;padding-right:0px">
+        <div class="col-md-4 ">
+            <div style="padding:60px 25px 15px 30px">
             <div class="searchbox">
-                <ul class="list-group">
+                <ul class="list-group" style="border-bottom: 1px solid #f0f0f0;">
                     <li class="list-group-item">
-                        <span class="glyphicon glyphicon-search" aria-hidden='true'></span>查找文章
-                    </li>
-                    <li class="list-group-item">
-                        
-                        <?php $form = ActiveForm::begin(
-                                [
-                                     'method' => 'get',
-                                    'options' => ['class' => 'form-inline', 'id' => 'myForm'],
-                                    'action' => ['post/index'],
-                                ]); ?>
-
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="PostSearch[title]" id="w0input" placeholder="按标题">
-                            </div>
-                            <button type="submit" class="btn btn-default">搜索</button>
-                    
-                        <?php ActiveForm::end(); ?>
-                        
+                        <p style="    color: rgb(150, 150, 150);">专题公告</p>
+                        <p>
+                        投稿须知: 
+<br>1、字数不限，收入以哲学思辨（中西方哲学观点和作者本人的深度思考体现）为基础的各类体裁的作品以及国学、古汉语文字和文章解读方向的作品。 
+<br>2、排版简洁，段落分明。 
+<br>3、尽量确保无错别字，文字简练、文笔优美。 
+<br>4、谢绝密集投稿，为了读者和您有更好的专题体验。 
+<br>5、禁投广告，请不要在文章任何位置显示公众号、电话、微博、QQ、二维码等信息，不要插入与作品内容无关的图片。 
+<br>6、严禁抄袭，请尊重原创和自己。                                                </p>
                     </li>
                 </ul>
             </div>
 
             <div class="tagcloudbox">
-                <ul class="list-group">
+                <ul class="list-group" style="border-bottom: 1px solid #f0f0f0;">
                     <li class="list-group-item">
-                        <span class="glyphicon glyphicon-search" aria-hidden='true'></span>标签云
-                    </li>
-                    <li class="list-group-item">
-                        <?= TagsCloudWidget::widget(['tags'=>$tags]);?>
+                        <p style="    color: rgb(150, 150, 150);">标签云</p>
+                        <p><?= TagsCloudWidget::widget(['tags'=>$tags]);?></p>
                     </li>
                 </ul>
             </div>
 
             <div class="commentbox">
-                <ul class="list-group">
+                <ul class="list-group" style="border-bottom: 1px solid #f0f0f0;">
                     <li class="list-group-item">
-                        <span class="glyphicon glyphicon-search" aria-hidden='true'></span>最新回复
-                    </li>
-                    <li class="list-group-item">
+                        <p style="    color: rgb(150, 150, 150);">最新回复</p>                                        
                         <?= RecentReplyWidget::widget(['recentComments'=>$recentComments]);?>
                     </li>
                 </ul>

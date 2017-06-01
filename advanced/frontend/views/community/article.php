@@ -7,7 +7,8 @@
  */
 use yii\helpers\Html;
 
-
+use frontend\components\TagsCloudWidget;
+use frontend\components\RecentReplyWidget;
 
 use frontend\assets\AppAsset;
 
@@ -38,14 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="fly-panel detail-box" >    
     <div class="showback" >        
         
-                <div style=""><ul class="layui-nav navout " lay-filter="more" style="">
-             <li class="layui-nav-item navin">
-                        <?= Html::a('&nbsp;&nbsp;&nbsp;全 部&nbsp;&nbsp;&nbsp;', '#', [
-                            'id' =>'button-about',
-                                'class' => '',                                                                
-                                ]) 
-        ?></li>
-                
+                <div style=""><ul class="layui-nav navout " lay-filter="more" style="">                
                     <li class="layui-nav-item navin">
                         <?= Html::a('&nbsp;&nbsp;&nbsp;更 多&nbsp;&nbsp;&nbsp;', '#', [
                             'id' =>'button-about',
@@ -54,9 +48,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'data-target' => '#about-modal'    //此处对应Modal组件中设置的id
                                 ]) 
         ?></li>
-                <li class="layui-nav-item navin"><a href="">USD/JAP</a></li>
-                <li class="layui-nav-item layui-this navin"><a href="">USD/AUD</a></li>
-                <li class="layui-nav-item navin"><a href="">USD/EUR</a></li>
+                <li class="layui-nav-item navin"><a href="">外汇知识</a></li>
+                <li class="layui-nav-item layui-this navin"><a href="">货币介绍</a></li>
+                <li class="layui-nav-item navin"><a href="">交易理论</a></li>
                 <li class="layui-nav-item navin">
                   <a href="javascript:;">USD/NZD</a>
                 </li>
@@ -81,9 +75,39 @@ line-height: 45px">
         
             <div class="row">
         <div class="col-md-3 ">
-            <div style="padding:15px;padding-right:0px"></div>
+            <div style="padding:15px;padding-right:0px">
+              
+                <div class="authorInfo">
+                <ul class="list-group" style="border-bottom: 1px solid #f0f0f0;">
+                    <li class="list-group-item">
+                        <p style="">作者</p>                                        
+                        
+                    </li>
+                </ul>
+            </div>
+                
+                <div class="tagcloudbox">
+                <ul class="list-group" style="border-bottom: 1px solid #f0f0f0;">
+                    <li class="list-group-item">
+                        <p style=" ">标签云</p>
+                        <p><?=TagsCloudWidget::widget(['tags'=>$tags]);?></p>
+                    </li>
+                </ul>
+            </div>
+
+                
+            <div class="commentbox">
+                <ul class="list-group" style="border-bottom: 1px solid #f0f0f0;">
+                    <li class="list-group-item">
+                        <p style="">最新回复</p>                                        
+                        <?=RecentReplyWidget::widget(['recentComments'=>$recentComments]);?>
+                    </li>
+                </ul>
+            </div>
+                
+            </div>
         </div>
-                <div class="col-md-9 test" style="min-height:768px">                           
+                <div class="col-md-9 test" style="min-height:768px;padding-top: 20px;">                           
                     <div class="post-view">
 
                         <h1 style="text-align: center">文章测试</h1>

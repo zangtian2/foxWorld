@@ -8,6 +8,11 @@ use Yii;
 
 class RecentReplyWidget extends Widget {
 
+     /*
+     * 使用方法
+     * controller : $recentComments=Comment::findRecentComments();
+     * view : <?= RecentReplyWidget::widget(['recentComments'=>$recentComments]);?>
+     */
     public $recentComments;
 
     public function init() {

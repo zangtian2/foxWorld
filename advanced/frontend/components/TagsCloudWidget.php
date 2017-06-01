@@ -7,7 +7,12 @@ use yii\helpers\Html;
 use Yii;
 
 class TagsCloudWidget extends Widget {
-
+    
+    /*
+     * 使用方法
+     * controller : $tags=Tag::findTagWeights();
+     * view : <?= TagsCloudWidget::widget(['tags'=>$tags]);?>
+     */
     public $tags;
 
     public function init() {

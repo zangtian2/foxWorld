@@ -46,7 +46,7 @@ $(document).ready(function () {
 function hideLeftNav() {
     $(".feng-nav").toggleClass("collapsed");
     $(".feng-right").toggleClass("feng-right-left");
-    $(".hb").toggleClass("db");
+    $(".hb").toggleClass("db");    
 }
 
 //浏览器全屏设置
@@ -116,6 +116,10 @@ function btnSearch() {
     $(".st-menu").toggleClass("st-menu-open");
 }
 
+
+$('#searchbtn').bind('click', function () {
+//    $(".st-menu").toggleClass("st-menu-open");
+});
 //--------------------------------------------------
 //var scrolling = false;        
 //$('.feng-right').on('scroll',function(){

@@ -5,6 +5,7 @@
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 
 AppAsset::register($this);
 $controllerID = Yii::$app->controller->id;
@@ -151,7 +152,30 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
 
         </div>
                    <nav class="st-menu">
-                        <h2 class="icon icon-search">搜索</h2>
+                                    <div class="searchbox">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="glyphicon glyphicon-search" aria-hidden='true'></span>查找文章
+                    </li>
+                    <li class="list-group-item">
+                        
+                        <?php $form = ActiveForm::begin(
+                                [
+                                     'method' => 'get',
+                                    'options' => ['class' => 'form-inline', 'id' => 'myForm','target'=>'_blank'],
+                                    'action' => ['post/index'],
+                                ]); ?>
+
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="PostSearch[title]" id="w0input" placeholder="按标题">
+                            </div>
+                        <button type="submit" id="searchbtn" class="btn btn-default">搜索</button>
+                    
+                        <?php ActiveForm::end(); ?>
+                        
+                    </li>
+                </ul>
+            </div>
                         <div>
                             <button class="self-nav-footer-button" onclick="btnSearch()">
                                         <i  class="icon ion-ios-close"></i>
