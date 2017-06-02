@@ -180,9 +180,9 @@
 
 
 .feng-right{
-    position: fixed;
+    position: absolute;
     left: 280px;
-    top: 60px;
+    top: 0;
     z-index: 300;
     overflow-y: auto;
     overflow-x: hidden;

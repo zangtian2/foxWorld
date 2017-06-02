@@ -216,17 +216,18 @@ border-radius: 0px;margin-bottom: 0px
             <div class="main layui-clear">
                 <div class="wrap">
                     <div class="" style="padding: 40px 10px 0px 70px;">
-                        <div style="margin-bottom: 35px;">
+                        <div style="margin-bottom: 25px;overflow: auto;">
                             <a class="avatar-collection"  style="float: left;
 width: 80px;
-height: 80px;" href="/c/MZp7Ey">
+height: 80px;
+margin-top: 20px;" href="/c/MZp7Ey">
                                 <img style="width: 100%;
 height: 100%;
 border-radius: 10%;
 border: 1px solid rgb(221, 221, 221);" src="//upload.jianshu.io/collections/images/39/332293730045332541.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="240">
                       </a>
                                                 
-                                                <a href="javascript:btnSearch()"  class="layui-btn" style="float: right;margin-top: 20px;">关注</a>
+                                                <a href="javascript:btnSearch()"  class="layui-btn" style="float: right;margin-top: 40px;">关注</a>
                                                 <h2 style="padding-left: 100px;padding-top: 10px;">交流中心</h2>
                                 <p style="padding-left: 100px;">收录了7756篇文章 · 661260人关注</p>
                         </div>
