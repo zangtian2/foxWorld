@@ -16,20 +16,21 @@ class CommunityController extends \yii\web\Controller
     public function actionIndex()
     {
         
-//        $rnames = NavLeft::getRnames('learn');
-//        $cnames = NavLeft::getCnames('learn');
-//        $this->view->params['nav_left_title'] = '学 习 指 导 目 录';
-//        $this->view->params['nav_left_root'] = $rnames;
-//        $this->view->params['nav_left_children'] = $cnames;
-//         return $this->render('index');
-        $this->layout = 'mainnoleft';
+        $this->view->params['nav_left_title'] = '学 习 指 导 目 录';
+        $this->view->params['nav_left_root'] = NavLeft::getRnames('learn');
+        $this->view->params['nav_left_children'] = NavLeft::getCnames('learn');
+        
+        $tags=Tag::findTagWeights();
+//        $recentComments=Comment::findRecentComments();
         
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-           'searchModel' => $searchModel,
-           'dataProvider' => $dataProvider,
+        return $this->render('topics', [
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
+                    'tags' => $tags,
+//            'recentComments'=>$recentComments,
         ]);
         
        
@@ -42,7 +43,7 @@ class CommunityController extends \yii\web\Controller
         $this->view->params['nav_left_root'] = NavLeft::getRnames('learn');
         $this->view->params['nav_left_children'] = NavLeft::getCnames('learn');
         
-//        $tags=Tag::findTagWeights();
+        $tags=Tag::findTagWeights();
 //        $recentComments=Comment::findRecentComments();
         
         $searchModel = new PostSearch();
@@ -51,7 +52,7 @@ class CommunityController extends \yii\web\Controller
         return $this->render('topics', [
                     'searchModel' => $searchModel,
                     'dataProvider' => $dataProvider,
-//                    'tags' => $tags,
+                    'tags' => $tags,
 //            'recentComments'=>$recentComments,
         ]);
         

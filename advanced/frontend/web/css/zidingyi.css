@@ -227,3 +227,7 @@ img {
     border: 0;
     box-shadow: 0 2px 10px #009926;
 }
+
+    .row{
+        margin:0
+    }

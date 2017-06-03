@@ -39,10 +39,6 @@ AppAsset::addScript($this, "@web" . "/js/communityCenter.js");
         margin-right: auto!important;
     }
     
-    .test {
-    height: 100%;
-    border-left: 1px solid #eee;
-}
 .navin {
     line-height: 45px !important;
 }
@@ -203,7 +199,7 @@ line-height: 45px">
             </div>
         </div>
         
-        <div class="col-md-9 test" style="min-height:768px">
+        <div class="col-md-9" style="min-height:768px">
 
             <div class="main layui-clear">
                 <div class="wrap">

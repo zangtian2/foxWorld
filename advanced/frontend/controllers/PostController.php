@@ -13,14 +13,19 @@ use common\models\NavLeft;
 use common\models\PostSearch;
 use common\models\Tag;
 use common\models\Comment;
+use common\models\User;
+
 /**
  * PostController implements the CRUD actions for Post model.
  */
 class PostController extends Controller {
 
+    public $added = 0; //0代表还没有新回复
+
     /**
      * @inheritdoc
      */
+
     public function behaviors() {
         return [
             'verbs' => [
@@ -41,10 +46,10 @@ class PostController extends Controller {
         $this->view->params['nav_left_title'] = '学 习 指 导 目 录';
         $this->view->params['nav_left_root'] = NavLeft::getRnames('learn');
         $this->view->params['nav_left_children'] = NavLeft::getCnames('learn');
-        
-        $tags=Tag::findTagWeights();
-        $recentComments=Comment::findRecentComments();
-        
+
+        $tags = Tag::findTagWeights();
+        $recentComments = Comment::findRecentComments();
+
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -52,7 +57,7 @@ class PostController extends Controller {
                     'searchModel' => $searchModel,
                     'dataProvider' => $dataProvider,
                     'tags' => $tags,
-            'recentComments'=>$recentComments,
+                    'recentComments' => $recentComments,
         ]);
     }
 
@@ -133,6 +138,36 @@ class PostController extends Controller {
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionDetail($id) {
+        $this->layout = 'mainnoleft';
+        //step1. 准备模型        
+        $model = $this->findModel($id);
+        $tags = Tag::findTagWeights();
+        $recentComments = Comment::findRecentComments();
+        $userMe = User::findOne(1);  //$userMe  =User::findOne(Yii::$app->user->id);
+        $commentModel = new Comment();
+        $commentModel->email = $userMe->email;
+        $commentModel->userid = $userMe->id;
+
+        //step2. 当评论提交时，处理评论
+        if ($commentModel->load(Yii::$app->request->post())) {
+            $commentModel->status = 1; //新评论默认状态为 pending
+            $commentModel->post_id = $id;
+            if ($commentModel->save()) {
+                $this->added = 1;
+            }
+        }
+
+        //step3. 传数据渲染视图        
+        return $this->render('detail', [
+                    'model' => $model,
+                    'tags' => $tags,
+                    'recentComments' => $recentComments,
+                    'commentModel' => $commentModel,
+                    'added' => $this->added,
+        ]);
     }
 
 }

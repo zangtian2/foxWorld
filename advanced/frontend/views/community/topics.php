@@ -192,8 +192,8 @@ AppAsset::addScript($this, "http://cdn.bootcss.com/vue/2.3.0/vue.js");
 </style>
 
 
-<div class="fly-panel detail-box" >    
-    <div class="showback" >        
+<div class="fly-panel detail-box" style="min-width:768px;">    
+    <div class="showback "  >        
 
         <!--        <div style=""><ul class="layui-nav navout" lay-filter="" style="">
                         <li class="layui-nav-item navin"><a href="">USD/JAP</a></li>
@@ -212,9 +212,9 @@ AppAsset::addScript($this, "http://cdn.bootcss.com/vue/2.3.0/vue.js");
 
             <div class="col-md-8" style="min-height:768px">
 
-                <div class="main layui-clear">
-                    <div class="wrap">
-                        <div class="" style="padding: 40px 10px 0px 70px;">
+                <div>
+      
+                        <div class="" style="padding: 40px 0px 40px 6%">
                             <div style="margin-bottom: 25px;overflow: auto;">
                                 <a class="avatar-collection"  style="float: left;
                                    width: 80px;
@@ -288,12 +288,12 @@ AppAsset::addScript($this, "http://cdn.bootcss.com/vue/2.3.0/vue.js");
 
                             </div>
                         </div>
-                    </div>
+                
                 </div>
             </div>
 
             <div class="col-md-4 ">
-                <div style="padding:60px 50px 15px 20px;">
+                <div style="padding:60px 6% 40px 2%;">
                     <div class="searchbox">
                         <ul class="list-group" style="border-bottom: 1px solid #f0f0f0;">
                             <li class="list-group-item">
@@ -314,7 +314,7 @@ AppAsset::addScript($this, "http://cdn.bootcss.com/vue/2.3.0/vue.js");
                         <ul class="list-group" style="border-bottom: 1px solid #f0f0f0;">
                             <li class="list-group-item">
                                 <p style="    color: rgb(150, 150, 150);">标签云</p>
-                                <p><?php //  TagsCloudWidget::widget(['tags'=>$tags]); ?></p>
+                                <p><?= TagsCloudWidget::widget(['tags'=>$tags]); ?></p>
                             </li>
                         </ul>
                     </div>
