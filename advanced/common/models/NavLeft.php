@@ -54,7 +54,9 @@ class NavLeft extends \yii\db\ActiveRecord
      * @return \yii\db\ActiveQuery
      */
     public function getParentName() {
-        return $this->find()->select(['name'])->where(['id'=>$this->parentId])->one();
+        if($this->parentId!=0){
+            return $this->find()->select(['name'])->where(['id'=>$this->parentId])->one()->name;
+        }        
     }
 
         /*

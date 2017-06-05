@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                  'headerOptions'=>['style'=>'text-align:center'],
             ],
              ['attribute' => 'parentId',
-                 'value' => 'parentName.name',
+                 'value' => 'parentName',
                  'filter' =>NavLeft::find()
                         ->select(["name", 'id'])
                         ->where(['parentId'=>0])

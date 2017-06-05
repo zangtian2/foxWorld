@@ -18,7 +18,7 @@ $actionID = Yii::$app->controller->action->id;
 
 
     <?php
-    if ($actionID == 'root' || $model->parentId==0) 
+    if ($actionID == 'root' || $model->parentId==0 && $actionID!='child') 
         {
         echo $form->field($model, 'area')->textInput(['maxlength' => true]);
         echo $form->field($model, 'parentId')->hiddenInput(['value'=>0])->label(false);

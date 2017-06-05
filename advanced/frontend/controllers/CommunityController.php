@@ -16,9 +16,9 @@ class CommunityController extends \yii\web\Controller
     public function actionIndex()
     {
         
-        $this->view->params['nav_left_title'] = '学 习 指 导 目 录';
-        $this->view->params['nav_left_root'] = NavLeft::getRnames('learn');
-        $this->view->params['nav_left_children'] = NavLeft::getCnames('learn');
+        $this->view->params['nav_left_title'] = '文章交流中心';
+        $this->view->params['nav_left_root'] = NavLeft::getRnames('community');
+        $this->view->params['nav_left_children'] = NavLeft::getCnames('community');
         
         $tags=Tag::findTagWeights();
 //        $recentComments=Comment::findRecentComments();
@@ -39,9 +39,9 @@ class CommunityController extends \yii\web\Controller
     public function actionTopics()
     {
         
-        $this->view->params['nav_left_title'] = '学 习 指 导 目 录';
-        $this->view->params['nav_left_root'] = NavLeft::getRnames('learn');
-        $this->view->params['nav_left_children'] = NavLeft::getCnames('learn');
+        $this->view->params['nav_left_title'] = '文章交流中心';
+        $this->view->params['nav_left_root'] = NavLeft::getRnames('community');
+        $this->view->params['nav_left_children'] = NavLeft::getCnames('community');
         
         $tags=Tag::findTagWeights();
 //        $recentComments=Comment::findRecentComments();

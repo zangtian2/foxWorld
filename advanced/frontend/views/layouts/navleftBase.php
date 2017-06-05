@@ -45,7 +45,7 @@ $nav_left_title = $this->params['nav_left_title'];
 
 
                     <a href="javascript:;" class="feng-drop-a">
-                        <i class="icon ion-monitor"></i>
+                        <i class="icon ion-bookmark"></i>
                         <span class="nav-text"><?= $value['name'] ?><i class="layui-icon">&#xe602;</i>  </span>
                     </a> 
                     <ul class="drop-list" style="display:block">
@@ -91,8 +91,11 @@ $nav_left_title = $this->params['nav_left_title'];
             <!--            <button  id="refresh" name="refresh" class="self-nav-footer-button">
                             <i class="icon ion-refresh"></i>
                         </button>-->
-            <button  id="dataEcon" class="self-nav-footer-button" onclick="dataEcon('<?= Url::toRoute("learn/test") ?>')">
-                | <a style="font-size:14px" >财经日历</a>
+            <button style="font-size: 14px;
+padding: 5px 0px;
+/*font-weight: bold;*/
+color: cadetblue;"  id="dataEcon" class="self-nav-footer-button" onclick="dataEcon('<?= Url::toRoute("learn/test") ?>')">
+               财经日历
             </button>
 
         </div>
