@@ -17,8 +17,12 @@ use frontend\assets\AppAsset;
 
 //
 AppAsset::register($this);
+$this->registerJs(
+        'var $ = layui.jquery;'
+);
+AppAsset::addScript($this, "@web" . "/js/communityCenter.js");
+//AppAsset::addScript($this, "http://cdn.bootcss.com/vue/2.3.0/vue.js");
 
-AppAsset::addScript($this, "http://cdn.bootcss.com/vue/2.3.0/vue.js");
 ?>
 <style>
     .detail-box {
@@ -193,7 +197,7 @@ AppAsset::addScript($this, "http://cdn.bootcss.com/vue/2.3.0/vue.js");
 
 
 <div class="fly-panel detail-box" style="min-width:768px;">    
-    <div class="showback "  >        
+    <div class="showback " >        
 
         <!--        <div style=""><ul class="layui-nav navout" lay-filter="" style="">
                         <li class="layui-nav-item navin"><a href="">USD/JAP</a></li>
@@ -208,7 +212,7 @@ AppAsset::addScript($this, "http://cdn.bootcss.com/vue/2.3.0/vue.js");
                 </div>-->
 
 
-        <div class="row">
+        <div class="row" id="topics">
 
             <div class="col-md-8" style="min-height:768px">
 
@@ -227,7 +231,11 @@ AppAsset::addScript($this, "http://cdn.bootcss.com/vue/2.3.0/vue.js");
                                 </a>
 
                                 <a href="javascript:btnSearch()"  class="layui-btn" style="float: right;margin-top: 40px;">关注</a>
-                                <h2 style="padding-left: 100px;padding-top: 10px;">交流中心</h2>
+                                <h2 style="padding-left: 100px;padding-top: 10px;">                                    
+                                    <?php                                     
+                                     $temp = strip_tags($topicDetail->nav->name);
+                                    echo str_replace(' ', '', $temp);                                    
+                                   ?></h2>
                                 <p style="padding-left: 100px;">收录了7756篇文章 · 661260人关注</p>
                             </div>
                             <div class="fly-tab fly-tab-index" id="example" style="margin-bottom:30px">
@@ -299,13 +307,7 @@ AppAsset::addScript($this, "http://cdn.bootcss.com/vue/2.3.0/vue.js");
                             <li class="list-group-item">
                                 <p style="    color: rgb(150, 150, 150);">专题公告</p>
                                 <p>
-                                    投稿须知: 
-                                    <br>1、字数不限，收入以哲学思辨（中西方哲学观点和作者本人的深度思考体现）为基础的各类体裁的作品以及国学、古汉语文字和文章解读方向的作品。 
-                                    <br>2、排版简洁，段落分明。 
-                                    <br>3、尽量确保无错别字，文字简练、文笔优美。 
-                                    <br>4、谢绝密集投稿，为了读者和您有更好的专题体验。 
-                                    <br>5、禁投广告，请不要在文章任何位置显示公众号、电话、微博、QQ、二维码等信息，不要插入与作品内容无关的图片。 
-                                    <br>6、严禁抄袭，请尊重原创和自己。                                                </p>
+                                    <?=$topicDetail->description?>
                             </li>
                         </ul>
                     </div>

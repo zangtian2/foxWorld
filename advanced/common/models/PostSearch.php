@@ -21,11 +21,11 @@ class PostSearch extends Post {
      */
     public function rules() {
         return [
-                [['id', 'status', 'create_time', 'update_time', 'author_id'], 'integer'],
-                [['title', 'content', 'tags', 'authorName'], 'safe'],
+                [['id', 'status', 'create_time', 'update_time', 'author_id','topic_id'], 'integer'],
+                [['title','content', 'tags', 'authorName'], 'safe'],
         ];
     }
-
+    
     /**
      * @inheritdoc
      */
@@ -41,7 +41,7 @@ class PostSearch extends Post {
      *
      * @return ActiveDataProvider
      */
-    public function search($params) {
+    public function search($params,$tag=true) {
         $query = Post::find();
         // grid filtering conditions
 
@@ -56,22 +56,20 @@ class PostSearch extends Post {
                  ]
              ]);
 
-             $this->load($params);
+            $this->load($params);
 
              if (!$this->validate()) {
                  // uncomment the following line if you do not want to return any records when validation fails
                  // $query->where('0=1');
                  return $dataProvider;
-             }
-        
-        
-        
+             }        
         $query->andFilterWhere([
             'post.id' => $this->id,
             'status' => $this->status,
             'create_time' => $this->create_time,
             'update_time' => $this->update_time,
-            'author_id' => $this->author_id,
+            'author_id' => $this->author_id,      
+            'topic_id' => $tag?$this->topic_id:"",
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

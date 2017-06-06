@@ -89,10 +89,10 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                 <a class="logo layui-this " href="<?= Url::toRoute('official/index') ?>" title="Fly" >Fox社区</a>
                 <div class="nav">
                     <ul class="layui-nav" lay-filter="">
-                        <li class="layui-nav-item nav-change <?= $action == "learn/index" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('learn/index') ?>">学习区</a></li>
-                        <li class="layui-nav-item nav-change <?= $action == "community/index" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('community/index') ?>">交流区</a></li>
-                        <li class="layui-nav-item nav-change <?= $action == "platform/index" ? 'layui-this' : null ?>" ><a href="<?= Url::toRoute('platform/index') ?>">平台区</a></li>
-                        <li class="layui-nav-item nav-change <?= $action == "user/index" ? 'layui-this' : null ?>">
+                        <li class="layui-nav-item nav-change <?= $controllerID == "learn" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('learn/index') ?>">学习区</a></li>
+                        <li class="layui-nav-item nav-change <?= $controllerID == "community" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('community/index') ?>">交流区</a></li>
+                        <li class="layui-nav-item nav-change <?= $controllerID == "platform" ? 'layui-this' : null ?>" ><a href="<?= Url::toRoute('platform/index') ?>">平台区</a></li>
+                        <li class="layui-nav-item nav-change <?= $controllerID == "user" ? 'layui-this' : null ?>">
                             <a href="<?= Url::toRoute('user/index') ?>" >个人区</a>
                             <dl class="layui-nav-child my-nav-child"> <!-- 二级菜单 -->
                                 <dd ><a href="">文章</a></dd>
@@ -137,15 +137,22 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
         <div class="feng-body">           
 
 
-            <?php if ($controllerID !== 'official'): ?>
-                <?= $this->render('navleftBase'); ?>
+            <?php if ($controllerID === 'official'): ?>
+                    <?= $content ?>
+            <?php elseif ($controllerID === 'community'): ?>
+                <?= $this->render('communityBase'); ?>
                 <div class="feng-right" >
                     <div class="detail" style="padding-top: 1px;">                    
                         <?= $content ?>                 
                     </div>
                 </div>
             <?php else: ?>
-                <?= $content ?>
+                <?= $this->render('navleftBase'); ?>
+                <div class="feng-right" >
+                    <div class="detail" style="padding-top: 1px;">                    
+                        <?= $content ?>                 
+                    </div>
+                </div>
             <?php endif ?>
 
             <div class="hb"><button class="btn btn-primary" onclick="hideLeftNav()"></button></div>

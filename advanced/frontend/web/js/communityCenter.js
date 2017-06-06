@@ -18,11 +18,19 @@ function displayAbout () {
 
 $('#button-about').bind('click', function () {
     displayAbout();
-    });
+ });
    
-   $('#get-started').bind('click', function () {
-    document.querySelector('.modal.is-shown').classList.remove('is-shown')
-    });
+$('#get-started').bind('click', function () {
+ document.querySelector('.modal.is-shown').classList.remove('is-shown')
+ });
+
+//start
+function dataReload(url, id) {
+    window.location.href=url+'&PostSearch[topic_id]='+id;
+}
+ 
+
+    
     
     
 

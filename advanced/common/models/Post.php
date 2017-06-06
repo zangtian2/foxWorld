@@ -39,8 +39,8 @@ class Post extends \yii\db\ActiveRecord {
         return [
                 [['title', 'content', 'status', 'author_id'], 'required'],
                 [['content', 'tags'], 'string'],
-                [['status', 'create_time', 'update_time', 'author_id'], 'integer'],
-                [['title'], 'string', 'max' => 128],
+                [['status', 'create_time', 'update_time', 'author_id','topic_id'], 'integer'],
+                [['title'], 'string', 'max' => 128],         
                 [['author_id'], 'exist', 'skipOnError' => true, 'targetClass' => Adminuser::className(), 'targetAttribute' => ['author_id' => 'id']],
                 [['status'], 'exist', 'skipOnError' => true, 'targetClass' => Poststatus::className(), 'targetAttribute' => ['status' => 'id']],
         ];
@@ -59,11 +59,15 @@ class Post extends \yii\db\ActiveRecord {
             'create_time' => '创建时间',
             'update_time' => '更新时间',
             'author_id' => '作者',
+            'topic_id'=>'专题'
         ];
     }
     
     
-        
+    public function getTopic() {
+        return $this->hasOne(NavLeft::className(), ['id' => 'topic_id']);
+    }
+
 
     /**
      * @return \yii\db\ActiveQuery
