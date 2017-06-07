@@ -29,7 +29,52 @@ function dataReload(url, id) {
     window.location.href=url+'&PostSearch[topic_id]='+id;
 }
  
+ var element = layui.element();
+element.on('nav(tttt)', function(elem){
+  console.log(this.innerText); //当前Tab标题所在的原始DOM元素
+   $('.tab-content').empty();
+   $('.tab-content').append(this.innerText);
+//  console.log(data.index); //得到当前Tab的所在下标
+//  console.log(data.elem); //得到当前的Tab大容器
+});
 
+
+$(function(){
+        var index = 0;  
+        var i = 10;  //定义每个面板显示8个菜单
+        var len = $(".u .scrol li").length;  //获得LI元素的个数
+        var page = 1;
+        var maxpage = Math.ceil(len/i);
+        var scrollWidth = $(".u").width();
+        $(".vright").click(function(e){
+            if(!$(".u .scrol").is(":animated")){
+            if(page == maxpage ){
+                $(".u .scrol").stop();
+                $("#div1").css({
+                    "top": (e.pageY + 20) +"px",
+                    "left": (e.pageX + 20) +"px",
+                    "opacity": "0.9"
+                
+                }).stop(true,false).fadeIn(800).fadeOut(800);
+                
+            }else{
+                $(".u .scrol").animate({left : "-=" + scrollWidth +"px"},2000);
+                page++;
+            }
+            }
+        });
+        $(".vleft").click(function(){
+        if(!$(".u .scrol").is(":animated")){
+            if(page == 1){
+            $(".u .scrol").stop();
+            }else{
+            $(".u .scrol").animate({left : "+=" + scrollWidth +"px"},2000);
+            page--;
+            }
+            }
+        });
+        
+    });
     
     
     
