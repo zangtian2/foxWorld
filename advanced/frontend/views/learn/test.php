@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<iframe id="iframe"  height="3500px"  width="100%"  frameborder="0"  scrolling="no"  src="http://rili-d.jin10.com/open.php"></iframe>
+
 <html lang="zh">
     <head>
         <meta charset="utf-8" />

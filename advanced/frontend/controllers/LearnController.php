@@ -40,9 +40,9 @@ class LearnController extends \yii\web\Controller {
     }
 
     public function actionTest() {
-//        $this->layout = false;            
-
-        return $this->render('index');
+        $this->layout = false;            
+        
+        return $this->render('test');
     }
 
 }

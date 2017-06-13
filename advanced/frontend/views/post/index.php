@@ -243,13 +243,15 @@ border-radius: 0px;margin-bottom: 0px
                         ListView::widget([
                             'id' => 'postList',
                             'dataProvider' => $dataProvider,
+                            'itemOptions' => ['class' => 'item'],
                             'itemView' => '_listItem', //子视图，显示一篇文章的标题等内容
                             'layout' => '{items}{pager}',
-                            'pager' => [
-                                'maxButtonCount' => 10,
-                                'nextPageLabel' => Yii::t('app', '下一页'),
-                                'prevPageLabel' => Yii::t('app', '前一页'),
-                            ]
+                            'pager' => ['class' => \kop\y2sp\ScrollPager::className(),
+                                'overflowContainer'=>'.feng-right',
+                                'noneLeftText'=>'没有了，你可以看看别的',
+                                'triggerOffset'=>10000000,    
+//                                'enabledExtensions' => ['EXTENSION_HISTORY' => false],  
+                                ]
                         ])
                         ?>                       
                                      </ul>
