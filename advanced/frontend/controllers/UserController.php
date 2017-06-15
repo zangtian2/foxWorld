@@ -6,10 +6,38 @@ class UserController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        $this->view->params['nav_left_title'] = '个人管理中心';
-        $this->view->params['nav_left_root'] = NavLeft::getRnames('user');
-        $this->view->params['nav_left_children'] = NavLeft::getCnames('user');
+        $this->view->params['nav_left_current'] = 32;
         return $this->render('index');
     }
+    
+   public function actionFollow()
+    {       
+       $this->view->params['nav_left_current'] = 49;
+        return $this->render('follow');
+    }
+    
+   public function actionComments()
+    {       
+       $this->view->params['nav_left_current'] = 48;
+        return $this->render('comments');
+    }
+    
+   public function actionCollections()
+    {
+        $this->view->params['nav_left_current'] = 57;       
+        return $this->render('collections');
+    }    
+    
+   public function actionMessages()
+    {       
+       $this->view->params['nav_left_current'] = 47;
+        return $this->render('messages');
+    }        
+
+   public function actionArticles()
+    {       
+       $this->view->params['nav_left_current'] = 56;
+        return $this->render('articles');
+    }        
 
 }

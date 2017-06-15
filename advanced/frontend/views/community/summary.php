@@ -20,24 +20,14 @@ use yii\widgets\ListView;
 margin-top: 40px;
 padding: 20px;
 height: 240px">
-  <h1>Hello, world!</h1>
-  <p>...</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+ 
 </div>
                                 <div style="padding: 20px;
                         margin: 40px 20px 20px;
                         height: 60px;
                         background: rgb(36, 135, 222) none repeat scroll 0% 0%;"></div>
                 <div class="" style="padding: 20px">
-                <div class="fly-tab fly-tab-index" id="example">
-                            <span>
-                                <a href="jie/index.html">默认</a>
-                                <a href="jie/index.html">最新</a>
-                                <a href="jie/index.html">优质</a>
-                                <a href="user/index.html">关注</a>
-                            </span>
-                            <a href="jie/add.html" class="layui-btn jie-add">投稿</a>
-                        </div>
+
                         
                         <div >
                                     <ul class="note-list" infinite-scroll-url="/c/dqfRwQ?order_by=commented_at">
@@ -45,13 +35,15 @@ height: 240px">
                                         ListView::widget([
                                             'id' => 'postList',
                                             'dataProvider' => $dataProvider,
+                                            'itemOptions' => ['class' => 'item'],
                                             'itemView' => '_listItem', //子视图，显示一篇文章的标题等内容
                                             'layout' => '{items}{pager}',
-                                            'pager' => [
-                                                'maxButtonCount' => 10,
-                                                'nextPageLabel' => Yii::t('app', '下一页'),
-                                                'prevPageLabel' => Yii::t('app', '前一页'),
-                                            ]
+                                            'pager' => ['class' => \kop\y2sp\ScrollPager::className(),
+                                                'overflowContainer'=>'.feng-right',
+                                                'noneLeftText'=>'没有了，你可以看看别的',
+                                                'triggerOffset'=>10000000,    
+                //                                'enabledExtensions' => ['EXTENSION_HISTORY' => false],  
+                                                ]
                                         ])
                                         ?>                       
                                     </ul>

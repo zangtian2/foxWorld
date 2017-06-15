@@ -55,6 +55,10 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
 
 <div class="fly-panel detail-box">    
     <div class="showback">
+        <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js"></script>
+<!-- UY END -->
 <!--        <div  id='tt' >     
                         <div style="padding:15px;border:1px solid #444">
                 <h2>张三</h2>

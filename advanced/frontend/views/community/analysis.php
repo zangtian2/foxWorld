@@ -86,7 +86,7 @@ AppAsset::addScript($this, "@web" . "/js/communityCenter.js");
 
 
     .datePick {
-        padding: 0 85px;
+        padding: 0 20px;
         display: -webkit-flex;
         display:         flex;
         -webkit-align-items: center;
@@ -101,8 +101,13 @@ AppAsset::addScript($this, "@web" . "/js/communityCenter.js");
 
         <br>
 
+        <div class="row">
+            <div class="col-lg-9">
+                 <div style="
+                        margin: 20px 20px 20px;
+                        height: 100px;
+                        background: rgb(36, 135, 222) none repeat scroll 0% 0%;"></div>
 
-        <br>
         <div id="tab">
             <div class="tab_title datePick">
                 <a class="vleft" href="#" style="flex: initial;min-width: 30px;">
@@ -133,9 +138,43 @@ AppAsset::addScript($this, "@web" . "/js/communityCenter.js");
             </div>
         </div>
 
-    <div class="" style="height: 100px;padding: 0 85px">
-        <div class="tab-content">111</div>
+    <div class="" style="padding: 0 60px">
+        <div class="tab-content">
+            <div >
+                <ul>
+                    <li style="
+                        margin: 20px 0px ;
+                        height: 100px;
+                            background: orange none repeat scroll 0% 0%;margin-left: 0px;"></li>
+                    <li style="
+                        margin: 20px 0px ;
+                        height: 100px;
+                            background: firebrick none repeat scroll 0% 0%;margin-left: 0px;"></li>
+                    <li style="
+                        margin: 20px 0px ;
+                        height: 100px;
+                            background: thistle none repeat scroll 0% 0%;margin-left: 0px;"></li>
+                    <li style="
+                        margin: 20px 0px ;
+                        height: 100px;
+                            background: skyblue none repeat scroll 0% 0%;margin-left: 0px;"></li>
+                    
+                </ul>
+            </div>
+        </div>
     </div>
+        
+        
+        </div>
+            <div class="col-lg-3">
+            <div style="
+                        margin: 20px 20px 20px;
+                        height: 300px;
+                        background: green none repeat scroll 0% 0%;margin-left: 0px;"></div>
+                        
+                        </div>
+        </div>
+        
     <style type="text/css">
 
         #tab{ margin:20px auto; overflow:hidden;}

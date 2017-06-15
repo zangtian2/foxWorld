@@ -15,7 +15,7 @@ AppAsset::addCss($this, "@web" . "/css/style7.css");
 $this->registerJs(
         'var $ = layui.jquery;'
 );
-AppAsset::addScript($this, "@web" . "/js/userCenter.js");
+//AppAsset::addScript($this, "@web" . "/js/userCenter.js");
 ?>
 
 

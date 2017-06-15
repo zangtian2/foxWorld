@@ -11,7 +11,6 @@ AppAsset::register($this);
 $controllerID = Yii::$app->controller->id;
 $actionID = Yii::$app->controller->action->id;
 $action = $controllerID . '/' . $actionID;
-
 AppAsset::addCss($this, "@web" . "/css/navFox.css");
 AppAsset::addCss($this, "@web" . "/css/zidingyi.css");
 AppAsset::addCss($this, "@web" . "/css/zidingyi/icon/ionicons.css");
@@ -143,6 +142,13 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                 <?= $this->render('communityBase'); ?>
                 <div class="feng-right" >
                     <div class="detail" style="padding-top: 1px;">                    
+                        <?= $content ?>                 
+                    </div>
+                </div>
+            <?php elseif ($controllerID === 'user'): ?>
+                <?= $this->render('userBase'); ?>
+                <div class="feng-right" >
+                    <div class="detail" style="padding-top: 1px;">       
                         <?= $content ?>                 
                     </div>
                 </div>
