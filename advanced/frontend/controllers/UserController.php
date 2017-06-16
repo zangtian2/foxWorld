@@ -40,4 +40,22 @@ class UserController extends \yii\web\Controller
         return $this->render('articles');
     }        
 
+   public function actionPersonBasic()
+    {       
+       $this->view->params['nav_left_current'] = 50;
+        return $this->render('personBasic');
+    }        
+
+   public function actionPersonDetails()
+    {       
+       $this->view->params['nav_left_current'] = 51;
+        return $this->render('personDetails');
+    }        
+
+   public function actionPersonManage()
+    {       
+       $this->view->params['nav_left_current'] = 52;
+        return $this->render('personManage');
+    }            
+
 }

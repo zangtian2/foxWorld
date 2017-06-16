@@ -76,7 +76,18 @@ $nav_left_current = isset($this->params['nav_left_current']) ? $this->params['na
                                         break;
                                     case 57:
                                         $url = Url::toRoute(Yii::$app->controller->id . '/collections');
-                                        break;                                    
+                                        break;                
+
+                                    case 50:
+                                        $url = Url::toRoute(Yii::$app->controller->id . '/person-basic');
+                                        break;
+                                    case 51:
+                                        $url = Url::toRoute(Yii::$app->controller->id . '/person-details');
+                                        break;      
+                                    case 52:
+                                        $url = Url::toRoute(Yii::$app->controller->id . '/person-manage');
+                                        break;
+                               
                                     default:
                                         $url = Url::toRoute(Yii::$app->controller->id . '/index');
                                         break;
