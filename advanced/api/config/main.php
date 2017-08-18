@@ -7,24 +7,33 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-frontend',
+    'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
+    'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'frontend\controllers',
-    'defaultRoute' => 'official/index',
+    'modules' => [
+        'v1' => [
+            'class' => 'api\modules\v1\Module',
+        ],
+    ],
     'language' => 'zh-CN',
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+            'csrfParam' => '_csrf-backend',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\Adminuser',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the frontend
-            'name' => 'advanced-frontend',
+            // this is the name of the session cookie used for login on the backend
+            'name' => 'PHPBACKSESSION',
+            'savePath' => sys_get_temp_dir(),
+        ],
+        'request' => [
+            'cookieValidationKey' => 'sdfjjksloeedf78789judf',
+            'csrfParam' => '_adminCSRF',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -35,17 +44,15 @@ return [
                 ],
             ],
         ],
-//        'errorHandler' => [
-//            'errorAction' => 'site/error',
-//        ],
-        /*
+        'errorHandler' => [
+            'errorAction' => 'site/error',
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+            'enableStrictParsing' =>true,
+            'rules' => [],
+        ]
     ],
     'params' => $params,
 ];

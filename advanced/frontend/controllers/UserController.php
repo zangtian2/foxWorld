@@ -6,7 +6,7 @@ class UserController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        $this->view->params['nav_left_current'] = 32;
+        $this->view->params['nav_left_current'] = 44;
         return $this->render('index');
     }
     
