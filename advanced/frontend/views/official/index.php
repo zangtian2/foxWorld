@@ -96,3 +96,58 @@ AppAsset::addScript($this, "@web" . "/plugin/piccycle/js/main.js");
 
 </div>
 
+<script  type='text/javascript'>
+
+
+//
+// CONFIG IZIToast
+//
+
+iziToast.settings({
+    timeout: 5000,
+    // position: 'center',
+    // imageWidth: 50,
+    pauseOnHover: true,
+    // resetOnHover: true,
+    close: true,
+    progressBar: true,
+    // layout: 1,
+    // balloon: true,
+    // target: '.target',
+    // icon: 'material-icons',
+    // iconText: 'face',
+    // animateInside: false,
+    // transitionIn: 'flipInX',
+    // transitionOut: 'flipOutX',
+});
+
+function infoToast(info){
+
+    iziToast.info({
+        title: '先生',
+        message: info,
+        // imageWidth: 70,
+        position: 'bottomLeft',
+        transitionIn: 'bounceInRight',
+        // rtl: true,
+        // iconText: 'star',
+//        onOpen: function(){
+//            console.log('callback abriu! info');
+//        },
+//        onClose: function(){
+//            console.log("callback fechou! info");
+//        }
+    });
+}
+</script>
+
+
+<?php 
+if (Yii::$app->session->hasFlash('welcomeback'))
+{
+    $loginInfo = Yii::$app->session->getFlash('welcomeback',$delete=true);
+//    Yii::$app->session->removeFlash('error');
+   echo "<script type='text/javascript'>infoToast('$loginInfo');</script>"; 
+}
+
+?>

@@ -233,7 +233,7 @@ AppAsset::addScript($this, "@web" . "/js/communityCenter.js");
                                 <a href="javascript:btnSearch()"  class="layui-btn" style="float: right;margin-top: 40px;">关注</a>
                                 <h2 style="padding-left: 100px;padding-top: 10px;">                                    
                                     <?php                                     
-                                     $temp = strip_tags($topicDetail->nav->name);
+                                     $temp = strip_tags($topicDetail->nav->title);
                                     echo str_replace(' ', '', $temp);                                    
                                    ?></h2>
                                 <p style="padding-left: 100px;">收录了7756篇文章 · 661260人关注</p>

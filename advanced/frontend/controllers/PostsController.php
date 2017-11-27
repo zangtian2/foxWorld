@@ -3,22 +3,22 @@
 namespace frontend\controllers;
 
 use Yii;
-use common\models\Post;
+use common\models\Posts;
 use common\models\AdminPost;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Json;
 use common\models\NavLeft;
-use common\models\PostSearch;
+use common\models\PostsSearch;
 use common\models\Tag;
 use common\models\Comment;
-use common\models\User;
+use common\models\Users;
 
 /**
  * PostController implements the CRUD actions for Post model.
  */
-class PostController extends Controller {
+class PostsController extends Controller {
 
     public $added = 0; //0代表还没有新回复
 
@@ -50,7 +50,7 @@ class PostController extends Controller {
         $tags = Tag::findTagWeights();
         $recentComments = Comment::findRecentComments();
 
-        $searchModel = new PostSearch();
+        $searchModel = new PostsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -62,7 +62,7 @@ class PostController extends Controller {
     }
 
     public function actionGetlist() {
-        $searchModel = new AdminPost();
+        $searchModel = new AdminPosts();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return Json::encode($dataProvider);
     }
@@ -84,7 +84,7 @@ class PostController extends Controller {
      * @return mixed
      */
     public function actionCreate() {
-        $model = new Post();
+        $model = new Posts();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -133,7 +133,7 @@ class PostController extends Controller {
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id) {
-        if (($model = Post::findOne($id)) !== null) {
+        if (($model = Posts::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
@@ -146,7 +146,7 @@ class PostController extends Controller {
         $model = $this->findModel($id);
         $tags = Tag::findTagWeights();
         $recentComments = Comment::findRecentComments();
-        $userMe = User::findOne(1);  //$userMe  =User::findOne(Yii::$app->user->id);
+        $userMe = Users::findOne(1);  //$userMe  =Users::findOne(Yii::$app->user->id);
         $commentModel = new Comment();
         $commentModel->email = $userMe->email;
         $commentModel->userid = $userMe->id;

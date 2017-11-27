@@ -13,8 +13,8 @@ use yii\helpers\Html;
       <a class="avatar" target="_blank" href="/u/7fc17f3b3a61">
         <img src="images/avatar/9.jpg" alt="96">
 </a>      <div class="name">
-        <a class="blue-link" target="_blank" href="/u/7fc17f3b3a61"><?= Html::encode($model->author->nickname);?></a>
-        <span class="time" data-shared-at="2017-05-25T09:25:15+08:00"><?= date('Y-m-d H:i:s',$model->create_time);?></span>
+        <a class="blue-link" target="_blank" href="/u/7fc17f3b3a61"><?= Html::encode($model->author->email);?></a>
+        <span class="time" data-shared-at="2017-05-25T09:25:15+08:00"><?= date('Y-m-d H:i:s',$model->created_time);?></span>
       </div>
     </div>
     <a class="title" target="_blank" href="<?=$model->url?>"><?=Html::encode($model->title)?></a>
@@ -22,7 +22,7 @@ use yii\helpers\Html;
       <?=Html::encode($model->beginning);?>
     </p>
     <div class="meta">
-        <?= implode("", $model->tagLinks)?>
+        <?php // implode("", $model->tagLinks)?>
       <a target="_blank" href="/p/8573d993585d">
         <i class="iconfont ion-ios-eye"></i> 1381
 </a>        <a target="_blank" href="/p/8573d993585d#comments">

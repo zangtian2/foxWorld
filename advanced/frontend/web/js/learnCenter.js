@@ -29,7 +29,7 @@ function dataReload(url, id) {
     $.ajax({
         type: 'GET',
         url: url, //域名修改时需要重新修改
-        data: {'menu_id': id},
+        data: {'tutorial_id': id},
         dataType: 'json',
         success: function (data) {
             if (typeof (wordsView) !== 'undefined') {

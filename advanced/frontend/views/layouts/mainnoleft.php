@@ -16,6 +16,7 @@ AppAsset::addCss($this, "@web" . "/css/zidingyi.css");
 AppAsset::addCss($this, "@web" . "/css/zidingyi/icon/ionicons.css");
 AppAsset::addCss($this, "@web" . "/css/variables.css");
 AppAsset::addCss($this, "@web" . "/css/feng-left-nav.css");
+AppAsset::addCss($this, "@web" . "/plugin/toast/css/iziToast.min.css");
 AppAsset::addScript($this, "@web" . "/js/main.js");
 ?>
 
@@ -32,14 +33,14 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
     </head>
     <body>
         <?php $this->beginBody() ?>
-
+        <?=Html::jsFile('@web/plugin/toast/js/iziToast.min.js')?>
         <div class="header">
 
             <div class="layui-clear">
                 <a class="logo layui-this " href="<?= Url::toRoute('official/index') ?>" title="Fly" >Fox社区</a>
                 <div class="nav">
                     <ul class="layui-nav" lay-filter="">
-                        <li class="layui-nav-item nav-change <?= $action == "learn/index" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('learn/index') ?>">学习区</a></li>
+                        <li class="layui-nav-item nav-change <?= $action == "tutorials/index" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('tutorials/index') ?>">学习区</a></li>
                         <li class="layui-nav-item nav-change <?= $action == "community/index" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('community/index') ?>">交流区</a></li>
                         <li class="layui-nav-item nav-change <?= $action == "platform/index" ? 'layui-this' : null ?>" ><a href="<?= Url::toRoute('platform/index') ?>">平台区</a></li>
                         <li class="layui-nav-item nav-change <?= $action == "user/index" ? 'layui-this' : null ?>">
@@ -69,17 +70,21 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                     </p>
                     -->
                     <!-- 登入后的状态 -->
-                    <!--
+
+                    <?php if (!Yii::$app->user->isGuest) { ?>
                 <a class="avatar" href="user/index.html">
                       <img src="http://tp4.sinaimg.cn/1345566427/180/5730976522/0">
                       <cite>贤心</cite>
                       <i>VIP2</i>
-                    </a>-->    
+                    </a>
+                    <a href="<?= Url::toRoute('official/tui') ?>"><i class="iconfont icon-shezhi"></i>退出</a>
+                    <?php }else{?>
                     <div class="nav" style="top:10px">
                         <!--<a href="/user/logout/"><i class="iconfont icon-tuichu" style="top: 0; font-size: 22px;"></i>数据区</a>-->
                         <a href="<?= Url::toRoute('official/login') ?>"><i class="iconfont icon-shezhi"></i>登录</a>
-
+                    
                     </div> 
+                    <?php } ?>
                 </div>
             </div>
         </div>

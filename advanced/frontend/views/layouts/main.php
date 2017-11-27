@@ -18,7 +18,7 @@ AppAsset::addCss($this, "@web" . "/css/variables.css");
 AppAsset::addCss($this, "@web" . "/css/feng-left-nav.css");
 
 AppAsset::addCss($this, "@web" . "/css/search.css");
-
+AppAsset::addCss($this, "@web" . "/plugin/toast/css/iziToast.min.css");
 AppAsset::addScript($this, "@web" . "/js/main.js");
 ?>
 
@@ -35,6 +35,7 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
     </head>
     <body>
         <?php $this->beginBody() ?>
+        <?=Html::jsFile('@web/plugin/toast/js/iziToast.min.js')?>
         <style>
 
             .feng-right {
@@ -88,11 +89,11 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                 <a class="logo layui-this " href="<?= Url::toRoute('official/index') ?>" title="Fly" >Fox社区</a>
                 <div class="nav">
                     <ul class="layui-nav" lay-filter="">
-                        <li class="layui-nav-item nav-change <?= $controllerID == "learn" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('learn/index') ?>">学习区</a></li>
+                        <li class="layui-nav-item nav-change <?= $controllerID == "tutorials" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('tutorials/index') ?>">学习区</a></li>
                         <li class="layui-nav-item nav-change <?= $controllerID == "community" ? 'layui-this' : null ?>"><a href="<?= Url::toRoute('community/index') ?>">交流区</a></li>
                         <li class="layui-nav-item nav-change <?= $controllerID == "platform" ? 'layui-this' : null ?>" ><a href="<?= Url::toRoute('platform/index') ?>">平台区</a></li>
-                        <li class="layui-nav-item nav-change <?= $controllerID == "user" ? 'layui-this' : null ?>">
-                            <a href="<?= Url::toRoute('user/index') ?>" >个人区</a>
+                        <li class="layui-nav-item nav-change <?= $controllerID == "users" ? 'layui-this' : null ?>">
+                            <a href="<?= Url::toRoute('users/index') ?>" >个人区</a>
                             <dl class="layui-nav-child my-nav-child"> <!-- 二级菜单 -->
                                 <dd ><a href="">文章</a></dd>
                                 <dd ><a href="">行请分析</a></dd>
@@ -101,7 +102,7 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                         </li>
 
                     </ul>
-                    <!--                           <a class="nav-this" href="jie/index.html">
+<!--                                               <a class="nav-this" href="jie/index.html">
                                                 <i class="iconfont icon-wenda"></i>问答
                                               </a>
                                               <a href="http://www.layui.com/" target="_blank">
@@ -111,24 +112,39 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                 <div class="nav-user">
                     <!-- 未登入状态 -->
 <!--                    <a class="unlogin" href="user/login.html"><i class="iconfont icon-touxiang"></i></a>
-                    <span><a href="user/login.html">登入</a><a href="user/reg.html">注册</a></span>-->
-              <!--       <p class="out-login">
+                    <span><a href="user/login.html">登入</a><a href="user/reg.html">注册</a></span>
+                     <p class="out-login">
                       <a href="" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-qq" title="QQ登入"></a>
                       <a href="" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-weibo" title="微博登入"></a>
-                    </p>
-                    -->
+                    </p>-->
+                    
                     <!-- 登入后的状态 -->
-                    <!--
+                    
+<!--                      <a class="avatar" href="user/index.html">
+                      <img src="http://tp4.sinaimg.cn/1345566427/180/5730976522/0">
+                      <cite>贤心</cite>
+                      <i>VIP2</i>
+                    </a>    -->
+<!--                    <div class="nav" style="top:10px">
+                        <a href="/user/logout/"><i class="iconfont icon-tuichu" style="top: 0; font-size: 22px;"></i>数据区</a>
+                        <a href="<?= Url::toRoute('official/login') ?>"><i class="iconfont icon-shezhi"></i>登录</a>
+
+                    </div> -->
+
+                    <?php if (!Yii::$app->user->isGuest) { ?>
                 <a class="avatar" href="user/index.html">
                       <img src="http://tp4.sinaimg.cn/1345566427/180/5730976522/0">
                       <cite>贤心</cite>
                       <i>VIP2</i>
-                    </a>-->    
+                    </a>
+                    <a href="<?= Url::toRoute('official/tui') ?>"><i class="iconfont icon-shezhi"></i>退出</a>
+                    <?php }else{?>
                     <div class="nav" style="top:10px">
                         <!--<a href="/user/logout/"><i class="iconfont icon-tuichu" style="top: 0; font-size: 22px;"></i>数据区</a>-->
                         <a href="<?= Url::toRoute('official/login') ?>"><i class="iconfont icon-shezhi"></i>登录</a>
-
+                    
                     </div> 
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -145,7 +161,7 @@ AppAsset::addScript($this, "@web" . "/js/main.js");
                         <?= $content ?>                 
                     </div>
                 </div>
-            <?php elseif ($controllerID === 'user'): ?>
+            <?php elseif ($controllerID === 'users'): ?>
                 <?= $this->render('userBase'); ?>
                 <div class="feng-right" >
                     <div class="detail" style="padding-top: 1px;">       

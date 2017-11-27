@@ -5,7 +5,7 @@ use Yii;
 use common\models\Tag;
 use common\models\Comment;
 
-use common\models\PostSearch;
+use common\models\PostsSearch;
 use yii\web\NotFoundHttpException;
 use common\models\Topics;
 use common\models\LearnContent;
@@ -17,7 +17,7 @@ class CommunityController extends \yii\web\Controller {
         $tags = Tag::findTagWeights();
         $recentComments = Comment::findRecentComments();
 
-        $searchModel = new PostSearch();
+        $searchModel = new PostsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $this->view->params['nav_left_current'] = 32;
         return $this->render('summary', [
@@ -30,7 +30,7 @@ class CommunityController extends \yii\web\Controller {
 
     public function actionTopic() {
         $params = Yii::$app->request->queryParams;
-        $topic_id = isset($params['PostSearch']['topic_id']) ? $params['PostSearch']['topic_id'] : null;
+        $topic_id = isset($params['PostsSearch']['topic_id']) ? $params['PostsSearch']['topic_id'] : null;
 
         $this->view->params['nav_left_current'] = $topic_id;
         $topicDetail = Topics::getTopicDetail($topic_id);
@@ -38,7 +38,7 @@ class CommunityController extends \yii\web\Controller {
         $tags = Tag::findTagWeights();
         $recentComments = Comment::findRecentComments();
 
-        $searchModel = new PostSearch();
+        $searchModel = new PostsSearch();
         $dataProvider = $searchModel->search($params);
         
 
@@ -53,7 +53,7 @@ class CommunityController extends \yii\web\Controller {
 
     public function actionAnalysis() {
         $params = Yii::$app->request->queryParams;
-        $topic_id = isset($params['PostSearch']['topic_id']) ? $params['PostSearch']['topic_id'] : null;
+        $topic_id = isset($params['PostsSearch']['topic_id']) ? $params['PostsSearch']['topic_id'] : null;
 
         $this->view->params['nav_left_current'] = $topic_id;
         return $this->render('analysis');
@@ -61,10 +61,10 @@ class CommunityController extends \yii\web\Controller {
 
     public function actionSummary() {
         $params = Yii::$app->request->queryParams;
-        $topic_id = isset($params['PostSearch']['topic_id']) ? $params['PostSearch']['topic_id'] : null;
+        $topic_id = isset($params['PostsSearch']['topic_id']) ? $params['PostsSearch']['topic_id'] : null;
         
         
-        $searchModel = new PostSearch();        
+        $searchModel = new PostsSearch();        
         $dataProvider = $searchModel->search($params,false);
         $this->view->params['nav_left_current'] = $topic_id;
         return $this->render('summary',[
@@ -79,7 +79,7 @@ class CommunityController extends \yii\web\Controller {
         $tags = Tag::findTagWeights();
         $recentComments = Comment::findRecentComments();
 
-        $data = LearnContent::find()->select(['content'])->where(['menu_id' => 2])->one();
+        $data = LearnContent::find()->select(['content'])->where(['id' => 2])->one();
         $result = $this->mergeText($data->content);
         return $this->render('article', [
                     'viewPage' => $result,
@@ -95,7 +95,7 @@ class CommunityController extends \yii\web\Controller {
     }
 
     protected function findModel($id) {
-        if (($model = PostSearch::findOne($id)) !== null) {
+        if (($model = PostsSearch::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -83,8 +83,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             <li class="list-group-item">
                                 <p style="">作者</p>                                        
                                 <div class="author">
-                                    <a class="btn btn-danger" style="border-radius:0" target="_blank" href="/u/7fc17f3b3a61"><?= Html::encode($model->author->nickname); ?></a>
-                                    <span class="time" data-shared-at="2017-05-25T09:25:15+08:00"><?= date('Y-m-d H:i:s', $model->create_time); ?></span>
+                                    <a class="btn btn-danger" style="border-radius:0" target="_blank" href="/u/7fc17f3b3a61"><?= Html::encode($model->author->email); ?></a>
+                                    <span class="time" data-shared-at="2017-05-25T09:25:15+08:00"><?= date('Y-m-d H:i:s', $model->created_time); ?></span>
                                 </div>
                             </li>
                         </ul>
@@ -94,7 +94,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <ul class="list-group" style="border-bottom: 1px solid #f0f0f0;">
                             <li class="list-group-item">
                                 <p style=" ">标签云</p>
-                                <p><?= implode(' ', $model->tagLinks); ?></p>
+                                <p><?php // implode(' ', $model->tagLinks); ?></p>
                             </li>
                         </ul>
                     </div>

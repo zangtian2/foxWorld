@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 use common\models\NavLeft;
-class UserController extends \yii\web\Controller
+class UsersController extends BaseController
 {
     public function actionIndex()
     {

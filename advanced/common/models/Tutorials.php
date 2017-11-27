@@ -3,57 +3,53 @@
 namespace common\models;
 
 use Yii;
-use common\models\NavLeft;
 
 /**
- * This is the model class for table "learn_content".
+ * This is the model class for table "tutorials".
  *
  * @property integer $id
- * @property integer $menu_id
+ * @property string $title
  * @property string $content
- * @property string $create_time
- * @property string $update_time
+ * @property integer $create_time
+ * @property integer $update_time
  */
-class LearnContent extends \yii\db\ActiveRecord {
-
+class Tutorials extends \yii\db\ActiveRecord
+{
     /**
      * @inheritdoc
      */
-    public static function tableName() {
-        return 'learn_content';
+    public static function tableName()
+    {
+        return 'tutorials';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules() {
+    public function rules()
+    {
         return [
-            [[ 'menu_id'], 'integer'],
             [['content'], 'string'],
-            [['content'], 'required'],
-            [['create_time', 'update_time'], 'safe'],
+            [['create_time', 'update_time'], 'integer'],
+            [['title'], 'string', 'max' => 45],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function attributeLabels() {
+    public function attributeLabels()
+    {
         return [
             'id' => 'ID',
-            'menu_id' => '对应菜单',
+            'title' => '题目',
             'content' => '内容',
             'create_time' => '创建时间',
-            'update_time' => '修改时间',
+            'update_time' => '更新时间',
         ];
     }
-
-    public function getMenuName() {
-        $model = NavLeft::find()->select(['name'])->where(['id' => $this->menu_id])->one();
-        return $model->name;
-    }
-
-    public function getBeginning() {
+    
+   public function getBeginning() {
         $tmpStr = strip_tags($this->content);
         $tmpLen = mb_strlen($tmpStr);
         return mb_substr($tmpStr, 0, 50, 'utf-8') . (($tmpLen > 50) ? '...' : '');
@@ -72,5 +68,4 @@ class LearnContent extends \yii\db\ActiveRecord {
             return False;
         }
     }
-
 }

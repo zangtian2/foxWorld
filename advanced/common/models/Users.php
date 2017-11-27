@@ -18,14 +18,14 @@ use yii\web\IdentityInterface;
  * @property string $email
  * @property string $auth_key
  * @property integer $status
- * @property integer $created_at
- * @property integer $updated_at
+ * @property integer $created_time
+ * @property integer $update_time
  * @property string $password write-only password
  * 
  *
  * @property Comment[] $comments
  */
-class User extends ActiveRecord implements IdentityInterface {
+class Users extends ActiveRecord implements IdentityInterface {
 
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
@@ -34,42 +34,43 @@ class User extends ActiveRecord implements IdentityInterface {
      * @inheritdoc
      */
     public static function tableName() {
-        return '{{%user}}';
+        return 'users';
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function behaviors() {
-        return [
-            TimestampBehavior::className(),
-        ];
-    }
+//    /**
+//     * @inheritdoc
+//     */
+//    public function behaviors() {
+//        return [
+//            TimestampBehavior::className(),
+//        ];
+//    }
 
     /**
      * @inheritdoc
      */
     public function rules() {
         return [
-                ['status', 'default', 'value' => self::STATUS_ACTIVE],
-                ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-                [['email'], 'unique'],
-                [['email'], 'required'],
-                [['email'], 'email'],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['email'], 'unique'],
+            [['email'], 'required'],
+            [['email'], 'email'],
+            [['phone_num'], 'unique'],
         ];
     }
 
     public function attributeLabels() {
         return [
             'id' => 'ID',
-            'username' => '用户名',
+            'email' => 'Email',
+            'phone_num' => 'Phone Number',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
-            'email' => 'Email',
+            'created_time' => '创建时间',
+            'update_time' => '修改时间',
             'status' => '状态',
-            'created_at' => '创建时间',
-            'updated_at' => '修改时间',
         ];
     }
 
@@ -93,8 +94,12 @@ class User extends ActiveRecord implements IdentityInterface {
      * @param string $username
      * @return static|null
      */
-    public static function findByUsername($username) {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+    public static function findByEmail($email) {
+        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    public static function findByPhone($phone) {
+        return static::findOne(['phone_num' => $phone, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -157,7 +162,7 @@ class User extends ActiveRecord implements IdentityInterface {
      * @param string $password password to validate
      * @return bool if password provided is valid for current user
      */
-    public function validatePassword($password) {
+    public function validatePassword($password) {               
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 
@@ -167,6 +172,7 @@ class User extends ActiveRecord implements IdentityInterface {
      * @param string $password
      */
     public function setPassword($password) {
+        
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }
 
@@ -192,7 +198,7 @@ class User extends ActiveRecord implements IdentityInterface {
     }
 
     public function getComments() {
-        return $this->hasMany(Comment::className(), ['userid' => 'id']);
+        return $this->hasMany(Comment::className(), ['user_id' => 'id']);
     }
 
     public static function allStatus() {
@@ -202,5 +208,6 @@ class User extends ActiveRecord implements IdentityInterface {
     public function getStatusStr() {
         return $this->status == self::STATUS_ACTIVE ? '正常' : '已删除';
     }
+
 
 }

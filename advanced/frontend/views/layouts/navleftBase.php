@@ -46,18 +46,18 @@ $nav_left_title = $this->params['nav_left_title'];
 
                     <a href="javascript:;" class="feng-drop-a">
                         <i class="icon ion-bookmark"></i>
-                        <span class="nav-text"><?= $value['name'] ?><i class="layui-icon">&#xe602;</i>  </span>
+                        <span class="nav-text"><?= $value['title'] ?><i class="layui-icon">&#xe602;</i>  </span>
                     </a> 
                     <ul class="drop-list" style="display:block">
 
                         <?php
                         foreach ($nav_left_children as $k => $v) :
-                            if ($value['id'] == $v['parentId']):
+                            if ($value['id'] == $v['pid']):
                                 ?>                                           
-                                <?php if ($v['serial'] == 0 && $value['id'] == 1): ?> 
-                                    <li>      <button  class="feng-nav-button is-selected" onclick="dataReload('<?=Url::toRoute("learn/article") ?>',<?=$v['id']?>);"><?= $v['name'] ?></button></li>
+                                <?php if ($v['sort'] == 0 && $value['id'] == 1): ?> 
+                                    <li>      <button  class="feng-nav-button is-selected" onclick="dataReload('<?=Url::toRoute("tutorials/article") ?>',<?=$v['id']?>);"><?= $v['title'] ?></button></li>
                                     <?php else: ?>
-                                    <li>      <button  class="feng-nav-button" onclick="dataReload('<?= Url::toRoute("learn/article") ?>',<?=$v['id']?>);"><?= $v['name'] ?></button></li>
+                                    <li>      <button  class="feng-nav-button" onclick="dataReload('<?= Url::toRoute("tutorials/article") ?>',<?=$v['id']?>);"><?= $v['title'] ?></button></li>
                                 <?php endif; ?>
 
                             <?php endif;
@@ -94,7 +94,7 @@ $nav_left_title = $this->params['nav_left_title'];
             <button style="font-size: 14px;
 padding: 5px 0px;
 /*font-weight: bold;*/
-color: cadetblue;"  id="dataEcon" class="self-nav-footer-button" onclick="dataEcon('<?= Url::toRoute("learn/test") ?>')">
+color: cadetblue;"  id="dataEcon" class="self-nav-footer-button" onclick="dataEcon('<?= Url::toRoute("tutorials/calendar") ?>')">
                财经日历
             </button>
 

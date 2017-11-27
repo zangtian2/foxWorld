@@ -54,13 +54,13 @@ $nav_left_current = isset($this->params['nav_left_current']) ? $this->params['na
 
                     <a href="javascript:;" class="feng-drop-a">
                         <i class="icon ion-bookmark"></i>
-                        <span class="nav-text"><?= $value['name'] ?><i class="layui-icon">&#xe602;</i>  </span>
+                        <span class="nav-text"><?= $value['title'] ?><i class="layui-icon">&#xe602;</i>  </span>
                     </a> 
                     <ul class="drop-list" style="display:block">
 
                         <?php
                         foreach ($nav_left_children as $k => $v) :
-                            if ($value['id'] == $v['parentId']):
+                            if ($value['id'] == $v['pid']):
                                 switch ($value['id']) {
                                     case 30:
                                         $url = Url::toRoute(Yii::$app->controller->id . '/topic');
@@ -77,7 +77,7 @@ $nav_left_current = isset($this->params['nav_left_current']) ? $this->params['na
                                 }
                                 ?>
                                 <li> <button  class="feng-nav-button <?= $v['id'] == $nav_left_current ? 'is-selected' : null ?>"
-                                              onclick="dataReload('<?= $url ?>',<?= $v['id'] ?>);"><?= $v['name'] ?></button></li>
+                                              onclick="dataReload('<?= $url ?>',<?= $v['id'] ?>);"><?= $v['title'] ?></button></li>
 
                                 <?php
                             endif;
@@ -114,7 +114,7 @@ $nav_left_current = isset($this->params['nav_left_current']) ? $this->params['na
             <button style="font-size: 14px;
                     padding: 5px 0px;
                     /*font-weight: bold;*/
-                    color: cadetblue;"  id="dataEcon" class="self-nav-footer-button" onclick="dataEcon('<?= Url::toRoute("learn/test") ?>')">
+                    color: cadetblue;"  id="dataEcon" class="self-nav-footer-button" onclick="dataEcon('<?= Url::toRoute("tutorials/test") ?>')">
                 财经日历
             </button>
 

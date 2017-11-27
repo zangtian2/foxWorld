@@ -18,8 +18,8 @@ class NavLeftSearch extends NavLeft
     public function rules()
     {
         return [
-            [['id', 'parentId', 'serial'], 'integer'],
-            [['name', 'area'], 'safe'],
+            [['id', 'pid', 'sort'], 'integer'],
+            [['title', 'page'], 'safe'],
         ];
     }
 
@@ -60,12 +60,12 @@ class NavLeftSearch extends NavLeft
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'parentId' => $this->parentId,
-            'serial' => $this->serial,
+            'pid' => $this->pid,
+            'sort' => $this->serial,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'area', $this->area]);
+        $query->andFilterWhere(['like', 'title', $this->name])
+            ->andFilterWhere(['like', 'area', $this->page]);
 
         return $dataProvider;
     }

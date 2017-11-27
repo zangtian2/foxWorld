@@ -47,7 +47,7 @@ AppAsset::addScript($this, "@web" . "/js/learnCenter.js");
 <div class="fly-panel detail-box" >    
     <div class="showback" >        
         <div  id='learnData' >            
-            <?= $l_content ?>
+            <?= $content ?>
         </div>        
     </div>            
 </div>

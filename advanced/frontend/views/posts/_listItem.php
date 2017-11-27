@@ -13,7 +13,7 @@ use yii\helpers\Html;
       <a class="avatar" target="_blank" href="/u/7fc17f3b3a61">
         <img src="images/avatar/default.png" alt="96">
 </a>      <div class="name">
-        <a class="blue-link" target="_blank" href="/u/7fc17f3b3a61"><?= Html::encode($model->author->nickname);?></a>
+        <a class="blue-link" target="_blank" href="/u/7fc17f3b3a61"><?= Html::encode($model->author->email);?></a>
         <span class="time" data-shared-at="2017-05-25T09:25:15+08:00"><?= date('Y-m-d H:i:s',$model->create_time);?></span>
       </div>
     </div>

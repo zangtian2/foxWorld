@@ -26,7 +26,7 @@ $('#get-started').bind('click', function () {
 
 //start
 function dataReload(url, id) {
-    window.location.href=url+'&PostSearch[topic_id]='+id;
+    window.location.href=url+'&PostsSearch[topic_id]='+id;
 }
  
  var element = layui.element();
